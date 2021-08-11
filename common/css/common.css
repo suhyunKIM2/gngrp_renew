@@ -6,13 +6,14 @@ a[href^="http:"]{background-image: none;}
 .left_box_logo img{vertical-align: middle;}
 .right_box_menu{width:80%;background:#eee;float:right;height:50px;line-height: 50px;}
 .top_menu_list li,.top_menu_list li a{width:50%;font-weight:600;color:#266fb5;}
-.top_menu_list li:nth-child(1){float:left;text-align: left;position:relative;width:80%;}
-.top_menu_list li:nth-child(2){float:right;text-align:right;width:20%}
-.user_info_div{width:90%;margin:5% auto;height:auto;overflow:hidden;}
-.user_info_left{width:20%;float:left;margin-top: 2%;}
+.top_menu_list li:nth-child(1){float:left;text-align: left;position:relative;width:83%;}
+.top_menu_list li:nth-child(2){float:right;text-align:center;width:auto;margin-right: 10px;}
+.top_menu_list li:nth-child(2) a{background:#fff;padding: 10px 15px;}
+.user_info_div{width:90%;margin:5% auto;height:auto;overflow:hidden;position:relative;    min-height: 60px;}
+.user_info_left{width:20%;position:absolute;top:50%;transform: translateY(-50%);-webkite-transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-z-transform: translateY(-50%);-o-transform: translateY(-50%);}
 .user_info_left img{width:100%;}
 .user_info_right{width:75%;padding-left: 5%;float:right;text-align: left;}
-.user_info_right li{line-height:normal;margin-bottom:5px;}
+.user_info_right li{line-height:normal;margin:2.5px 0;}
 .user_info_right li.work_on .btn_work_div{background:#eee;text-align: center;width:100%;padding:5px 0;font-weight:600;float:right;}
 .user_info_right li.work_on .btn_work_div img{height:19px;}
 .user_info_right li.work_on_btn{width:49%;float:right;}
@@ -27,16 +28,18 @@ a[href^="http:"]{background-image: none;}
 #work_continue_btn{background:#eee;padding:5px 0;font-weight:600;color: #000;cursor: pointer;}
 #work_end_btn{color:#fff;}
 .user_info_right li.work_2.logout_btn{width:100%;display: none;}
-.ul_sub_menu{display:none;}
+.ul_sub_menu{display:none;position:absolute;left:50%;top: 33px;width: 150px;background:#fff;transform: translateX(-50%);-webkite-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-z-transform: translateX(-50%);-o-transform: translateX(-50%);padding:10px 0;border:1px solid #b5b5b5;border-radius: 10px;}
+.ul_sub_menu li{display: block !important;text-align: center !important;padding:5px 0 !important;height: auto !important;}
+.ul_sub_menu li a{color:#000;font-weight: 500;}
 
 /*우측 햄버거메뉴 UI*/
-.nav_centent{display:none;}
+.black{color:#000;}
+.nav_centent{display:none;opacity:0;}
 .top_menu_list li .menu {
   position:absolute;
   top:0;
   max-width: 0;
   transition: 0.2s ease;
-  background-color: #eee;
   z-index: 0;
 }
 
@@ -54,7 +57,7 @@ a[href^="http:"]{background-image: none;}
   display: block;
   height: 2px;
   position: relative;
-  transition: background .2s ease-out;
+  transition: background .0s ease-out;
   width: 18px;
 }
 
@@ -87,9 +90,11 @@ a[href^="http:"]{background-image: none;}
   position: absolute;
   top: 0;
   z-index: 999;
+  transition: background .0s ease-out;
 }
 
-.burger-check:checked~.menu .nav_centent{display:block;padding-left: 35px;transition: 0.2s ease;}
+.burger-check:checked~.menu .nav_centent{opacity: 1; display:block;padding-left: 35px;}
+.burger-check:checked~.nav_menu_text{display: none;}
 
 .burger-check:checked~.burger-icon .burger-sticks {
   background: transparent;
@@ -109,3 +114,23 @@ a[href^="http:"]{background-image: none;}
   position:absolute;
   z-index: 9999;
 }
+
+/*햄버거메뉴리스트*/
+.arrow-up{
+	width: 0;
+	height: 0;
+	border-bottom: 10px solid #afafaf;/* 화살표 */
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+    display: none;
+    margin: 10px auto 0;
+}
+.top_menu_list li .nav_centent ul li{display: inline-block;width:auto;float:none !important;padding:0 5px;position:relative;margin-right: 0;text-align: center;line-height: normal;margin: 0 5px;}
+.top_menu_list li .nav_centent ul li:nth-child(2) a{background:none;padding:0;}
+.top_menu_list li .nav_centent ul li .shadowText {
+    text-shadow: none;color: #333;
+}
+.nav_centent ul li:hover {height: 130px;}
+.nav_centent ul li:hover .ul_sub_menu,.nav_centent ul li:hover .arrow-up{display:block;}
+.menu li:hover {background:none !important;}
+.ul_sub_menu li:hover{background:#eee !important;}
