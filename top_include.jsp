@@ -2034,6 +2034,11 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 	}
 </script>
 <!-- top -->
+<div class="top_top_blank">
+    <a href="http://www.gngrp.com" target="_blank" >
+       종합정보사이트 <font class="black">바로가기 ></font>
+    </a> 
+</div>
 <div class="left_box_logo">
    <% if (isPartnerTemp) {%>
     <a href="<%= ( (!isPartnerTemp) ? "/jpolite/index.jsp" : "#" ) %>">
@@ -2222,11 +2227,11 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
              
             </div>
         </li>
-        <li>
+        <!--<li>
            <a href="http://www.gngrp.com" target="_blank" >
                종합정보사이트 <font class="black">바로가기 ></font>
             </a> 
-        </li>
+        </li>-->
     </ul>
 </div>
 <!-- //top -->
