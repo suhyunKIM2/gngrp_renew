@@ -1,4 +1,4 @@
-body{margin:0 !important;}
+body{margin:0 !important;/*overflow: hidden;*/    position: relative;}
 ul li{list-style: none;margin-left:0;}
 a[href^="http:"]{background-image: none;}
 
@@ -14,13 +14,13 @@ a[href^="http:"]{background-image: none;}
 .left_box_logo img{vertical-align: middle;}
 .right_box_menu{width:80%;background:#eee;float:right;height:50px;line-height: 50px;}
 .top_menu_list li,.top_menu_list li a{width:50%;font-weight:600;color:#266fb5;}
-.top_menu_list li:nth-child(1){float:left;text-align: left;position:relative;width:81%;}
+.top_menu_list li:nth-child(1){float:left;text-align: left;position:relative;width:100%;}
 /*.top_menu_list li:nth-child(2){float:right;text-align:center;width:auto;margin-right: 1%;}*/
 .top_menu_list li:nth-child(2) a{background:#fff;padding: 10px 15px;}
 .user_info_div{width:90%;margin:5% auto;height:auto;overflow:hidden;position:relative;    min-height: 60px;}
 .user_info_left{width:20%;position:absolute;top:50%;transform: translateY(-50%);-webkite-transform: translateY(-50%);-moz-transform: translateY(-50%);-ms-transform: translateY(-50%);-z-transform: translateY(-50%);-o-transform: translateY(-50%);}
-.user_info_left img{width:100%;}
-.user_info_right{width:75%;padding-left: 5%;float:right;text-align: left;}
+.user_info_left img{height:60px;}
+.user_info_right{width:77%;float:right;text-align: left;}
 .user_info_right li{line-height:normal;margin:2.5px 0;}
 .user_info_right li.work_on .btn_work_div{background:#eee;text-align: center;width:100%;padding:5px 0;font-weight:600;float:right;}
 .user_info_right li.work_on .btn_work_div img{height:19px;}
@@ -141,3 +141,29 @@ a[href^="http:"]{background-image: none;}
 .nav_centent ul li:hover .ul_sub_menu,.nav_centent ul li:hover .arrow-up{display:block;}
 .menu li:hover {background:none !important;}
 .ul_sub_menu li:hover{background:#eee !important;}
+
+
+/*∏ﬁ¿Œ*/
+.main_auto{width:95%;margin:auto;}
+.main_centent_box{clear:both;}
+.left_centent_box{width:20%;float:left;}
+.right_centent_box{position: absolute;width:80%;right:0;top:75px;height: 92vh;background:#f7f7f7;overflow:hidden;}
+.ui-datepicker td{padding:0;}
+table.ui-datepicker-calendar span,table.ui-datepicker-calendar a{font-size:9px;}
+.ui-datepicker .ui-datepicker-header{background:none;border:0;}
+.ui-datepicker{border:0 !important;}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+table.ui-datepicker-calendar a.ui-state-active {
+    background: #ffffff !important;
+    color: #266fb5 !important;
+    border: 3px solid #266fb5 !important;
+}
+.ui-widget-header .ui-icon{background-image:none;}
+@media screen and (max-width: 1620px) {
+.user_info_left img{height:45px;}
+}

@@ -162,7 +162,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
 
 <center>
 
-<div class="all_centent_box">
+<div class="all_centent_box" style="height: 100vh;">
     <div class="top_centent_box">
         <!-- TOP MENU INCLUDE -->
         <%@ include file="/top_include.jsp"%>
@@ -172,7 +172,14 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
     <div class="main_centent_box">
         <!-- 좌측 메뉴 시작-->
         <div class="left_centent_box">
-            ddddd
+            <div class="main_auto">
+                <!-- calendar area -->
+                <div id="cal" style="border:0px solid #ddd; float:left;">
+                    <div id="datepicker" style="float:left;width:50%; "></div>
+                    <div id="sche" style="float:right; width:45%; height:156px; margins: 0px 3px 0px 1px; border:1px solid #bbb; border-top:1px dotted #bbb; background:#efefef; overflow: auto; overflow-x:hidden; scrollbar-base-color:#FFFAF0; scrollbar-darkshadow-color:#d3d3d3;">
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- 좌측 메뉴 끝-->
         <!-- 우측 메뉴 시작-->
@@ -294,12 +301,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
 </tr>
 </table>
 
-<!-- calendar area -->
-<div id="cal" style="border:0px solid #ddd; float:left;">
-	<div id="datepicker" style="float:left; "></div>
-	<div id="sche" style="float:left; width:98.4%; height:105px; margins: 0px 3px 0px 1px; border:1px solid #bbb; border-top:1px dotted #bbb; background:#efefef; overflow: auto; overflow-x:hidden; scrollbar-base-color:#FFFAF0; scrollbar-darkshadow-color:#d3d3d3;">
-	</div>
-</div>
+
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr height="5">
@@ -1499,7 +1501,7 @@ li.ui-menu-item a {
 
 
 .ui-datepicker{
-	width : 222px;
+	width : 100%;
 	height: inherit;
 	font-size:10px;
 	border:1px soldi #fff; 
