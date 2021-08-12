@@ -174,11 +174,55 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
         <div class="left_centent_box">
             <div class="main_auto">
                 <!-- calendar area -->
-                <div id="cal" style="border:0px solid #ddd; float:left;">
+                <div id="cal" style="border:1px solid #ddd; float:left;">
                     <div id="datepicker" style="float:left;width:50%; "></div>
-                    <div id="sche" style="float:right; width:45%; height:156px; margins: 0px 3px 0px 1px; border:1px solid #bbb; border-top:1px dotted #bbb; background:#efefef; overflow: auto; overflow-x:hidden; scrollbar-base-color:#FFFAF0; scrollbar-darkshadow-color:#d3d3d3;">
+                    <div id="sche" style="float:right; width:48%;border-left: 1px solid #eee; height:156px;overflow: auto; overflow-x:hidden;">
                     </div>
                 </div>
+                
+                <!---- Quick Menu----->
+                <div class="left_box Quick_box">
+                    <h3>Quick Menu</h3>
+                    <ul class="Quick_ul">
+                        <li onClick="javascript:qmenu(1);"><img src="/common/images/icon/img_02.png"><div>편지쓰기</div></li>
+                        <li onClick="javascript:qmenu(3);"><img src="/common/images/icon/img_03.png"><div>결재작성</div></li>
+                        <li onClick="javascript:qmenu(5);"><img src="/common/images/icon/img_04.png"><div>쪽지작성</div></li>
+                        <li onClick="javascript:qmenu(2);"><img src="/common/images/icon/img_05.png"><div>일정작성</div></li>
+                        <li onClick="javascript:openTreeMenu('07', 'MENU070101');"><img src="/common/images/icon/img_06.png"><div>주소록</div></li>
+                    </ul>
+                </div>
+                
+                <!---- 금주생일자----->
+                <div class="left_box">
+                    <h3>금주생일자</h3>
+                    <div id="birthDiv" class="birthDiv" style="border:1px solid #eee;margin:5% 0;">
+	                 <table width=100% border="1" cellspacing="0" cellpadding="0"  class="birthDiv" style="overflow: auto;">
+                        <tr height="100%">
+                            <td align="center" valign="top" id="birthday">
+                                <table width="100%" border="0">
+                                    <tr height="100%" >
+                                        <td align="center">
+                                            <fmt:message key="t.no.birth"/><!-- 생일자가 없습니다. -->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!---- 환율정보----->
+                <div class="left_box">
+                    <h3>환율정보</h3>
+                    <div style="margin-left: -5px;">
+                       <iframe id="iframe" style="width:100%;height:180px; margin-top: 0;" scrolling="no" frameborder="0" src="https://obank.kbstar.com/quics?page=C102233&cc=b028364:b101956&bgcol=1&CusBus=0&KorEng=K&widthPx=214"></iframe>
+                        <%-- 
+                            <iframe src="http://community.fxkeb.com/fxportal/jsp/RS/DEPLOY_EXRATE/3926_0.html" id="monTb" name="monTb" width="178" height="150" border="0" frameborder="no" scrolling="no" marginwidth="0" hspace="0" vspace="0"></iframe>
+                        --%>
+                    </div>                           
+                </div>
+                
             </div>
         </div>
         <!-- 좌측 메뉴 끝-->
@@ -190,7 +234,9 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
     </div>
 </div>
 
-
+    
+    
+    
 
 <!-- 전체 크기  -->
 <div style="width:1192px; height:634px; border:1px solid #8294a4; border-width:0px 1px 1px 1px; background-color:#efefef; position: relative; top:50px;">

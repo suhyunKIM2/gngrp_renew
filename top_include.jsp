@@ -2056,6 +2056,7 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
         <ul class="user_info_right">
             <li><!-- topMenu 로그인유저 추가 -->
                 <div><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b> 반갑습니다.</div> 
+                <div style="line-height:18px; font-size:12px; font-family:dotum;"><fmt:message key="main.last.connect"/><!-- 최근 접속일시--> : <span id="lastLoginTime" style="font-size:90%;">2014-06-06 12:00:00</span></div>
             </li>
             
          <!---20210713 출퇴근 신규 등록---->
@@ -2080,9 +2081,6 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
             <!-------업무시작후 노출--------->
             <li class="work working">
                 <span id="worktime_s"></span><span id="worktime_e"></span>
-                <div class="logout_btn" style="margin:2.5px 0;">
-                    <a href="javascript:fnlogout();">로그아웃</a>
-                </div>
             </li>
             <li class="work work_check working left_btn">
                 <!-- <a href="#"> -->

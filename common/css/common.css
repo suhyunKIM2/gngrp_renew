@@ -39,6 +39,8 @@ a[href^="http:"]{background-image: none;}
 .ul_sub_menu{display:none;position:absolute;left:50%;top: 33px;width: 150px;background:#fff;transform: translateX(-50%);-webkite-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-z-transform: translateX(-50%);-o-transform: translateX(-50%);padding:10px 0;border:1px solid #b5b5b5;border-radius: 10px;}
 .ul_sub_menu li{display: block !important;text-align: center !important;padding:5px 0 !important;height: auto !important;}
 .ul_sub_menu li a{color:#000;font-weight: 500;}
+#worktime_s{font-weight:600;color:#8ab7e2;}
+#worktime_e{font-weight:600;color:#266fb5;}
 
 /*우측 햄버거메뉴 UI*/
 .nav_centent{display:none;opacity:0;}
@@ -144,7 +146,7 @@ a[href^="http:"]{background-image: none;}
 
 
 /*메인*/
-.main_auto{width:95%;margin:auto;}
+.main_auto{width:90%;margin:auto;}
 .main_centent_box{clear:both;}
 .left_centent_box{width:20%;float:left;}
 .right_centent_box{position: absolute;width:80%;right:0;top:75px;height: 92vh;background:#f7f7f7;overflow:hidden;}
@@ -163,7 +165,58 @@ table.ui-datepicker-calendar a.ui-state-active {
     color: #266fb5 !important;
     border: 3px solid #266fb5 !important;
 }
+.ui-icon{text-indent: 0;font-size:0;font-family: serif;}
 .ui-widget-header .ui-icon{background-image:none;}
+.ui-datepicker .ui-datepicker-next span:after{content: ' >';
+    font-size: 15px;
+    height: 16px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);-webkite-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);-z-transform: translateX(-50%);}
+.ui-datepicker .ui-datepicker-prev span:after{content: ' <';
+    font-size: 15px;
+    height: 16px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);-webkite-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);-z-transform: translateX(-50%);}    
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {background:none;}
+#sche table tr td{font-weight: 500 !important;font-size:11px !important;}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{top:8px;}
+.ui-datepicker .ui-datepicker-title{position:relative;height:30px;}
+.ui-datepicker-month{position:absolute;top:11px;width:100%;left:0;line-height: normal;}
+.ui-datepicker-year{position:absolute;top:0;width:100%;left:0;font-size:11px;line-height: normal;color:#266fb5;}
+.ui-datepicker td{text-align: center;}
+.ui-datepicker td:last-child .ui-state-default{border-right: 0;}
+table.ui-datepicker-calendar a.ui-state-default{font-weight:500 !important;text-align: center;}
+table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
+
+/*Quick_box*/
+.left_box{width:100%;padding:12% 0 0;height: auto;overflow:hidden;}
+.left_box h3{text-align:left;color:#266fb5;}
+.Quick_box .Quick_ul{height:auto;overflow:hidden;margin:5% auto 0;}
+.Quick_box .Quick_ul li{width:20%;float:left;vertical-align: middle;position:relative;    height: 72px;cursor: pointer;}
+.Quick_box .Quick_ul li div{position:absolute;bottom:0;width: 100%;}
+.Quick_box .Quick_ul li:nth-child(3) img{padding-top:5px;}
+.Quick_box .Quick_ul li:nth-child(4) img,.Quick_box .Quick_ul li:nth-child(5) img{padding-top:7px;}
+#birthDiv{height:95px !important;}
+
+
+@media screen and (max-width: 1700px) {
+#datepicker{width:80% !important;float: none !important;}
+#sche{width:100% !important;height:100px !important;border-left:0 !important;}
+}
 @media screen and (max-width: 1620px) {
 .user_info_left img{height:45px;}
+.Quick_box .Quick_ul li{width:32%;}
+.Quick_box .Quick_ul li:nth-child(1) img{padding-top:5px;width:41px;}
+.Quick_box .Quick_ul li:nth-child(2) img{padding-top:4px;width:37px;}
+
 }
+
+
+
