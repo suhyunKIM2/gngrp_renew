@@ -173,6 +173,9 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
         <!-- 좌측 메뉴 시작-->
         <div class="left_centent_box">
             <div class="main_auto">
+                
+            
+            
                 <!-- calendar area -->
                 <div id="cal" style="border:1px solid #ddd; float:left;">
                     <div id="datepicker" style="float:left;width:50%; "></div>
@@ -184,13 +187,15 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                 <div class="left_box Quick_box">
                     <h3>Quick Menu</h3>
                     <ul class="Quick_ul">
-                        <li onClick="javascript:qmenu(1);"><img src="/common/images/icon/img_02.png"><div>편지쓰기</div></li>
-                        <li onClick="javascript:qmenu(3);"><img src="/common/images/icon/img_03.png"><div>결재작성</div></li>
+                        <li onClick="javascript:qmenu(1);"><img src="/common/images/icon_2/img_02.png"><div>편지쓰기</div></li>
+                        <li onClick="javascript:qmenu(3);"><img src="/common/images/icon_2/img_03.png"><div>결재작성</div></li>
                         <li onClick="javascript:qmenu(5);"><img src="/common/images/icon/img_04.png"><div>쪽지작성</div></li>
                         <li onClick="javascript:qmenu(2);"><img src="/common/images/icon/img_05.png"><div>일정작성</div></li>
                         <li onClick="javascript:openTreeMenu('07', 'MENU070101');"><img src="/common/images/icon/img_06.png"><div>주소록</div></li>
                     </ul>
                 </div>
+                
+                
                 
                 <!---- 금주생일자----->
                 <div class="left_box">
@@ -212,23 +217,86 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                     </div>
                 </div>
                 
-                <!---- 환율정보----->
-                <div class="left_box">
-                    <h3>환율정보</h3>
-                    <div style="margin-left: -5px;">
-                       <iframe id="iframe" style="width:100%;height:180px; margin-top: 0;" scrolling="no" frameborder="0" src="https://obank.kbstar.com/quics?page=C102233&cc=b028364:b101956&bgcol=1&CusBus=0&KorEng=K&widthPx=214"></iframe>
-                        <%-- 
-                            <iframe src="http://community.fxkeb.com/fxportal/jsp/RS/DEPLOY_EXRATE/3926_0.html" id="monTb" name="monTb" width="178" height="150" border="0" frameborder="no" scrolling="no" marginwidth="0" hspace="0" vspace="0"></iframe>
-                        --%>
+                <!---- 날씨-------->
+                <div class="left_box ">
+                    <h3>날씨정보</h3>
+                    <div style="margin: 2% auto 0;">
+                        <iframe width="100%" height="200" src="https://forecast.io/embed/#lat=37.5662&lon=126.9785&name=서울&color=&font=arial&units=si" frameborder="0"></iframe>
+                    </div>
+                </div>
+                
+                
+                
+             </div>
+        </div>
+        <!-- 좌측 메뉴 끝-->
+        
+        
+        <!-- 우측 메뉴 시작-->
+        <div class="right_centent_box">
+           <!--- 왼쪽 아이콘 메뉴---->
+               <div class="left_box_menu">
+                    <ul>
+                        <li onclick="openTreeMenu('01','MENU010202');">
+                            <div class="count"><div class="speech-bubble"><span id="appr_idx5">0</span></div></div>
+                            <img src="/common/images/icon_2/img_07.png">
+                            <div class="text_btn">메일</div>
+                        </li>
+                        <li onClick="openTreeMenu('02','MENU020201');">
+                            <div class="count"><div class="speech-bubble"><span id="appr_idx1">0</span></div></div>
+                            <img src="/common/images/icon_2/img_08.png">
+                            <div class="text_btn">전자결재</div>
+                        </li>
+                        <li onClick="openTreeMenu('01','MENU010302');">
+                            <div class="count"><div class="speech-bubble"><span id="appr_idx6">0</span></div></div>
+                            <img src="/common/images/icon_2/img_09.png">
+                            <div class="text_btn">쪽지</div>
+                        </li>
+                        <li onClick="javascript:openTreeMenu('04', 'MENU041001');">
+                            <img src="/common/images/icon_2/img_10.png">
+                            <div class="text_btn">일정관리</div>
+                        </li>
+                        <li onClick="javascript:openTreeMenu('03', 'MENU0301');">
+                            <img src="/common/images/icon_2/img_11.png">
+                            <div class="text_btn">문서관리</div>
+                        </li>
+                        <li onClick="javascript:openTreeMenu('07', 'MENU0705');">
+                            <img src="/common/images/icon_2/img_12.png">
+                            <div class="text_btn">업무지원</div>
+                        </li>
+                        <li onClick="javascript:openTreeMenu('05', 'MENU0501');">
+                            <img src="/common/images/icon_2/img_13.png">
+                            <div class="text_btn">게시판</div>
+                        </li>
+                        <li onClick="javascript:openTreeMenu('10', 'MENU1003');">
+                            <img src="/common/images/icon_2/img_14.png">
+                            <div class="text_btn">IMS</div>
+                        </li>
+                        <li onClick="javascript:openTreeMenu('07','MENU0705');">
+                            <img src="/common/images/icon_2/img_15.png">
+                            <div class="text_btn">임직원정보</div>
+                        </li>
+                        <li onClick="javascript:openTreeMenu('08', 'MENU0801');">
+                            <img src="/common/images/icon_2/img_16.png">
+                            <div class="text_btn">환경설정</div>
+                        </li>
+                    </ul>
+                </div>
+            
+             <div class="right_float">
+           <!---- 환율정보----->
+                <div class="left_box left_footer_right">
+                    <div class="iframe_position">
+                       <iframe src="https://sbiz.wooribank.com/biz/Dream?withyou=FXCNT0007&rc=0&divType=1&lang=KOR" frameBorder=0 width=100% scrolling=no height=100 topmargin="0" name=irate marginWidth=0 marginHeight=0 title="무료환율표A형"></iframe>		
                     </div>                           
                 </div>
                 
-            </div>
-        </div>
-        <!-- 좌측 메뉴 끝-->
-        <!-- 우측 메뉴 시작-->
-        <div class="right_centent_box">
-            rrrrrrr
+                <!----받은메일함-------->
+                <div class="right_box right_01">
+                    <h3><img src="/common/images/icon/img_17.png">받은메일함<img src="/common/images/icon/+.png"> </h3>
+                </div>
+             </div>   
+                
         </div>
         <!-- 우측 메뉴 끝-->
     </div>
