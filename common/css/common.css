@@ -237,7 +237,6 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 .iframe_position{position: absolute;
     left: 0;
     top: 7px;
-    overflow: auto;
     width: 600px;}
 .left_box_menu{width:50%;float:left;text-align: left;margin-left:2%;}  
 .left_box_menu,.left_footer_right{margin-top:20px;}
@@ -304,7 +303,9 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 .ui-tabs .ui-tabs-panel{margin-top:12px;}
 .moduleFrame ul{border:0 !important;}
 
-
+@media screen and (max-width: 1780px) {
+.left_footer_right{overflow-y:auto;}
+}
 @media screen and (max-width: 1700px) {
 #datepicker{width:80% !important;float: none !important;}
 #sche{width:100% !important;height:100px !important;border-left:0 !important;}
