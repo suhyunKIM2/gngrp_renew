@@ -162,7 +162,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
 
 <center>
 
-<div class="all_centent_box" style="height:auto;overflow:hidden;">
+<div class="all_centent_box" style="height: 100vh;">
     <div class="top_centent_box">
         <!-- TOP MENU INCLUDE -->
         <%@ include file="/top_include.jsp"%>
@@ -312,7 +312,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
             <div class="cont_right_main">
                 <ul class="cont_left">
                     <li>
-                        <h3 class="h3_01"><span class="h3_left"><img src="/common/images/icon/img_18.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0511');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_01"><span class="h3_left"><img src="/common/images/icon/img_18.png"></span><span class="h3_right" onClick=""><img src="/common/images/icon/+.png"></span></h3>
                         <div class="cont_list_box">
                             <!-- board -->
                             <div class="moduleFrame nobg">
@@ -332,7 +332,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                         </div>
                     </li>
                     <li>
-                        <h3 class="h3_03"><span class="h3_left"><img src="/common/images/icon/img_20.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('02', 'MENU020201');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_03"><span class="h3_left"><img src="/common/images/icon/img_20.png"></span><span class="h3_right" onClick=""><img src="/common/images/icon/+.png"></span></h3>
                         <div class="cont_list_box">
                             <!-- approval -->
                             <div class="moduleFrame nobg">
@@ -353,7 +353,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                 </ul>
                 <ul class="cont_right">
                     <li>
-                        <h3 class="h3_02"><span class="h3_left"><img src="/common/images/icon/img_19.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0501');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_02"><span class="h3_left"><img src="/common/images/icon/img_19.png"></span><span class="h3_right" onClick=""><img src="/common/images/icon/+.png"></span></h3>
                         <div class="cont_list_box">
                             <h2>공지사항</h2>
                                 <div class="moduleFrame nobg">
@@ -362,7 +362,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                         </div>
                     </li>
                     <li>
-                        <h3 class="h3_04"><span class="h3_left"><img src="/common/images/icon/img_21.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('01','MENU010302');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_04"><span class="h3_left"><img src="/common/images/icon/img_21.png"></span><span class="h3_right" onClick=""><img src="/common/images/icon/+.png"></span></h3>
                         <div class="cont_list_box">
                             <h2>쪽지함</h2>
                             <div class="cont_list_box_div"><c:import url="/notification/widget.htm?boxId=1" charEncoding="utf-8" /></div>
@@ -376,6 +376,505 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
     </div>
 </div>
 
+    
+    
+    
+
+<!-- 전체 크기  -->
+<div style="width:1192px; height:634px; border:1px solid #8294a4; border-width:0px 1px 1px 1px; background-color:#efefef; position: relative; top:50px;">
+
+<!-- 좌측 메뉴 시작-->
+<div style="width:230px; float:left; borders:1px solid #0099ff; background:#e4e6eb; padding:5px 10px; ssborder-bottom:1px solid #8294a4;">
+
+<!-- welcome area -->
+<div id="mailCounts" style="float:left; width:95%; border:1px solid #d2d2d2; margin-left0:5px; padding:2px 4px; float:left; background-color:#e2e2e2; ">
+<table border="1" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<!-- <td width=70> -->
+<%-- <img width="70" height="70" src="/userdata/photos/<%=loginuser.uid %>" onerror="this.src='/common/images/photo_user_default.gif'" /> --%>
+<!-- </td> -->
+<td style="padding-left:5px; vertical-align:top; padding-top:3px; text-align:left;">
+<!-- 	<a href="#" onclick="javascript:fnlogout();" id="play_time_series" class="minibutton btn-download" style="position:relative; top:-2px; float:right;"> -->
+<!-- 		<span><span class="icon-close"></span>종료 -->
+<!-- 	</span></a> -->
+	
+<div style="line-height:18px; font-size:12px; font-family:dotum;"><b><%=loginuser.nName %> <fmt:message key="main.by.who"/></b>&nbsp;&nbsp;
+<fmt:message key="main.Nice.to.meet.you"/><!-- welcome --><br/><fmt:message key="main.last.connect"/><!-- 최근 접속일시--> : <span id="lastLoginTime" style="font-size:90%;">2014-06-06 12:00:00</span></div>
+</td>
+</tr>
+</table>
+</div>
+<!-- welcome area end -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr height="3">
+<td></td>
+</tr>
+</table>
+
+<!-- count area -->
+<span id="q1" class="ui-corner-all" onclick="openTreeMenu('01','MENU010202');" style="cursor:pointer; float:left; background:#fff; border:2px solid #8294a4; width:65px; height:62px; line-height:12px; font-weightㄴ:bold; text-align:center; vertical-align:middle; padding-top:0px; margin-left:0px;ㄴtext-shadow: 1px 1px 0 #CCC;"><img src="/common/images/icon-mail-32.png" /><br/>
+<fmt:message key="mail.email"/><!-- 전자메일 --><br/>
+<span id="appr_idx5">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 -->
+</span>
+
+<span id="q2" class="ui-corner-all" onclick="openTreeMenu('02','MENU020201');" style="cursor:pointer; float:left; background:#fff; border:2px solid #8294a4; width:65px; height:60px; line-height:12px; font-weightㄴ:bold; text-align:center; vertical-align:middle;  padding-top:2px; margin-left:11px; margin-right:11px;ㄴtext-shadow: 1px 1px 0 #CCC;">
+<img src="/common/images/icon-doc-32.png" /><br/><fmt:message key="main.Approval"/><!-- 전자결재 --><br/>
+<span id="appr_idx1">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 -->
+</span>
+
+<span id="q3" class="ui-corner-all" onclick="openTreeMenu('01','MENU010302');" style="cursor:pointer; float:left; background:#fff; border:2px solid #8294a4; width:65px; height:60px; line-height:12px; font-weightㄴ:bold; text-align:center; vertical-align:middle; padding-top:2px;ㄴtext-shadow: 1px 1px 0 #CCC;">
+<img src="/common/images/icon-folder-32.png" /><br/><fmt:message key="main.Message"/><!-- 쪽지--><br/>
+<span id="appr_idx6">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 -->
+</span>
+
+<!-- count area end -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+<div style="line-height: 0px; border-top: 1px solid #c4c9d3; border-bottom:1px solid #eeeff3; width: 108%; margin: 0px;z-index: 10; position: relative;left: -10px;">&nbsp;</div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+<!-- quick menu area -->
+<fieldset id="fieldset11" style="text-align:left; border: 1px solid rgb(187, 187, 187); heights: 86px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; ">
+<legend style="margin:1px 10px; padding:0px 0px; border:1px; cursor:pointer;">
+<span class="mtitle"><img src="../common/images/group_go.png" border="0" align="absmiddle">
+	Quick Menu
+</legend>
+
+<div style="line-height:3px;">&nbsp;</div>
+	
+<div id="splay_time_series_button" style="text-align:left; ">
+	&nbsp;<a href="javascript:qmenu(1);" id="play_time_series" class="minibutton btn-download" style="width:46%;">
+		<span><span class="icon-mail"></span><fmt:message key="main.E-mail.Write"/><!-- 편지쓰기-->
+	</span></a>
+	<a href="javascript:qmenu(2);" id="play_time_series" class="minibutton btn-download" style="width:46%;">
+		<span><span class="icon-calendar"></span><fmt:message key="main.schedule.write"/><!-- 일정작성-->
+	</span></a><br/>
+	<div style="line-height:3px;">&nbsp;</div>
+	&nbsp;<a href="javascript:qmenu(3);" id="play_time_series" class="minibutton btn-download" style="width:46%;">
+		<span><span class="icon-document"></span><fmt:message key="main.approval.write"/><!-- 결재작성-->
+	</span></a>
+	<a href="javascript:qmenu(5);" id="play_time_series" class="minibutton btn-download" style="width:46%;">
+		<span><span class="icon-notification"></span><fmt:message key="notification.message.write"/> <!-- 쪽지작성-->
+	</span></a>
+<!-- 	<a href="javascript:qmenu(4);" id="play_time_series" class="minibutton btn-download" style="width:46%;"> -->
+<!-- 		<span><span class="icon-sms"></span>SMS 보내기 -->
+<!-- 	</span></a> -->
+</div>
+<div style="line-height:6px;">&nbsp;</div>
+</fieldset>
+<!-- quick menu area end -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+<div style="line-height: 0px; border-top: 1px solid #c4c9d3; border-bottom:1px solid #eeeff3; width: 108%; margin: 0px;z-index: 100; position: relative;left: -10px;">&nbsp;</div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+<!-- <div style="line-height: 0px; border-top: 1px solid #c4c9d3; border-bottom:1px solid #eeeff3; width: 108%; margin: 0px;z-index: 100; position: relative;left: -10px;">&nbsp;</div> -->
+
+<!--  식단표, 시스템 링크, 생일자, 설문 등 숨김 -->
+<!-- 
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="dsisplay:none;">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+	<a href="#" id="q3" class="btn-blue btn-icon" onclick="qmenu(3);">
+		<span style="width:211px; text-align:left; color:#fff; "><span class="icon-document"></span>금주 식단표 ~<br/>
+	</span></a>
+	<div style="line-height:5px;">&nbsp;</div>
+
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" style="dsisplay:none;">
+	<tr height="5">
+	<td></td>
+	</tr>
+	</table>
+
+	<fieldset id="fieldset1" style="width:225px; margin-lefts:10px; margins:3px; paddings:3px; border:1px solid #bbb; height:76px;">
+		<legend style="text-align:left; margin:1px 10px; padding:0px 3px; border:1px; cursor:pointer;">
+		<span class="mtitle">
+			업무 시스템 바로가기</span>
+		</legend>
+ <center>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="dsisplay:none;">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+	<a href="javascript:goSystem(1);" id="q3" class="btn btn-icon">
+		<span style="width:82px; text-align:left;"><span class="icon-document"></span>e-Pro<br/>
+	</span></a>&nbsp;	
+	<a href="javascript:goSystem(1);" id="q3" class="btn btn-icon" sonclick="goSystem(2);">
+		<span style="width:82px; text-align:left;"><span class="icon-document"></span>SNS <br/>
+	</span></a>
+	<div style="line-height:5px;">&nbsp;</div>
+	
+	<a href="javascript:goSystem(1);" id="q3" class="btn btn-icon" sonclick="goSystem(3);">
+		<span style="width:82px; text-align:left;"><span class="icon-document"></span>IS_OTS <br/>
+	</span></a>&nbsp;
+	<a href="javascript:goSystem(1);" id="q3" class="btn btn-icon" sonclick="goSystem(4);">
+		<span style="width:82px; text-align:left;"><span class="icon-document"></span>EIS <br/>
+	</span></a>
+	<div style="line-height:5px;">&nbsp;</div>
+</center>
+	</fieldset>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="dsisplay:none;">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+	<select id="go-homepage" data-placeholder="홈페이지 바로가기" style="width:220px;">
+	<option value=""></option>
+		<option value="0">스타리온 성철부산</option>
+		<option value="1">스타리온 성철창원</option>
+		<option value="2">스타리온 원우</option>
+		<option value="3">스타리온 기원</option>
+		<option value="4">스타리온 일우</option>
+		<option value="5">스타리온 하나</option>
+	</select>
+	
+	
+<style>
+.chzn-container .chzn-results li {text-align: left;}
+</style>
+ -->
+<img src="../common/images/icon-rubber-balloons.png" border="0" align="absmiddle"> <b><fmt:message key="t.this.week"/><!-- 금주 생일자--></b><br/>
+
+<div id="birthDiv" class="birthDiv" style="float:left; width:100%; height:115px; margins: 0px 3px 0px 1px; border:0px solid #bbb; border-top:0px dotted #bbb; background:#e4e6eb; overflow: auto; overflow-x:hidden; scrollbar-base-color:#FFFAF0; scrollbar-darkshadow-color:#d3d3d3;">
+	
+	<table width=100% border="1" cellspacing="0" cellpadding="0" style="border:1px solid #aaa;" class="birthDiv">
+	<tr height="100%">
+		<td align="center" valign="top" id="birthday">
+			<table width="100%" border="0" style="table-layout:fixed;border:0px solid #aaa;">
+				<tr height="100%" >
+					<td align="center">
+						<fmt:message key="t.no.birth"/><!-- 생일자가 없습니다. -->
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</div>
+<!-- 
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="dsisplay:none;">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+<div style="line-height: 0px; border-top: 1px solid #c4c9d3; border-bottom:1px solid #eeeff3; width: 108%; margin: 0px;z-index: 100; position: relative;left: -10px;">&nbsp;</div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="dsisplay:none;">
+<tr height="5">
+<td></td>
+</tr>
+</table>
+
+<img src="../common/images/icon-chart1.png" border="0" align="absmiddle"> <b>설문조사</b><br/>
+<div style="float:left; width:100%; height:116px; margins: 0px 3px 0px 1px; border:0px solid #bbb; border-top:0px dotted #bbb; background:#e4e6eb; overflow: auto; overflow-x:hidden; scrollbar-base-color:#FFFAF0; scrollbar-darkshadow-color:#d3d3d3;">
+	<table width=100% border="1" cellspacing="0" cellpadding="0" style="border:1px solid #aaa;">
+	<tr height=115>
+		<td align="center" id="poll" valign="top">
+			<table width="100%" border="0" style="table-layout:fixed;border:0px solid #aaa;">
+				<tr height=113>
+					<td align="center">
+						진행중인 설문이 없습니다.
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</div>
+ -->
+ 
+ 
+</div>
+<!-- 좌측 메뉴 끝-->
+
+
+<!-- middle1 -->
+<div id="mid11" align="left" style="float:left; padding: 5px 3px 0px 8px; width:928px; border-left:1px solid #8294a4; sssborder-right:2px solid #8294a4;  sssborder-bottom:1px solid #8294a4; background-color:#fff; ">
+
+<div id="mid1" align="left" style="float:left; margin-lefts:5px; padding:0px; width:100%; border:0px solid #0099ff;">
+<table border="1" cellpadding="0" cellspacing="0" width="100%" style="display:none;">
+<tr>
+<td align="right">
+	<!-- 카운트 영역 -->
+	<div id="apCount" style="border:1px solid #d2d2d2; padding:4px; float:left; width:575px; height:45px; background-color:#e2e2e2; ">
+	<table border="1" cellpadding="8" cellspacing="0" width="100%" height="100%" bordercolor="#FFFFFF" style="cell-spacing:5px; dfloat:right; ">
+	<colgroup>
+		<col width="90"></col>
+		<col width="90"></col>
+		<col width="90"></col>
+		<col width="90"></col>
+	</colgroup>
+	<tr bgcolor="#f1f1f1" align="center">
+	<td class="met" onclick="openTreeMenu('02','MENU020201');" style="cursor:pointer;"><fmt:message key="main.Approval.to.Doc"/>&nbsp;<!-- 결재할 문서 --></td>
+	<td class="met" onclick="openTreeMenu('02','MENU020401');" style="cursor:pointer;"><fmt:message key="main.Distribute.received.documents"/>&nbsp;<!-- 배포받은 문서 --></td>
+	<td class="met" onclick="openTreeMenu('02','MENU020802');" style="cursor:pointer;"><fmt:message key="main.Circulating.Inbox"/>&nbsp;<!-- 회람받은 문서 --></td>
+	<td class="met" onclick="openTreeMenu('02','MENU020102');" style="cursor:pointer;"><fmt:message key="main.Temporary.storage"/>&nbsp;<!-- 임시저장 --></td>
+	</tr>
+	<tr bgcolor="#E6E6E6" align="center">
+	<td class="mnum" onclick="openTreeMenu('02','MENU020201');" style="cursor:pointer;"><span id="appr_idx1_BK">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 --></td>
+	<td class="mnum" onclick="openTreeMenu('02','MENU020401');" style="cursor:pointer;"><span id="appr_idx2">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 --></td>
+	<td class="mnum" onclick="openTreeMenu('02','MENU020802');" style="cursor:pointer;"><span id="appr_idx3">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 --></td>
+	<td class="mnum" onclick="openTreeMenu('02','MENU020102');" style="cursor:pointer;"><span id="appr_idx4">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 --></td>
+	</tr>
+	</table>
+	</div>
+
+	<div id="etcCount" style="border:1px solid #d2d2d2; margin-left:5px; padding:4px; float:left; width:312px; height:45px; background-color:#e2e2e2; ">
+	<table border="1" cellpadding="8" cellspacing="0" width="100%" height="100%" bordercolor="#FFFFFF" style="cell-spacing:5px; dfloat:right; ">
+	<colgroup>
+		<col width="90"></col>
+		<col width="90"></col>
+	</colgroup>
+	<tr bgcolor="#f1f1f1" align="center">
+	<td class="met"><fmt:message key="main.Proposed.document"/>&nbsp;<!-- 제안문서 --></td>
+	<td class="met"><fmt:message key="main.Screening.document"/>&nbsp;<!-- 심사문서 --></td>
+	</tr>
+	<tr bgcolor="#E6E6E6" align="center">
+	<td class="mnum" onclick="openTreeMenu('10','MENU100201');" style="cursor:pointer;"><span id="appr_idx7">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 --></td>
+	<td class="mnum" onclick="openTreeMenu('10','MENU100302');" style="cursor:pointer;"><span id="appr_idx8">0</span> <fmt:message key="main.ea"/>&nbsp;<!-- 건 --></td>
+	</tr>
+	</table>
+	</div>
+	<!-- 카운트 영역 끝 -->
+	
+</td>
+</tr>
+</table>
+
+<!-- News Ticker 숨김 -->
+
+<!-- <div class="nobg" style="border: 0px; display: none; "> -->
+<!-- <div class="moduleHeader ui-corner-all" style="background-color: #b6d2f5; border:0px;"> -->
+<!-- 	<div class="moduleTitle" style="margin: 6px 5px;width:100%;"><span style="position:relative; top:-1px;">News Ticker | </span> -->
+<!-- 	<marquee style="float:leftss;" bgcolor="" direction="left" scrolldelay="150" width="80%" heights="100"> -->
+<%-- 	<% --%>
+<!-- 	if(noticeArry!=null){ -->
+<!-- 		int count = 0; -->
+<!-- 		for(int i=0;i<noticeArry.size();i++){ -->
+<!-- 			noticeItem = (NoticeTickerItem)noticeArry.get(i); -->
+<!-- 			out.print("<a href='javascript:noticeTickerRead("+noticeItem.docId+")'>"); -->
+<!-- 			out.print(noticeItem.subject); -->
+<!-- 			out.print("</a>"); -->
+<!-- 			if(i!=noticeArry.size()-1){ -->
+<!-- 				String spaceStr = ""; -->
+<!-- 				for(int k=0;k<150;k++){ -->
+<!-- 					spaceStr += "&nbsp;"; -->
+<!-- 				} -->
+<!-- 				out.print(spaceStr); -->
+<!-- 			} -->
+<!-- 		} -->
+<!-- 	} -->
+<!-- 	%> -->
+<!-- 	</marquee> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- </div> -->
+ 
+<!-- <div style="line-height:5px;">&nbsp;</div> -->
+
+<table width="100%" height="200" border="1" cellpadding="0" cellspacing="0" style="border:0px solid red;">
+<!-- <table width="100%" height="200" border="1" cellpadding="0" cellspacing="0" style="border:0px solid red; backgrounds-image:url(/common/images/starion_skin_580_150.png); background-repeat:no-repeat;"> -->
+	<tr>
+	<td valign="middle" width="50%">
+		<img style="margin-left:3px;" id="skinImage" src="/userdata/campaign_logo" width="457" height="180">
+	</td>
+	<td style="padding-left:3px; padding-right:5px; padding-top:3px; ">
+		<div id="tabs" style="width:98%; height:188px; margin:0px 2px; padding:0px; border:0px solid red; overflow-y:hidden; overflow-x:hidden; ">
+			<ul style="padding-top:3px; sborder-bottom:1px solid #ddd; padding-left:10px; background-color: #E4E6EB;">
+				<li><a href="#tabs-2"><fmt:message key="main.weather_l"/><!-- 국내날씨 --></a></li>
+				<li><a href="#tabs-1"><fmt:message key="main.weather_g"/><!-- 해외날씨 --></a></li>
+			<a href="#" id="wreload" classs="ui-state-default ui-corner-all" title="refresh" style="float:right; smargin-right:5px; margin-top:3px;"><img src="/common/images/arrow-circle-225.png" />&nbsp;</a>
+			<span href="#" id="buttons" classs="ui-state-default ui-corner-all" title="more" style="cursor:pointer; margin-right:5px; border:1px solid #aaa; float:right; height:15px; position:relative; top:3px; ;">
+			<img src="/common/images/control-180-small.png" /><img src="/common/images/control-000-small.png" />
+			</span>
+			</ul>
+			<div id="tabs-2" style="padding:0px; ">
+				<div class="toggler" style="width:250px;margin:auto;">
+					<div id="local"></div>
+					<div class="clock" style="width:236px;"><ul><li id="localhours" style="float: none;">00-00 00:00</li></ul></div>
+				</div>
+			</div>
+			<div id="tabs-1" style="padding:0px; ">
+				<!-- 해외 날씨 1 -->
+				<div class="toggler" style="width:250px;margin:auto;">
+					<div id="effect" class="ui-widget-contents ui-corner-all" style="height:158px; margin-top:2px;">
+					
+					<div id="global1"></div>
+							<div class="clock"><ul><li id="hours2" class="hongkong">00-00 00:00</li></ul></div>
+							<div class="clock"><ul><li id="hours3" class="macau">00-00 00:00</li></ul></div>
+							<div class="clock"><ul><li id="hours4" class="guangzhou">00-00 00:00</li></ul></div>
+					</div>
+				</div>
+				
+				<!-- 해외 날씨 2 -->
+				<div class="toggler" style="width:250px;margin:auto;">
+					<div id="effect1" class="ui-widget-contents ui-corner-all" style="display:none; height:158px; margin-top:2px;">
+					
+					<div id="global2"></div>
+							<div class="clock"><ul><li id="hours7" class="la">00-00 00:00</li></ul></div>
+							<div class="clock"><ul><li id="hours8" class="peicheng">00-00 00:00</li></ul></div>
+							<div class="clock"><ul><li id="hours9" class="sydney">00-00 00:00</li></ul></div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</td>
+	<td width="150" style="padding-top:3px;">
+		<div class="moduleFrame nobg" style="width: 100%; float: left;">
+			<div class="moduleHeader ui-corner-all">
+				<div class="moduleTitle" style="margin: 4px 5px;"><fmt:message key="main.exchange.report"/><!-- 환율정보 --></div>
+				</div>
+			<div style="margin:0px 3px; width: 205px; height: 166px; padding-bottom: 0px; padding-top: 0px;">
+				<iframe marginwidth="0" marginheight="0" frameborder="no" width="210" scrolling="no" height="166" style="margin-top: 0;" src="https://okbfex.kbstar.com/quics?page=C019465&cc=b028364:b031677&bgcol=7&CusBus=0&KorEng=K&widthPx=200"></iframe>
+				<%-- 
+					<iframe src="http://community.fxkeb.com/fxportal/jsp/RS/DEPLOY_EXRATE/3926_0.html" id="monTb" name="monTb" width="178" height="150" border="0" frameborder="no" scrolling="no" marginwidth="0" hspace="0" vspace="0"></iframe>
+				--%>
+			</div>
+		</div>
+	</td>
+	</tr>
+</table>
+
+</td>
+</tr>
+</table>
+</div>
+<!-- middle1 -->
+
+<div id="content" class="container" style="width:925px; background-color:#fff; float:left; ">
+
+	<!-- email -->
+	<div class="moduleFrame nobg" style="width: 50%; float: left;">
+		<div class="moduleHeader ui-corner-all">
+			<div class="moduleTitle" style="margin: 6px 5px;"><fmt:message key="mail.email"/><!-- 전자메일 --></div>
+			<div class="moduleActions" style="margin: 6px 5px;">
+				<b title="Refresh" class="actionRefresh"></b>
+				<b title="More Content" class="actionMore"></b>
+			</div>
+		</div>
+		<div id="tabs-mail" class="tabs moduleContent" style="height:170px; border:0px;">
+			<ul class="tabsul" style="border:0px solid #ddd; border-bottom:1px solid #ddd; padding-left:10px; background-color: #fff;">
+				<li style="font-size:9pt;"><a href="/mail/mail_front.jsp?listCount=6" data-pcode="01" data-scode="MENU010202"><img src="../common/images/icon-mail-receive.png" class="png24" align="absmiddle" />&nbsp;<fmt:message key='mail.InBox'/></a></li>
+				<li style="font-size:9pt;"><a href="/notification/widget.htm?boxId=1" data-pcode="01" data-scode="MENU010302"><img src="../common/images/icon-balloon-box.png" class="png24" align="absmiddle" />&nbsp;<fmt:message key='main.Message'/></a></li>
+			</ul>
+<!-- 			<div id="tabs-mail-1" style="padding:0px; "></div> -->
+<!-- 			<div id="tabs-mail-2" style="padding:0px; "></div> -->
+		</div>
+	</div>
+
+	<!-- announce -->
+	<div class="moduleFrame nobg" style="width: 50%; float: left;">
+		<div class="moduleHeader ui-corner-all">
+			<div class="moduleTitle" style="margin: 6px 5px;"><fmt:message key="main.notice"/><!-- 공지사항 --></div>
+			<div class="moduleActions" style="margin: 6px 5px;">
+				<b title="Refresh" class="actionRefresh" onclick="getAnnounceData()"></b>
+				<b title="More Content" class="actionMore" onclick="openTreeMenu('05','MENU0501');"></b>
+			</div>
+		</div> 
+		<div id="announce" class="moduleContent" style="margin:3px 3px; height: 170px; /* border: 1px solid #dfdfdf; padding:0px 3px; */"></div>
+	</div>
+	
+	<!-- 최근글 목록시작 -->
+		<%--
+		<div class="moduleFrame nobg" style="width: 50%; float: left;">
+			<div class="moduleHeader ui-corner-all">
+				<div class="moduleTitle" style="margin: 6px 5px;"><fmt:message key="bbs.board.newest"/><!-- 최근글목록 --></div>
+				<div class="moduleActions" style="margin: 6px 5px;">
+					<b title="Refresh" class="actionRefresh" onclick="getNewestData()"></b>
+					<b title="More Content" class="actionMore" onclick="openTreeMenu('05', 'MENU0512');"></b>
+				</div>
+			</div> 
+			<div id="newest" class="moduleContent" style="margin:3px 3px; height: 170px;"></div>
+		</div>
+		--%>
+	<!-- 최근글 목록 종료 -->
+	
+<div style="line-height:5px;">&nbsp;</div>
+	
+	<!-- approval -->
+	<div class="moduleFrame nobg" style="width: 50%; float: left;">
+		<div class="moduleHeader ui-corner-all">
+			<div class="moduleTitle" style="margin: 6px 5px;"><fmt:message key="main.Approval"/><!-- 전자결재 --></div>
+			<div class="moduleActions" style="margin: 6px 5px;">
+				<b title="Refresh" class="actionRefresh"></b>
+				<b title="More Content" class="actionMore"></b>
+			</div>
+		</div> 
+		
+		<div id="tabs-approval" class="tabs moduleContent" style="height:170px; border:0px;">
+			<ul class="tabsul" style="border:0px solid #ddd; border-bottom:1px solid #ddd; padding-left:10px; background-color: #fff;">
+				<li><a href="/approval/widget.htm?listCount=5&ctype=1" data-pcode="02" data-scode="MENU020201"><img src="../common/images/icon-document.png" align="absmiddle" />&nbsp;<fmt:message key='main.approval.tab'/><!--  <span style="color:red; font-weight:bold;">(1건)</span> --> </a></li>
+				<li><a href="/approval/widget.htm?listCount=6&ctype=2" data-pcode="02" data-scode="MENU020202"><img src="../common/images/icon-document-arrow.png" align="absmiddle" />&nbsp;<fmt:message key='appr.menu.ing.appr'/><!--  3 건 --></a></li>
+				<li><a href="/approval/widget.htm?listCount=6&ctype=3" data-pcode="02" data-scode="MENU020301"><img src="../common/images/icon-document-epub.png" align="absmiddle" />&nbsp;<fmt:message key='main.completed'/><!--  5 건 --></a></li>
+			</ul>
+<!-- 			<div id="tabs-approval-1" style="padding:0px; "></div> -->
+<!-- 			<div id="tabs-approval-2" style="padding:0px; "></div> -->
+<!-- 			<div id="tabs-approval-3" style="padding:0px; "></div> -->
+		</div>
+	</div>
+	
+	<!-- board -->
+	<div class="moduleFrame nobg" style="width: 50%; float: left;">
+		<div class="moduleHeader ui-corner-all">
+			<div class="moduleTitle" style="margin: 6px 5px;"><fmt:message key="main.Board"/><!-- 게시판 --></div>
+			<div class="moduleActions" style="margin: 6px 5px;">
+				<b title="Refresh" class="actionRefresh"></b>
+				<b title="More Content" class="actionMore"></b>
+			</div>
+		</div> 
+		
+<!-- 		<div id="board" class="moduleContent" style="margin:3px 3px; height: 170px;"></div> -->
+		<div id="tabs-community" class="tabs moduleContent" style="height:170px; border:0px;">
+			<ul class="tabsul" style="border:0px solid #ddd; border-bottom:1px solid #ddd; padding-left:10px; background-color: #fff;">
+				<li><a href="/bbswork/widget.htm?listCount=5" data-pcode="05" data-scode="MENU0511"><img src="../common/images/icon-document.png" align="absmiddle" />&nbsp;<fmt:message key='main.Work.Board'/><!-- 업무게시판 --></a></li>
+<%-- 				<li><a href="/bbs/widget_board.htm?endNum=6" data-pcode="05" data-scode="MENU0512"><img src='../common/images/NN.gif' align="absmiddle" />&nbsp;<fmt:message key='bbs.board.newest'/><!-- 최근글 목록 --></a></li> --%>
+<!-- 				<li><a href="/bbs/widget_team.htm?listCount=6&topCode=2014101010370156" data-pcode="05" data-scode="MENU0511"><img src="../common/images/icon-document-arrow.png" align="absmiddle" />&nbsp;갤러리</a></li> -->
+				<li><a href="/bbs/widget.htm?listCount=5&bbsId=bbs00000000000004" data-pcode="05" data-scode="MENU0505"><img src="../common/images/icon-document-arrow.png" align="absmiddle" />&nbsp;<fmt:message key='main.Free.Board'/><!-- 자유게시판 --></a></li>
+			</ul>
+<!-- 			<div id="tabs-approval-1" style="padding:0px; "></div> -->
+<!-- 			<div id="tabs-approval-2" style="padding:0px; "></div> -->
+<!-- 			<div id="tabs-approval-3" style="padding:0px; "></div> -->
+		</div>
+	</div>
 	
 <div id="header" style="display:none; width: 925px; background-color:#fff; float: left; margin-top:5px; border:1px solid #e4e4e4; border-width:0px 0px 1px 0px; height:20px;">
 	<!-- <div id="logo"></div>
