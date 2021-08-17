@@ -207,7 +207,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                                 <table width="100%" border="0">
                                     <tr height="100%" >
                                         <td align="center">
-                                            <fmt:message key="t.no.birth"/><!-- 생일자가 없습니다. -->
+                                            <fmt:message key="t.no.birth"/> <!-- 생일자가 없습니다. -->
                                         </td>
                                     </tr>
                                 </table>
