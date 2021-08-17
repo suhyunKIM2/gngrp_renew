@@ -13,7 +13,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
 /* 	background: #5C9CCC url(/common/images/f1_bg.png) 50% 50% repeat-x; */
 /* 	color: white; */
 /* 	font-weight: bold; */
-/* } */
+/* }  */
 
 .ui-dialog .ui-dialog-titlebar {
 padding: 7px 0px 7px 10px;
