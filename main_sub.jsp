@@ -472,9 +472,21 @@ $(document).ready(function () {
          
         <!-- 우측 메뉴 시작-->
         <div class="right_centent_box">
-            sadjlaksdjlkajsdlkj
-        </div>
- </div>
+            <div class="ui-layout-center">
+            <iframe id="if_list" name="if_list" width="100%" height="100%" frameborder="0" scrolling="1" src="about:blank">
+            </iframe>
+            </div>
+            <div class="ui-layout-south" style="border-color:#eee;">
+            <table width="100%" height="26" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td  height="26" align="center"  class="copyright shadowText1">
+                        <%=uservariable.campaignText %>
+                        <!-- 2006 <b>G</b>aram<b> S</b>ystem <b>C</b>ompany All right reserved -->
+                    </td>
+                </tr>
+            </table>
+	    </div>
+     </div>
 
 
 
@@ -508,16 +520,7 @@ $(document).ready(function () {
 			style="/*min-width:797px;633px*/ min-width:763px; overflow:hidden; margin-right:10px; border-left:1px solid #ccc; border-bottom:0px solid #fff; left:204px; background-color: blue;">
 	</iframe> -->
 
-	<div class="ui-layout-south" style="border-color:#eee;">
-		<table width="100%" height="26" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td  height="26" align="center"  class="copyright shadowText1">
-					<%=uservariable.campaignText %>
-					<!-- 2006 <b>G</b>aram<b> S</b>ystem <b>C</b>ompany All right reserved -->
-				</td>
-			</tr>
-		</table>
-	</div>
+	
 	
 <script type="text/javascript" src="/common/scripts/jkmegamenu.js">
 /***********************************************
