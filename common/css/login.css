@@ -1,0 +1,8 @@
+.container_login{width:32%;height:100vh;margin:auto;}
+.container_login .login_img{width:100%;padding:20% 0 2%;text-align: center;}
+.container_login .login_img_text{padding-top: 0;}
+.container_login_input{width:80%;margin:auto;}
+.container_login_input input{width:91%; height: 50px;padding:0 4%;margin-bottom: 2%;}
+.container_login_input input[id="id"]{margin-top:7%;}
+.login_btn{width:100%;background:#266fb4;text-align:center;position:relative;height:70px;overflow:hidden; margin: 5% auto;}
+.container_login_input input.image{position:absolute;left:50%;top:-9px;transform: translateX(-50%);-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-z-transform: translateX(-50%);-o-transform: translateX(-50%);    height: auto;}
