@@ -439,14 +439,15 @@ $(document).ready(function () {
 	$("body").css({position:"relative",height:"100%","margin":"0px 10px 0px 10px",padding:0,border:"none"});
 });
 </script>
+<link rel='stylesheet' type='text/css' href='/common/css/main_sub.css'><!----2021리뉴얼추가---->
 </head>
 <body style="overflow: auto;">
 
 	<!-- <body style="border: 1px solid #505050; margin:3px; background:#fff; min-width:1004px;">  -->
 	<!--  style="border: 1px solid #505050; background:#fff; min-width:970px;" -->
 
-	<div class="ui-layout-north" style="min-width:970px; width:100%; display:none; border-bottom:0px; overflow:hidden; padding-top:10px;background-color: inherit;"><!-- inherit -->
-		<div id="log" style="position:absolute; z-index:9999; top: 10px; left: 100px; height: 43px; width: 330px; overflow: auto; display: none; background-color: white;"></div>
+	<div class="ui-layout-north"><!-- inherit -->
+		<div id="log" ></div>
 		<!-- 
 		<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>
 		<div id="switcher"></div>
@@ -458,12 +459,30 @@ $(document).ready(function () {
 <!-- 	.ui-layout-west {overflow-y:hidden; height:100%;} -->
 <!-- 	</style> -->
 
+<!-----2021리뉴얼---------->
+ <div class="main_centent_box">
+     <!-- 좌측 메뉴 시작-->
+        <div class="left_centent_box">
+            <div class="main_auto">
+                 <div id="menu_area"  class="ui-corner-all">
+                </div>
+            </div>
+        </div>
+        <!-- 좌측 메뉴 끝-->    
+         
+        <!-- 우측 메뉴 시작-->
+        <div class="right_centent_box">
+            sadjlaksdjlkajsdlkj
+        </div>
+ </div>
+
+
+
 	<div class="ui-layout-west" style="display:none; border-width: 0px 0px 0px 0px; padding:0px; background-color: inherit;">
 		<!-- left -->	
 		<table id="table_left" width="100%" heights=100% border="0" cellpadding="0" radius="0" border="#e0e0e0" bgcolors="#efefef">
 		<tr>
 		<td valign="top" style="border:1px solid #aaa; background-color:#dfdfdf;">
-			
 		<table border="0" height=37 width="100%" cellpadding="0" cellspacing="0" style="background-image:url(../common/images/bg_teamtitleOn.gif); position:relative; lefts:-1px; smargin-top:1px; height:37px; z-index:100;">
 		<tr>
 		<td align="center" colspan="3"><span id="menuTitle" style="font-size:11pt; letter-spacing:0.2em; font-weight:bold;">Load...</span></td>
@@ -489,10 +508,10 @@ $(document).ready(function () {
 			style="/*min-width:797px;633px*/ min-width:763px; overflow:hidden; margin-right:10px; border-left:1px solid #ccc; border-bottom:0px solid #fff; left:204px; background-color: blue;">
 	</iframe> -->
 
-	<div class="ui-layout-south" style="min-width:970px; display:none; overflow:hidden; bottom:38px; border:0px solid #fff;padding-bottom: 10px;background-color: inherit;">
+	<div class="ui-layout-south" style="border-color:#eee;">
 		<table width="100%" height="26" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td background="/common/images/blue/bottom_line_bg.jpg" height="26" align="center" class="copyright shadowText1">
+				<td  height="26" align="center"  class="copyright shadowText1">
 					<%=uservariable.campaignText %>
 					<!-- 2006 <b>G</b>aram<b> S</b>ystem <b>C</b>ompany All right reserved -->
 				</td>

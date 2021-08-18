@@ -311,7 +311,8 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 #sche{width:100% !important;height:100px !important;border-left:0 !important;}
 }
 @media screen and (max-width: 1620px) {
-.user_info_left img{height:45px;}
+.user_info_left {display: none;}
+.user_info_right{float:none;width:100%;}
 .Quick_box .Quick_ul li{width:32%;}
 .Quick_box .Quick_ul li:nth-child(1) img{padding-top:5px;width:41px;}
 .Quick_box .Quick_ul li:nth-child(2) img{padding-top:4px;width:38px;}
