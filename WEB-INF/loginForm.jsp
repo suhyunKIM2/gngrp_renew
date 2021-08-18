@@ -199,101 +199,43 @@ function getid() {
         <form:password  value="" path="pwd" tabindex="2" placeholder="비밀번호"/>
         <div><input type="checkbox" name="checksaveid" onclick="saveid()" tabindex="3" style="width:14px; height:12px;margin-right:4px; top:0;"/><span style="vertical-align: middle;">아이디 저장</span></div>
         <div class="login_btn"><input type="image" src="../common/images/icon/login_btn.jpg" alt="로그인" class="image" style="width:439px;" tabindex="4" /></div>
+        <c:if test="${loginForm.forceLogin }">
+            <div>
+                <td colspane="2"><form:checkbox path="forceLogin" />다른곳에서 로그인해 있습니다.<br /> 다른 로그인을 강제종료하고 로그인 하시겠습니까?</td>
+            </div>
+        </c:if>
         <div>
             아이디와 비밀번호를 입력란에 입력하시고 로그인 버튼을 눌러주세요.<br/>
             <span style="color: #4641D9">아이디와 비밀번호가 노출되지 않게 주의하시기 바랍니다.</span>
         </div>
+        <div class="loginetc2" style="display:none;"><a href="#" class="button colorR">그룹웨어 사용전 준비사항</a> &nbsp; <a href="#" class="button colorB" style="display:none;">그룹웨어 사용요청</a></div>	
+            <div class="loginetc3">
+            </div>
+            <div id="footmenu" style="display:none;">
+            <ul>
+            </ul>
+            </div>	
+            <div id="authorinfo">
+            </div>
+         <div id="copyright"></div>	
     </div>
 </div>
 
 
 
-<!--container-->
-<div id="container">
-	<!--wrap-->
-	<div id="wrap">
-		<!--head-->
-		<div id="head_wrap">
-			<div id="toplogo">
-				<a href="#"><img src="common/images/login/toplogo_login.gif" ></a>
-			</div>
-				
-			<div id="globalmenu">
-				<ul style="display:none;">
-					<li class="first"></li>
-					<li><a href="#">고객센터</a></li>
-					<li class="last"><a href="#">장애신고</a></li>
-				</ul>
-			</div>	
-		</div>
-		<!--/head-->
-		
-		<!--body_wrap-->
-		<div id="body_wrap">
-			<div id=""><img src="common/images/login/login_top_daek.gif"></div>	
-			
-			<!-- login -->
-			<div class="login">
-				<div style="background-image:url(/common/images/login/bg_gray.png);text-align:center;padding:30px 0px;"><img src="common/images/login/text_title.png" ></div>
-				<div style="margin:40px 0px 30px 0px;margin-left:30px;" >
-					<img src="common/images/login/login_title.gif" >
-				</div>
-				
-				<!-- form(login) >> -->
-				<!-- <form name="login" method="post" action="#" target="ifrmHidden" onsubmit="return formCheck()"> -->
-				<table width=38% border="0" style="margin:3px; margin-left:30px; margin-tops:10px;">
-					<tr>
-						<td width=60>아이디&nbsp;</td>
-						<td width=*>&nbsp;<form:input path="id" value="" cssStyle="width:80%;" style="padding:2px; " tabindex="1" /></td>
-						<td width=100 rowspan=2>
-						&nbsp;<input type="image" src="common/images/login/btn_login.gif" alt="로그인" class="image"  tabindex="4" />
-						</td>
-					</tr>
-					<tr>
-						<td>비밀번호&nbsp;</td>
-						<td>&nbsp;<form:password cssStyle="width:80%;" value="" style="padding:2px;" path="pwd" tabindex="2" /></td>
-					</tr>
-					<tr>
-						<td><!-- Locale -->&nbsp; </td>
-						<td>&nbsp;
-							<input type="checkbox" name="checksaveid" onclick="saveid()" tabindex="3" style="width:14px; height:12px;margin-right:4px; top:0;"/>
-							<span style="vertical-align: middle;">아이디 저장</span>
-						</td>
-					</tr>
-				</table>
-				
-				<c:if test="${loginForm.forceLogin }">
-					<div>
-						<td colspane="2"><form:checkbox path="forceLogin" />다른곳에서 로그인해 있습니다.<br /> 다른 로그인을 강제종료하고 로그인 하시겠습니까?</td>
-					</div>
-				</c:if>
-				
-				<div style="margin-top:40px;margin-left:30px;">
-					아이디와 비밀번호를 입력란에 입력하시고 로그인 버튼을 눌러주세요.<br/>
-					<span style="color: #4641D9">아이디와 비밀번호가 노출되지 않게 주의하시기 바랍니다.</span>
-				</div>
-				
-				<div class="loginetc2" style="display:none;"><a href="#" class="button colorR">그룹웨어 사용전 준비사항</a> &nbsp; <a href="#" class="button colorB" style="display:none;">그룹웨어 사용요청</a></div>	
-				<div class="loginetc3">
-				</div>
-				<div id="footmenu" style="display:none;">
-				<ul>
-				</ul>
-				</div>	
-				<div id="authorinfo">
-				</div>
-				<div id="copyright"></div>	
-			</div>
-			<!-- //login -->
-		
-		</form>
-		<!-- << form(login) -->
-		</div>
-		<!--/body_wrap-->
-	</div>
-	<!--/wrap-->
-</div>
-<!--/container-->
+
+
+        <div id="globalmenu">
+            <ul style="display:none;">
+                <li class="first"></li>
+                <li><a href="#">고객센터</a></li>
+                <li class="last"><a href="#">장애신고</a></li>
+            </ul>
+        </div>	
+</form>
+    <!-- << form(login) -->	
+	
+
 
 </form:form>
 </body>

@@ -1,6 +1,7 @@
-.container_login{width:32%;height:100vh;margin:auto;}
+.container_login{width:30%;height:100vh;margin:auto;min-width: 480px;}
 .container_login .login_img{width:100%;padding:20% 0 2%;text-align: center;}
 .container_login .login_img_text{padding-top: 0;}
+.container_login .login_img_text img:nth-child(1){margin-right:5px;}
 .container_login_input{width:80%;margin:auto;}
 .container_login_input input{width:91%; height: 50px;padding:0 4%;margin-bottom: 2%;}
 .container_login_input input[id="id"]{margin-top:7%;}
