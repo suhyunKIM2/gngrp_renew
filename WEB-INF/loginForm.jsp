@@ -198,7 +198,7 @@ function getid() {
         <form:input path="id" value=""  tabindex="1" placeholder="아이디" />
         <form:password  value="" path="pwd" tabindex="2" placeholder="비밀번호"/>
         <div><input type="checkbox" name="checksaveid" onclick="saveid()" tabindex="3" style="width:14px; height:12px;margin-right:4px; top:0;"/><span style="vertical-align: middle;">아이디 저장</span></div>
-        <div class="login_btn"><input type="image" src="../common/images/icon/login_btn.jpg" alt="로그인" class="image" style="width:439px;" tabindex="4" /></div>
+        <div class="login_btn" ><input type="image" src="../common/images/icon/login_btn.jpg" alt="로그인" class="image" style="width:100%;" tabindex="4" />Login</div>
         <c:if test="${loginForm.forceLogin }">
             <div>
                 <td colspane="2"><form:checkbox path="forceLogin" />다른곳에서 로그인해 있습니다.<br /> 다른 로그인을 강제종료하고 로그인 하시겠습니까?</td>
