@@ -1429,7 +1429,7 @@ function setChangeMailbox(){
 	<input type="hidden" name="isread" value="">
 
 <!-- List Title -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-image:url(../common/images/bg_teamtitleOn.gif); position:relative; lefts:-1px; height:37px; z-index:100;table-layout: fixed;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="position:relative; lefts:-1px; height:37px; z-index:100;table-layout: fixed;">
 <tr>
 <td width="125" style="padding-left:5px; padding-top:5px; "><!-- <img src="../common/images/h3_ctbg.gif" border="0" align="absmiddle"> -->
 	<span class="ltitle"><img align="absmiddle" src="/common/images/icons/title-list-mail.png" />

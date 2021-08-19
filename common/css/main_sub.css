@@ -6,9 +6,10 @@ a[href^="http:"] {
     padding-right: 14px;
 }
 
+.main_centent_box{height: 100vh;}
 .left_centent_box{height: calc(100vh - 233px) !important;}
 .ui-layout-pane-north {height:auto !important;position: relative !important;}
-.right_box_menu,.right_centent_box{width:85% !important;}
+.right_box_menu,.right_centent_box{width:84% !important;border-left:1px solid #e8e8e8;}
 .left_box_logo,.left_centent_box{width:15% !important;}
 .left_box_logo img{margin-left:5%;}
 .burger-check:checked~.menu{padding-top:0;height:50px;line-height: 50px;}
@@ -28,6 +29,6 @@ a[href^="http:"] {
     width: 18% !important;
 }
 .right_box_menu, .right_centent_box {
-    width: 82% !important;
+    width: 81% !important;
 }
 }
