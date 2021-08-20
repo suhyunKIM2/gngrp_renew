@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
 <file name="mail_left.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132737430140620744" remote="132737430000000000" Dst="0" />
-<file name="mail_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132738371846199859" remote="132738371400000000" Dst="0" />
+<file name="mail_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132739129532111424" remote="132739129200000000" Dst="0" />
 <file name="mail_form.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="131120316000000000" remote="131120316000000000" Dst="0" />
 <file name="index.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 <file name="mail_front.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
@@ -9,6 +9,7 @@
 <file name="mail_repeat.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 <file name="mail_send.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="131045148000000000" remote="131045148000000000" Dst="0" />
 <file name="mail_paperlist.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
-<file name="mail_portal.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132738371624521782" remote="132738371400000000" Dst="0" />
+<file name="mail_portal.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132739101634752088" remote="132739101600000000" Dst="0" />
 <file name="mail_archive_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="WidgetCount.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 </dwsync>

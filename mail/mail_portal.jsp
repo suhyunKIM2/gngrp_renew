@@ -75,7 +75,7 @@ function goActionForm()
 </SCRIPT>
 <style>
 ul.topList { width:100%; margin:0 1px 0 24px;height: auto;overflow:hidden;}
-ul.topList li { width:32%; float:left; background:url("http://<%=request.getServerName() %>/common/images/title_arr.gif") 0 3px no-repeat; padding-top:0px; padding-left:10px; margin-bottom:45px; color:#666; font-family:Tahoma, 돋움; }
+ul.topList li { width:32%; float:left; background:url("http://<%=request.getServerName() %>/common/images/title_arr.gif") 0 3px no-repeat; padding-top:0px; padding-left:10px; margin-bottom:45px; color:#666; font-family:Tahoma, 돋움;    height: 30px; }
 ul.topList h4 { font-size:11px; font-family:Tahoma, 돋움; margin-top:0px; margin-bottom:4px;}
 ul.topList p { clear:both; width:84%; margin: 5px 0 10px 0; }
 

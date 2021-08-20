@@ -63,6 +63,7 @@ a[href^="http:"]{background-image: none;}
 #worktime_e{font-weight:600;color:#266fb5;}
 
 /*우측 햄버거메뉴 UI*/
+.ui-layout-center{background:#fff;}
 .nav_centent{display:none;opacity:0;}
 .top_menu_list li .menu {
   position:absolute;
