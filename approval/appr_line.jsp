@@ -33,7 +33,7 @@
 %>
 
     <frame name="topfrm" src="appr_line_t.jsp?no=<%= sNo %>"  scrolling="no" noresize>  
-	<frameset cols="250, *,0" rows="*, 0" scrolling="no" noresize border="0" frameborder=0 >
+	<frameset cols="350, *,0" rows="*, 0" scrolling="no" noresize border="0" frameborder=0 >
 	    <frame name="leftfrm" src="appr_line_l.jsp?no=<%= sNo %>"  scrolling="no" noresize> <!-- scrolling="no" noresize -->
 	    <frame name="rightfrm" src="appr_line_r.jsp?no=<%= sNo %>"  scrolling="auto" noresize>    
 	    <frame name="hidfrm" src="UntitledFrame-22">

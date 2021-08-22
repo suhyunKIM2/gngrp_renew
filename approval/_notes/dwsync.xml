@@ -2,10 +2,14 @@
 <dwsync>
 <file name="index.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 <file name="appr_apprview.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="131001084000000000" remote="131001084000000000" Dst="0" />
-<file name="appr_line.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132739248367123922" remote="132739248000000000" Dst="0" />
+<file name="appr_line.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132741460800000000" remote="132741460800000000" Dst="0" />
 <file name="appr_adminline.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 <file name="appr_signature.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132739233230067795" remote="132739233000000000" Dst="0" />
 <file name="appr_line_t.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132739243042855695" remote="132739242600000000" Dst="0" />
-<file name="appr_line_l.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="appr_line_l.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132741465000000000" remote="132741465000000000" Dst="0" />
 <file name="appr_line_r.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132739266882780029" remote="132739266600000000" Dst="0" />
+<file name="appr_line_l_pop.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="appr_line_r_pop.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="appr_lineedit_d.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132741502719810151" remote="132741502200000000" Dst="0" />
+<file name="appr_linesave_pop.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 </dwsync>
