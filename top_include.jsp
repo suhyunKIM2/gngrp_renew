@@ -2108,7 +2108,7 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 <div class="right_box_menu">
     <ul class="top_menu_list">
         <li>
-            <input class="burger-check" type="checkbox" id="burger-check" /><label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
+            <input class="burger-check" type="checkbox" id="burger-check"  checked/><label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
             <span class="nav_menu_text">ALL Menu</span>
             <div class="menu">
               <div class="nav_centent">

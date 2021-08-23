@@ -291,12 +291,28 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                     </div>                           
                 </div>
                 
-                <!----받은메일함-------->
+                <!----공지사항-------->
                 <div class="right_box right_01">
-                    <h3><span class="h3_left"><img src="/common/images/icon/img_17.png">받은메일함</span><span class="h3_right" onClick="openTreeMenu('01','MENU010202');"><img src="/common/images/icon/+.png"></span></h3>
-                    <!-- email -->
-                    <div class="moduleFrame nobg">
-                        <div id="tabs-mail" class="tabs moduleContent" >
+                    <h3><span class="h3_left"><img src="/common/images/icon/img_19.png">공지사항</span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0501');"><img src="/common/images/icon/+.png"></span></h3>
+                    <!-- 공지사항 -->
+                    <div class="cont_list_box">
+                        <div class="moduleFrame nobg">
+                            <div id="announce" class="moduleContent" ></div>
+                        </div> 
+                    </div>
+                </div>
+                
+             </div> 
+             
+             <!------받은메일함------>
+            <div class="cont_right_main">
+                <ul class="cont_left">
+                    <li>
+                        <h3 class="h3_01"><span class="h3_left"><img src="/common/images/icon/img_17.png"></span><span class="h3_right" onClick="openTreeMenu('01','MENU010202');"><img src="/common/images/icon/+.png"></span></h3>
+                        <div class="cont_list_box">
+                        <h2>받은메일함</h2>
+                        <div class="moduleFrame nobg">
+                        <div id="tabs-mail" class="tabs moduleContent" style="padding-top:0 !important;padding-bottom:0 !important;">
                             <ul class="tabsul">
                                 <li style="font-size:9pt;"><a href="/mail/mail_front.jsp?listCount=6" data-pcode="01" data-scode="MENU010202"></a></li>
                             </ul>
@@ -304,32 +320,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                 <!-- 			<div id="tabs-mail-2" style="padding:0px; "></div> -->
                         </div>
                     </div>
-                </div>
-                
-             </div> 
-             
-             <!------업무게시판------>
-            <div class="cont_right_main">
-                <ul class="cont_left">
-                    <li>
-                        <h3 class="h3_01"><span class="h3_left"><img src="/common/images/icon/img_18.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0511');"><img src="/common/images/icon/+.png"></span></h3>
-                        <div class="cont_list_box">
-                            <!-- board -->
-                            <div class="moduleFrame nobg">
-                        <!-- 		<div id="board" class="moduleContent" style="margin:3px 3px; height: 170px;"></div> -->
-                                <div id="tabs-community" class="tabs moduleContent">
-                                    <ul class="tabsul">
-                                        <li><a href="/bbswork/widget.htm?listCount=5" data-pcode="05" data-scode="MENU0511"><img src="../common/images/icon-document.png" align="absmiddle" />&nbsp;<fmt:message key='main.Work.Board'/><!-- 업무게시판 --></a></li>
-                        <%-- 				<li><a href="/bbs/widget_board.htm?endNum=6" data-pcode="05" data-scode="MENU0512"><img src='../common/images/NN.gif' align="absmiddle" />&nbsp;<fmt:message key='bbs.board.newest'/><!-- 최근글 목록 --></a></li> --%>
-                        <!-- 				<li><a href="/bbs/widget_team.htm?listCount=6&topCode=2014101010370156" data-pcode="05" data-scode="MENU0511"><img src="../common/images/icon-document-arrow.png" align="absmiddle" />&nbsp;갤러리</a></li> -->
-                                        <li><a href="/bbs/widget.htm?listCount=5&bbsId=bbs00000000000004" data-pcode="05" data-scode="MENU0505"><img src="../common/images/icon-document-arrow.png" align="absmiddle" />&nbsp;<fmt:message key='main.Free.Board'/><!-- 자유게시판 --></a></li>
-                                    </ul>
-                        <!-- 			<div id="tabs-approval-1" style="padding:0px; "></div> -->
-                        <!-- 			<div id="tabs-approval-2" style="padding:0px; "></div> -->
-                        <!-- 			<div id="tabs-approval-3" style="padding:0px; "></div> -->
-                                </div>
-                            </div>
-                        </div>
+                    </div>
                     </li>
                     <li>
                         <h3 class="h3_03"><span class="h3_left"><img src="/common/images/icon/img_20.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('02', 'MENU020201');"><img src="/common/images/icon/+.png"></span></h3>
@@ -353,12 +344,23 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                 </ul>
                 <ul class="cont_right">
                     <li>
-                        <h3 class="h3_02"><span class="h3_left"><img src="/common/images/icon/img_19.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0501');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_02"><span class="h3_left"><img src="/common/images/icon/img_18.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0511');"><img src="/common/images/icon/+.png"></span></h3>
                         <div class="cont_list_box">
-                            <h2>공지사항</h2>
-                                <div class="moduleFrame nobg">
-                                    <div id="announce" class="moduleContent" style="margin:3px 3px; height: 170px; /* border: 1px solid #dfdfdf; padding:0px 3px; */"></div>
-                                </div> 
+                            <!-- board -->
+                            <div class="moduleFrame nobg">
+                        <!-- 		<div id="board" class="moduleContent" style="margin:3px 3px; height: 170px;"></div> -->
+                                <div id="tabs-community" class="tabs moduleContent" style="    height: auto !important;">
+                                    <ul class="tabsul">
+                                        <li><a href="/bbswork/widget.htm?listCount=5" data-pcode="05" data-scode="MENU0511"><img src="../common/images/icon-document.png" align="absmiddle" />&nbsp;<fmt:message key='main.Work.Board'/><!-- 업무게시판 --></a></li>
+                        <%-- 				<li><a href="/bbs/widget_board.htm?endNum=6" data-pcode="05" data-scode="MENU0512"><img src='../common/images/NN.gif' align="absmiddle" />&nbsp;<fmt:message key='bbs.board.newest'/><!-- 최근글 목록 --></a></li> --%>
+                        <!-- 				<li><a href="/bbs/widget_team.htm?listCount=6&topCode=2014101010370156" data-pcode="05" data-scode="MENU0511"><img src="../common/images/icon-document-arrow.png" align="absmiddle" />&nbsp;갤러리</a></li> -->
+                                        <li><a href="/bbs/widget.htm?listCount=5&bbsId=bbs00000000000004" data-pcode="05" data-scode="MENU0505"><img src="../common/images/icon-document-arrow.png" align="absmiddle" />&nbsp;<fmt:message key='main.Free.Board'/><!-- 자유게시판 --></a></li>
+                                    </ul>
+                        <!-- 			<div id="tabs-approval-1" style="padding:0px; "></div> -->
+                        <!-- 			<div id="tabs-approval-2" style="padding:0px; "></div> -->
+                        <!-- 			<div id="tabs-approval-3" style="padding:0px; "></div> -->
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li>

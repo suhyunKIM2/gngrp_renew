@@ -24,7 +24,7 @@ a[href^="http:"]{background-image: none;}
 
 /*종합정보사이트링크*/
 .top_top_blank{width:100%;background:#266fb5;text-align: right;height:25px;line-height:25px;}
-.top_top_blank a{color:#fff;font-weight: 600;}
+.top_top_blank a{color:#fff !important;font-weight: 600;}
 .top_top_blank a:hover{color:#fff;}
 .black,.black:hover{color:#fffec2;}
 
@@ -63,7 +63,7 @@ a[href^="http:"]{background-image: none;}
 #worktime_e{font-weight:600;color:#266fb5;}
 
 /*우측 햄버거메뉴 UI*/
-.ui-layout-center{background:#fff;}
+.ui-layout-center{background:#fff;height:calc(100vh - 130px);}
 .nav_centent{display:none;opacity:0;}
 .top_menu_list li .menu {
   position:absolute;
@@ -85,7 +85,7 @@ a[href^="http:"]{background-image: none;}
 .burger-icon .burger-sticks {
   background: #266fb5;
   display: block;
-  height: 2px;
+  height: 3px;
   position: relative;
   transition: background .0s ease-out;
   width: 18px;
@@ -271,7 +271,7 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 
 .right_box {margin:2% 0;width:100%;max-width:600px;float:left;}
 .right_box h3{text-align:left;padding: 1.5%;}
-.right_box h3 img{vertical-align:middle;margin-right:5px;max-height:17px;}
+.right_box h3 img{vertical-align:middle;margin-right:5px;max-height:26px;}
 .right_01 h3{background:#428ad1;color:#fff;width:97%;float:left;}
 .right_01 h3 .h3_left{float:left;}
 .right_01 h3 .h3_right{float:right;cursor: pointer;}
@@ -280,7 +280,7 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 .right_box .ui-tabs .ui-tabs-panel{margin-top:0;}
 
 .moduleContent{padding:15px !important;height:189px !important;overflow:auto;}
-.right_box .moduleContent{height:160px !important;}
+.right_box .moduleContent{height:150px !important;}
 .cont_right_main .cont_right .moduleContent{height:153px !important;overflow:auto;}
 .cont_right_main ul li .cont_list_box .cont_list_box_div{height:179px !important;overflow:auto;}
 
@@ -303,6 +303,7 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 .moduleFrame b{font-weight:500;}
 .ui-tabs .ui-tabs-panel{margin-top:12px;}
 .moduleFrame ul{border:0 !important;}
+
 
 @media screen and (max-width: 1780px) {
 .left_footer_right{overflow-y:auto;}

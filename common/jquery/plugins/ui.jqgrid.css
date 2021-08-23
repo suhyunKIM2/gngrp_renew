@@ -405,7 +405,7 @@ table,.ui-jqgrid .ui-jqgrid-view,.ui-jqgrid,.ui-jqgrid .ui-jqgrid-hdiv,.ui-jqgri
 .ui-widget-content{background:#fff;}
 .ui-jqgrid tr.ui-row-ltr td:nth-child(10){text-align:center !important;padding-left:0;}
 .ui-jqgrid .ui-jqgrid-hbox{padding-right:0;}
-.ui-jqgrid tr.jqgrow td:nth-child(1){padding:3px 0px 0px 0px;width: 28px !important;}
+.ui-jqgrid tr.jqgrow td:nth-child(1){padding:3px 0px 0px 15px;width: 28px !important;}
 .ui-jqgrid .ui-jqgrid-htable th div{height:20px;}
 /*.ui-jqgrid tr.jqgrow td{padding: 1px 2px 0 9px;}*/
 .ui-jqgrid .ui-jqgrid-htable th:nth-child(1) div{padding-left:3px;}
@@ -421,7 +421,7 @@ td.myPager a{background:#fff;color:#000;border:1px solid #fff;}
     line-height: 24px;
     width: 89px;
     text-align: center;
-    padding: 2.5% 0;
+    padding: 2.7% 0;
     padding-left: 1.5%;
     opacity: 0.7;
     left: 50%;
@@ -442,3 +442,4 @@ td.myPager a{background:#fff;color:#000;border:1px solid #fff;}
 .ui-jqgrid .ui-jqgrid-htable th div img{}
 
 table{background-image: none !important;}
+.ui-jqgrid .ui-state-default{background: #eee url(/common/images/blue/titlebar_bg.jpg) repeat-x;}
