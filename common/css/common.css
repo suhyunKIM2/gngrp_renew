@@ -320,6 +320,8 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 .Quick_box .Quick_ul li:nth-child(2) img{padding-top:4px;width:38px;}
 
 }
-
+@media screen and (max-width: 1193px) {
+.ui-layout-center { height: calc(100vh - 135px);}
+}
 
 
