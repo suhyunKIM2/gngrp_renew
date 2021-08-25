@@ -139,14 +139,16 @@ function addZero(num) {
 .fc-state-highlight{background: #f5f9ff;border: 2px solid #266fb5 !important;}
 .fc-grid .fc-day-number{min-height:auto !important;}
 .fc-widget-header, .fc-widget-content{border: 1px solid #eaeaea;}
-.fc-widget-content:hover{background:#f1f1f1;}
+.fc-widget-content:hover{background:rgba(241,241,241,0.6);}
 .fc-event-hori{border:0;background:none !important;}
 .fc-corner-right .fc-event-inner {
     background: #fed54c  !important;
     border: 0 !important;
     color: #8a6001  !important;
+    margin-left: 0px;
 }
 .fc-widget-header font{color:#f91313;}    
+.fc-agenda-divider{height: auto;line-height: normal;}
 </style>
 <script type='text/javascript'>
 $(document).ready(function() {

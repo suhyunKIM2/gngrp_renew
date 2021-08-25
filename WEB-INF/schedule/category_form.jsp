@@ -96,6 +96,26 @@ function docSubmit() {
 }
  
 </script>
+<style>
+.td_le1{height:60px;}
+.btn_goSubmit {
+    width: 150px;
+    margin: 5% auto;
+    text-align: center;
+    background: #989898;
+    color: #fff  !important;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #8c8c8c;
+    padding: 10px 20px;
+    border-radius: 7px;
+    letter-spacing:-0.2px;
+}
+.btn_delete{background:#ececec;border:1px solid #ececec;color: #000 !important;}
+INPUT[type=text]{height:27px;}
+</style>
 </head>
 <body style="margin:0;padding:0;">
 
@@ -187,14 +207,14 @@ function docSubmit() {
 						<table width="100%" cellspacing="0" cellpadding="0"  style="border:1px solid #dfdfdf; sbackground-color:#EDF2F5;">
 							<tr>
 								<td class="td_le1" align="center">
-								<a onclick="show_insert();" class="button gray medium">
-								<img src="../common/images/bb02.gif" border="0"> <spring:message code="t.newDoc" text="New category"/>&nbsp;Category<!-- 일정 구분 등록 --> </a>
+								<a onclick="show_insert();" class="btn_goSubmit">
+                                <spring:message code="t.newDoc" text="New category"/>&nbsp;category +<!-- 일정 구분 등록 --> </a>
 <!-- 								<a href="javascript:show_insert()">:: 새 일정 등록 ::</a></td> -->
 							</tr>
 							<!-- 일정분류 목록 -->
 							<c:forEach items="${categoryList }" var="item">
 							<tr>
-								<td style="line-height:130%; padding:3px; height:20px; border:1px solid #dfdfdf; ">
+								<td style="line-height:130%; padding:15px; height:20px; border:1px solid #dfdfdf; ">
 									<a href="javascript:show_edit('edit','<c:out value="${item.scid }"/>')">
 										<%-- <img src="../common/images/schedule/schedule_icon/<c:out value="${item.imgFile }" />" border="0"> --%>
 										<c:out value="${item.title }" />
@@ -213,14 +233,14 @@ function docSubmit() {
 								<td class="td_le2" NOWRAP>
 									<form:input path="scheCategory.title" maxlength="10" style="width:200px;" onkeypress="offEnter()" />&nbsp;
 									<c:if test="${scheWebForm.search.cmd == '' || scheWebForm.search.cmd == 'insert' }">
-										<a onclick="docSubmit(); " class="button gray medium">
-										<img src="../common/images/bb02.gif" border="0"> <spring:message code="t.save"/>&nbsp;<!-- 저장 --> </a>
+										<a onclick="docSubmit(); " class="btn_goSubmit">
+										<spring:message code="t.save"/>&nbsp;<!-- 저장 --> </a>
 										</c:if>
 										<c:if test="${scheWebForm.search.cmd == 'edit' }">
-										<a onclick="edit_confirm('<c:out value="${scheWebForm.scheCategory.title}" />', '');" class="button white medium">
-										<img src="/common/images/bb02.gif" border="0"> <spring:message code="t.modify"/>&nbsp;<!-- 수정 --></a>
-										<a onclick="del_confirm();" class="button white medium">
-										<img src="/common/images/bb02.gif" border="0"> <spring:message code="t.delete"/>&nbsp;<!-- 삭제 --></a>
+										<a onclick="edit_confirm('<c:out value="${scheWebForm.scheCategory.title}" />', '');" class="btn_goSubmit">
+									    <spring:message code="t.modify"/>&nbsp;<!-- 수정 --></a>
+										<a onclick="del_confirm();" class="btn_goSubmit btn_delete">
+										<spring:message code="t.delete"/>&nbsp;<!-- 삭제 --></a>
 									</c:if>
 								</td>
 							</tr>

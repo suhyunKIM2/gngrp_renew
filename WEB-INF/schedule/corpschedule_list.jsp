@@ -133,7 +133,7 @@ function newDoc() {
 <body>
 
 <!-- Title -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-image:url(../common/images/bg_teamtitleOn.gif); position:relative; lefts:-1px; height:37px; z-index:100;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background:#f7f7f7; position:relative; lefts:-1px; height:37px; z-index:100;">
 	<tr>
 		<td width="60%" style="padding-left:5px; padding-top:5px; ">
 			<span class="ltitle" style="font-size:14px; font-weight:bold; float:left;">

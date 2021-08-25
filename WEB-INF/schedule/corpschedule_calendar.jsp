@@ -260,8 +260,10 @@ function reloadCal() {
     background: #fed54c  !important;
     border: 0 !important;
     color: #8a6001  !important;
+    margin-left: 0px;
 }
 .fc-widget-header font{color:#f91313;}
+.fc-agenda-divider{height: auto;line-height: normal;}
 </style>
 </head>
 <body style="margin:0px;">
