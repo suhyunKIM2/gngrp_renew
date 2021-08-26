@@ -443,4 +443,5 @@ td.myPager a{background:#fff;color:#000;border:1px solid #fff;}
 
 table{background-image: none !important;}
 .ui-jqgrid .ui-state-default{background: #eee url(/common/images/blue/titlebar_bg.jpg) repeat-x;}
+.ui-jqgrid-htable th:nth-child(1){width:56px !important;}
 

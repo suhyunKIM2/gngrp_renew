@@ -439,7 +439,8 @@ $(function() {
 
 </script>
 <style>
-.DocuNo{position:absolute;right:0;top:10px;}
+.DocuNo{position:absolute;right:0;top:10px;z-index: 999;}
+INPUT[type=checkbox]{vertical-align: middle;}
 </style>
 </head>
 <body style="overflow:hidden;">
@@ -482,11 +483,11 @@ $(function() {
 			String searchKey = ((nek3.web.form.SearchBase)request.getAttribute("search")).getSearchKey();
 			%>
 			<form:form commandName="search">
-				<div style="float: left; margin-top: 2px;">
+				<div style="float: left; margin-top:6px;margin-right:10px;">
 					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="gnfood" id="gnfood" value="GNFOOD"/><label for="gnfood" style="cursor: pointer;">지앤푸드</label>
 					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="gnmall" id="gnmall" value="GNMALL"/><label for="gnmall" style="cursor: pointer;">지앤몰</label>
 					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="bun" id="bun" value="BUN"/><label for="bun" style="cursor: pointer;">분식이</label>
-					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="cham" id="cham" value="CHAM"/><label for="cham" style="cursor: pointer;">참아람</label>
+					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="cham" id="cham" value="CHAM"/><label for="cham" style="cursor: pointer">참아람</label>
 					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="gnlogi" id="gnlogi" value="GNLOGI"/><label for="gnlogi" style="cursor: pointer;">로지스</label>
 					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="bigband" id="bigband" value="BIGBAND','CEM"/><label for="bigband" style="cursor: pointer;">빅밴드</label>
 					<form:input path="searchKey" type="checkbox" class="chk_temp" onclick="chkCmpnyCode(this);" name="cns" id="cns" value="GNCNS"/><label for="cns" style="cursor: pointer;">씨앤에스</label>

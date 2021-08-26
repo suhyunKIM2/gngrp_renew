@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132743513757662704" remote="132743513400000000" Dst="0" />
+<file name="list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132744145987704914" remote="132744145800000000" Dst="0" />
+<file name="categoryMgr.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="categoryTitle.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132744098313507520" remote="132744097800000000" Dst="0" />
+<file name="categoryTree.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="131099580000000000" remote="131099580000000000" Dst="0" />
+<file name="categoryTreeDept.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
+<file name="categoryTreePerson.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132744129102201613" remote="132744129000000000" Dst="0" />
+<file name="categoryForm.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132744137410000000" remote="132744137400000000" Dst="0" />
 </dwsync>
