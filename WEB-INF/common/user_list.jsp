@@ -72,7 +72,7 @@ input {cursor:hand; }
 /* 추가분 */
 .PageNo1 {}
 .PageNo1 a{ font-weight:bold; font-family:돋움,Tahoma; font-size:11pt; border:1px solid #EBF0F8; 
-			background-color:#FFFFFF; text-decoration:none; color:#528BA0;
+			background-color:#FFFFFF; text-decoration:none; color:#6b6b6b;
 			padding:2px 3px 3px 3px;}
 .PageNo1 a:visited{ font-weight:bold; font-family:돋움,Tahoma; font-size:11pt; 
 border:1px solid #EBF0F8; font-weight:bold; background-color:#FFFFFF; 
@@ -95,6 +95,7 @@ color:#528BA0; text-decoration:none; padding:2px 3px 3px 3px;}
 
 .p_sel { width:15px; border:2px solid #A1B5FE; border-collapse:collapse; background-color:#D7E4F5;}
 .p_sel td {line-height:15px; border:2px solid #A1B5FE; cursor:hand; }
+
 </style>
 
 <script type="text/javascript">
@@ -395,7 +396,7 @@ function mobileFormatter(cellvalue, options, rowObject) {
 				<%-- <option value="userPosition_.upName" <%= setSelectedOption("userPosition_.upName",searchKey) %>><spring:message code="t.upName" text="직급"/></option> --%>
 				<option value="userName" <%= setSelectedOption("userName",searchKey) %>><spring:message code='emp.mail.id' text="메일ID"/></option>
 			</form:select>
-			<form:input style="width:70px;" path="searchValue" />
+			<form:input path="searchValue" />
 		
 <!-- 			<img src="/common/images/btn_search.gif" align="absmiddle" onclick="javascript:findUsers();" alt="검색" /> -->
 			<a onclick="javascript:findUsers();" class="button gray medium">
