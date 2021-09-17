@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="user_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132278076000000000" remote="132278076000000000" Dst="0" />
+<file name="user_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763154191004359" remote="132763153800000000" Dst="0" />
 <file name="remoteaddr_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 <file name="menucode_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="130989852000000000" remote="130989852000000000" Dst="0" />
 <file name="self_edit.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132762267568191576" remote="132762267600000000" Dst="0" />
 <file name="environment.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132762500169624294" remote="132762499800000000" Dst="0" />
+<file name="positionNduty.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763085870810010" remote="132763085400000000" Dst="0" />
+<file name="department_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763151817304073" remote="132763151400000000" Dst="0" />
+<file name="loginhistory_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763175367164290" remote="132763174800000000" Dst="0" />
+<file name="menuname_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763188610000000" remote="132763188600000000" Dst="0" />
+<file name="categoryname_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763189419728926" remote="132763189200000000" Dst="0" />
+<file name="loginsession_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763204958443004" remote="132763204800000000" Dst="0" />
+<file name="commoncode_list.jsp" server="218.145.161.75//JNPLMS/groupwr/WebContent/" local="132763207528457935" remote="132763207200000000" Dst="0" />
 </dwsync>

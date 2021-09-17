@@ -312,7 +312,7 @@ select, option {max-width:200px;}
 	padding: 10px;
 }
 .qtip {max-width:850px;}
-
+.ui-jqgrid .ui-jqgrid-btable, .ui-jqgrid .ui-pg-table{table-layout: auto;}
 </style>
 
 <script language="javascript">

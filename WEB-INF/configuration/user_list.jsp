@@ -251,15 +251,15 @@ $(document).ready(function(){
 	</tr>
 </table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
-	<tr> 
+	<!--<tr> 
 		<td height="6" background="<%=imagePath%>/box_center_top_left.jpg" align="right"><img src="<%=imagePath%>/box_top_right.jpg" width="4" height="6"></td>
-	</tr>
+	</tr>-->
 	<tr> 
 		<td bgcolor="#FFFFFF" valign="top">
 		
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
 				<tr> 
-					<td width="11">&nbsp; </td>
+					<!--<td width="11">&nbsp; </td>-->
 					<td valign="top"> 
 						<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
 							<tr> 
@@ -360,7 +360,7 @@ $(document).ready(function(){
 												<div id="dataGridPager"></div>
 												<span id="errorDisplayer" style="color:red"></span>
 											</td>
-											<td width="11">&nbsp;</td>
+											<!--<td width="11">&nbsp;</td>-->
 										</tr>
 									</table>
 								</td>
