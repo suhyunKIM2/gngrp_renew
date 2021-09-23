@@ -272,6 +272,9 @@ $(document).ready(function(){
 </script>
 <style>
 .ui-widget-content{margin-top:20px;}
+.ui-jqgrid tr.jqgrow td{text-align: center !important;}
+.ui-jqgrid tr.jqgrow td:nth-child(3){text-align:left !important;}
+.mgr_table tr td{width:auto !important;text-align: right;}
 </style>
 </head>
 <!-- 
@@ -343,7 +346,7 @@ a:visited { color:#616161; text-decoration:none;  }
 <!-- table 간 공백 -->
 <div class=space>&nbsp;</div>
 
-<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;" class="mgr_table">
 	<colgroup>
 		<col width="30%">
 		<col width="5%">

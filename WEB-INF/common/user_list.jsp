@@ -96,6 +96,7 @@ color:#528BA0; text-decoration:none; padding:2px 3px 3px 3px;}
 .p_sel { width:15px; border:2px solid #A1B5FE; border-collapse:collapse; background-color:#D7E4F5;}
 .p_sel td {line-height:15px; border:2px solid #A1B5FE; cursor:hand; }
 
+.ui-jqgrid tr.jqgrow td{text-align: center;}
 </style>
 
 <script type="text/javascript">
