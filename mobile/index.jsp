@@ -163,11 +163,14 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     	}
     </script>
     <style>
-    .main_contents_top{width:95%;margin:auto;height:auto;overflow:hidden;}
+    body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;}
+    body.ui-mobile-viewport{background:#fff;}
+    .main_contents_top{width:93%;margin:auto;height:auto;overflow:hidden;}
     .left_logo{width:50%;float:left;margin: 0.5em 0;}
     .right_menu{width:50%;float:right;height:37px;line-height: 37px;margin:1em 0;text-align: right;color: #266fb5;font-weight: 600;}
-    .main_contents{background:#f7f7f7;width:100%;height:100vh;}
+    .main_contents{background:#f7f7f7;width:92%;padding:5% 4%;height:calc(100vh-80px);}
     /*햄버거메뉴*/
+    .nav-search .ui-content{display:none;}
     .menu {
           position: absolute;
           top: 0;
@@ -185,9 +188,9 @@ boolean isPartnerTemp = loginuser.securityId == 8;
           z-index: 2;
           padding: 8px 0;
           top: 25px;
-          right:82px;
+          right:0;
           user-select: none;
-          width: auto;
+          width: 104px;
           margin: 0;
         }
 
@@ -227,7 +230,8 @@ boolean isPartnerTemp = loginuser.securityId == 8;
           max-width: 100%;
           width: 100%;
         }
-        .burger-check:checked~.menu div{background:#fff;width:80%;height:100vh;position:absolute;right:0;}
+        .burger-check:checked~.menu .nav_box_div{background:#fff;width:80%;height:100vh;position:absolute;right:0;}
+        .burger-check:checked~.menu .nav-search .ui-content{display:block;}
         .burger-check:checked~.burger-icon .burger-sticks {
           background: transparent;
         }
@@ -246,6 +250,63 @@ boolean isPartnerTemp = loginuser.securityId == 8;
           right: -73px;
           background: #333;
         }
+        .user_icon_img{height:25px;vertical-align: middle;margin-right: 5px;}
+        .main_contents .user_name{font-size:15px;}
+        .main_contents .user_name b{vertical-align: middle;}
+        .btn_nav_main{text-align: center;position: relative;margin-top: 15px;}
+        .btn_nav_main ul li{width:31%;background:#fff;height:84px;border-bottom:0;text-align: center;vertical-align: bottom;padding-top:12px;line-height: 75px;}
+        .btn_nav_main ul li:nth-child(1),.btn_nav_main ul li:nth-child(4){float:left;}
+        .btn_nav_main ul li:nth-child(2),.btn_nav_main ul li:nth-child(5){margin:auto;}
+        .btn_nav_main ul li:nth-child(3),.btn_nav_main ul li:nth-child(6){position:absolute;right:0;}
+        .btn_nav_main ul li:nth-child(3){top:0;}
+        .btn_nav_main ul li:nth-child(6){top:107px;}
+        .btn_nav_main ul li:nth-child(4),.btn_nav_main ul li:nth-child(5),.btn_nav_main ul li:nth-child(6){margin-top:13px;}
+        .btn_nav_main ul li .nav_btn_div{position:relative;line-height: normal;top:-25px;}
+        .btn_nav_main ul li b{position:absolute;width:100%;top: 0;left:0;}
+        .btn_nav_main ul li a{color:#333;font-size:13px;}
+        .count_box_relative{position:relative;top:-12px;}
+        .count{position:absolute;right:0;top:0;background:#d00303;padding:4px 8px;min-width:16px;color:#fff;line-height: 20px;font-family: sans-serif;text-shadow: none;}
+        .speech-bubble {
+            position: relative;
+            background: #d00303;
+            border-radius: .4em;
+        }
+
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border: 12px solid transparent;
+            border-top-color: #d00303;
+            border-bottom: 0;
+            border-left: 0;
+            margin-left: -10px;
+            margin-bottom: -12px;
+        }
+        .btn_nav_main ul li img{height: 33%;image-rendering: -webkit-optimize-contrast;image-rendering:-moz-auto;image-rendering:-o-auto;image-rendering:auto;}
+        .quick_menu ul{width:90%;padding:6% 5%;background:#fff;}
+        .quick_menu h4{color: #266fb5;margin-bottom: 10px;}
+        .quick_menu ul li{position:relative;font-size: 14px;padding:1em 0;cursor: pointer;height: auto;overflow: hidden;cursor: pointer;}
+        .quick_menu ul li img{height: 20px;image-rendering: -webkit-optimize-contrast;image-rendering:-moz-auto;image-rendering:-o-auto;image-rendering:auto;margin-right: 4px;    vertical-align: middle;}
+        .quick_menu ul li:nth-child(1){    padding-bottom: 0.8em;}
+        .quick_menu ul li:nth-child(2) img{height:14px;}
+        .ui-icon, .ui-icon-searchfield:after{background: rgb(38 111 181);}
+        .ui-icon{position: absolute;right: 0; background: #266fb5 url(/common/jquery/mobile/1.2.0/images/icons-36-white.png);background-position: -108px 50%;background-size: 776px 18px;}
+        .quick_menu ul li .ui-li-count{    background: #8b8b8b;
+    padding: 5px 6px;
+    border-radius: 7px;
+    position: absolute;
+    right: 23px;
+    top: 11px;
+    color: #ffffff;
+    font-weight: 500;
+    border: 1px solid #bebebe;
+    text-shadow: none;font-size:12px;}
+    .footer_pc_ver{cursor:pointer;width:100%;text-align: center;height:80px;line-height: 80px;font-weight: 600;font-size: 13px;}
+    .footer_pc_ver img{height: 30%;image-rendering: -webkit-optimize-contrast;image-rendering:-moz-auto;image-rendering:-o-auto;image-rendering:auto;vertical-align: middle;}
     </style>
 </head>
 <body>
@@ -256,14 +317,69 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     </a>
  </h1>
 <div class="right_menu">
+
    <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
     <div class="menu">
-      <div></div>
+      <div class="nav_box_div"></div>
     </div>
+    
 </div>
 </div>
 <div class="main_contents">
-
+    <div class="user_name">
+        <img src="/common/images/icon/img_01.png" border="0" class="user_icon_img"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b>
+    </div>
+    <div class="btn_nav_main">
+        <ul>
+            <li>
+                <a href="">
+                    <div class="count_box_relative">
+                        <div class="count"><div class="speech-bubble"><span class="ui-li-count mailcount">0</span></div></div>
+                    </div>
+                    <img src="/common/images/m_icon/01.png"  border="0" ><div class="nav_btn_div"><b>메일</b></div>
+                 </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="/common/images/m_icon/02.png"  border="0" ><div class="nav_btn_div"><b>전자결재</b></div>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="/common/images/m_icon/03.png"  border="0" ><div class="nav_btn_div"><b>쪽지</b></div>
+                 </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="/common/images/m_icon/04.png"  border="0" ><div class="nav_btn_div"><b>업무지원</b></div>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="/common/images/m_icon/05.png"  border="0" ><div class="nav_btn_div"><b>게시판</b></div>
+               </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="/common/images/m_icon/06.png"  border="0" ><div class="nav_btn_div"><b>임직원 정보</b></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="quick_menu">
+        <h4>Quick Menu</h4>
+        <ul>
+            <li onClick=""><img src="/common/images/m_icon/07.png"> <b>편지쓰기</b> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
+            <li onClick=""><img src="/common/images/m_icon/08.png"> <b>읽지않은 메일</b> <span class="ui-li-count mailcount">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
+            <li onClick=""><img src="/common/images/m_icon/09.png"> <b>결재할 문서</b> <span class="ui-li-count" id="count240">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
+            <li onClick=""><img src="/common/images/m_icon/10.png"> <b>진행중 문서</b> <span class="ui-li-count" id="count340">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
+            <li onClick=""><img src="/common/images/m_icon/11.png"> <b>배포 받은 문서</b> <span class="ui-li-count" id="count640">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
+            <li onClick=""><img src="/common/images/m_icon/12.png"> <b>회람 할 문서</b> <span class="ui-li-count" id="count820">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
+        </ul>
+    </div>
+</div>
+<div class="footer_pc_ver" onClick="">
+    <img src="/common/images/m_icon/13.png"> PC버전으로 보기
 </div>
 <div data-role="page" class="type-home" id="page-home" style="position: relative;clear:both;">
 	<div data-role="content">
