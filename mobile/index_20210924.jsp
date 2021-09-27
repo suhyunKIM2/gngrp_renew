@@ -226,12 +226,12 @@ boolean isPartnerTemp = loginuser.securityId == 8;
           display: none;
         }
 
-        /*.burger-check:checked .menu {
+        .burger-check:checked~.menu {
           max-width: 100%;
           width: 100%;
         }
         .burger-check:checked~.menu .nav_box_div{background:#fff;width:80%;height:100vh;position:absolute;right:0;}
-        .burger-check:checked~.menu .nav-search .ui-content{display:block !important;}
+        .burger-check:checked~.menu .nav-search .ui-content{display:block;}
         .burger-check:checked~.burger-icon .burger-sticks {
           background: transparent;
         }
@@ -249,7 +249,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
           top: -20px;
           right: -73px;
           background: #333;
-        }*/
+        }
         .user_icon_img{height:25px;vertical-align: middle;margin-right: 5px;}
         .main_contents .user_name{font-size:15px;}
         .main_contents .user_name b{vertical-align: middle;}
@@ -294,7 +294,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
         .quick_menu ul li:nth-child(1){    padding-bottom: 0.8em;}
         .quick_menu ul li:nth-child(2) img{height:14px;}
         .ui-icon, .ui-icon-searchfield:after{background: rgb(38 111 181);}
-        .ui-icon{position: absolute;right: 0; background: #266fb5 url(/common/jquery/mobile/1.2.0/images/icons-36-white.png) !important;background-position: -108px 50%!important;background-size: 776px 18px!important;}
+        .ui-icon{position: absolute;right: 0; background: #266fb5 url(/common/jquery/mobile/1.2.0/images/icons-36-white.png);background-position: -108px 50%;background-size: 776px 18px;}
         .quick_menu ul li .ui-li-count{    background: #8b8b8b;
     padding: 5px 6px;
     border-radius: 7px;
@@ -307,102 +307,24 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     text-shadow: none;font-size:12px;}
     .footer_pc_ver{cursor:pointer;width:100%;text-align: center;height:80px;line-height: 80px;font-weight: 600;font-size: 13px;}
     .footer_pc_ver img{height: 30%;image-rendering: -webkit-optimize-contrast;image-rendering:-moz-auto;image-rendering:-o-auto;image-rendering:auto;vertical-align: middle;}
-    
-    .menu_bg{
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.7);
-        position: absolute;
-        top:0;
-        display: none;
-        z-index: 9;
-        right: 0;
-    }
-    .sidebar_menu{
- display: none;
-        width: 80%;
-        height: 100%;
-        background: #fff;
-        position: absolute;
-        top:0;
-        right: -50%;
-        z-index: 9;
-    }
-    .close_btn{
-        margin:10px;
-        text-align: right;
-    }
-    .close_btn > a{
-        display: block;
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-        color:#000;
-        font-weight: 600;
-    }
-    .close_btn > a > img{vertical-align: middle;}
-    .menu_wrap{
-        list-style: none;
-        position:relative;
-        width:100%;
-        height:100vh;
-        overflow: hidden;
-    }
-    .menu_wrap .nav_div{position:absolute;width:100%;left:0;top:-59px;}
-select,input,button,a,label { -webkit-tap-highlight-color:transparent;}
-.ham_user_name{float:left;margin: 10px;}
-.logout_btn{float:right;background:#266fb5;color:#fff;font-weight: 600;padding:1% 5%;font-size:13px;margin: 10px;}
-.ui-listview-filter{background:#fff !important;}
-.ui-shadow-inset{background:#fff !important;}
     </style>
-<script>
-    $(document).ready(function(){
- 
-        $('#burger-check').on('click', function(){
-            $('.menu_bg').show(); 
-            $('.sidebar_menu').show().animate({
-                right:0
-            });  
-        });
-        $('.close_btn>a').on('click', function(){
-            $('.menu_bg').hide(); 
-            $('.sidebar_menu').animate({
-                right: '-' + 50 + '%'
-                       },function(){
-$('.sidebar_menu').hide(); 
-}); 
-        });
- 
-    });
-</script>
-
 </head>
 <body>
-<div class="main_contents_box" style="position:absolute;width:100%;z-index: 9;background: #fff;">
 <div class="main_contents_top">
-<div class="menu_bg"></div>
-<div class="sidebar_menu">
-     <div class="close_btn"><a href="#">       
-         <!--<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">-->닫기 <img src="/common/images/m_icon/15.png">
-         </a>
-     </div>
-     <div class="ham_user_name"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b></div>
-     <div class="logout_btn">로그아웃</div>
-     <div class="menu_wrap">
-         <div data-role="page" class="type-home" id="page-home" style="position:absolute;clear: both;z-index: 1;background: #fff;"><jsp:include page="/mobile/top.jsp"></jsp:include></div>
-     </div>
-</div>
-
  <h1 class="left_logo">
      <a href="">
         <img src="/common/images/icon/logo.png" height="29" border="0" >
     </a>
  </h1>
-<div class="right_menu" >
-    <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
- </div>
-</div>
+<div class="right_menu">
 
+   <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
+    <div class="menu">
+      <div class="nav_box_div"><jsp:include page="/mobile/nav.jsp"></jsp:include></div>
+    </div>
+    
+</div>
+</div>
 <div class="main_contents">
     <div class="user_name">
         <img src="/common/images/icon/img_01.png" border="0" class="user_icon_img"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b>
@@ -459,7 +381,175 @@ $('.sidebar_menu').hide();
 <div class="footer_pc_ver" onClick="">
     <img src="/common/images/m_icon/13.png"> PC버전으로 보기
 </div>
-</div>
+<div data-role="page" class="type-home" id="page-home" style="position: relative;clear:both;">
+	<div data-role="content">
+		<div class="content-secondary">
+			<div id="jqm-homeheader">
+				<h1 id="jqm-logo"><%=logoText %></h1>
+<!-- 				<p>GroupWare System</p> -->
+			</div>
+			<p class="intro"><strong>Welcome.</strong> <%=logoText %>Mobile Groupware</p>
 
+			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f">
+				<li data-role="list-divider">Quick Menu</li>
+				<li><a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">
+					<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.title") /* 메일작성 */ %>" src="/common/images/icon-mail-pencil.png">
+					<%=msglang.getString("mail.title") /* 메일작성 */ %></a>
+				<li><a href="/mobile/mail/list.jsp?box=1&unread=1" data-ajax="false">
+					<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %>" src="/common/images/icons/email_icon_1.jpg">
+					<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %></a>
+					<span class="ui-li-count mailcount">0</span>
+				 
+				<li><a href="appr/list.jsp?menu=240" data-ajax="false">결재할 문서</a><span class="ui-li-count" id="count240">0</span>
+				<li><a href="appr/list.jsp?menu=340" data-ajax="false">진행중 문서</a><span class="ui-li-count" id="count340">0</span>
+				<li><a href="appr/list.jsp?menu=640" data-ajax="false">배포받은 문서</a><span class="ui-li-count" id="count640">0</span>
+				<li><a href="appr/list.jsp?menu=820" data-ajax="false">회람할 문서</a><span class="ui-li-count" id="count820">0</span>
+				
+			</ul>
+		</div>
+
+		<div class="content-primary">
+			<nav>
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+				<li data-role="list-divider">Menu</li>
+				<!-- 2016.07.29 협력사인 경우 전자결재,전자메일, pc버전보기전환 메뉴만 보이게 셋팅 -->
+				<% if (isPartnerTemp) {%>
+					<li>전자결재
+						<ul data-role="listview">
+							<li data-role="list-divider">기안함
+							<li><a href="appr/list.jsp?menu=130" data-ajax="false">기안목록</a>
+							<li data-role="list-divider">결재함
+							<li><a href="appr/list.jsp?menu=240" data-ajax="false">결재할문서</a>
+							<li><a href="appr/list.jsp?menu=340" data-ajax="false">결재한문서</a>
+							<li><a href="appr/list.jsp?menu=530" data-ajax="false">반려된문서</a>
+							<li data-role="list-divider">완료함
+							<li><a href="appr/list.jsp?menu=540" data-ajax="false">전체보기</a>
+							<li data-role="list-divider">수신함
+							<li><a href="appr/list.jsp?menu=620" data-ajax="false">개인수신</a>
+							<li><a href="appr/list.jsp?menu=630" data-ajax="false">부서수신</a>
+							<li data-role="list-divider">회람함
+							<li><a href="appr/list.jsp?menu=810" data-ajax="false">보낸회람</a>
+							<li><a href="appr/list.jsp?menu=820" data-ajax="false">받은회람</a>
+						</ul>
+						
+					<li><%=msglang.getString("mail.email") /* 전자메일 */ %>
+						<ul data-role="listview">
+							<li><a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.title") /* 편지쓰기 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.title") /* 편지쓰기 */ %></a>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=1" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %></a><span class="ui-li-count mailcount">0</span>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.InBox") /* 받은편지함 */ %>" src="/common/images/icon-mail-receive.png">
+								<%=msglang.getString("mail.InBox") /* 받은편지함 */ %></a>
+							<li id="mailboxes1">
+							    <label for="select-native-1" style="font-weight: bold;"><%=msglang.getString("mail.InBox.personal") /* 받은편지함(개인용) */ %></label>
+							    <select name="select-native-1" id="select-native-1" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<li><a href="/mobile/mail/list.jsp?box=2" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %>" src="/common/images/icon-mail-send.png">
+								<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %></a>
+							<li id="mailboxes2">
+							    <label for="select-native-2" style="font-weight: bold;"><%=msglang.getString("mail.OutBox.personal") /* 보낸편지함(개인용) */ %></label>
+							    <select name="select-native-2" id="select-native-2" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=7" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="스팸편지함" src="/common/images/icon-mail-sign.png">스팸편지함</a> -->
+							<li><a href="/mobile/mail/list.jsp?box=3" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %>" src="/common/images/icon-mail-temp.png"><%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %></a>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=6" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="예약편지함" src="/common/images/icon-clock-arrow.png">예약편지함</a> -->
+							<!-- <li><a href="/mobile/mail/list.jsp?box=4" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="지운편지함" src="/common/images/icon-mail-minus.png">지운편지함</a> -->
+						</ul>
+						<li><a href="/jpolite/index.jsp" data-ajax="false"><%=msglang.getString("t.switch.pc.version") /* PC 버전 보기 전환 */ %></a>
+				<% }else {%>
+					<li>전자결재
+						<ul data-role="listview">
+							<li data-role="list-divider">기안함
+							<li><a href="appr/list.jsp?menu=130" data-ajax="false">기안목록</a>
+							<li data-role="list-divider">결재함
+							<li><a href="appr/list.jsp?menu=240" data-ajax="false">결재할문서</a>
+							<li><a href="appr/list.jsp?menu=340" data-ajax="false">결재한문서</a>
+							<li><a href="appr/list.jsp?menu=530" data-ajax="false">반려된문서</a>
+							<li data-role="list-divider">완료함
+							<li><a href="appr/list.jsp?menu=540" data-ajax="false">전체보기</a>
+							<li data-role="list-divider">수신함
+							<li><a href="appr/list.jsp?menu=620" data-ajax="false">개인수신</a>
+							<li><a href="appr/list.jsp?menu=630" data-ajax="false">부서수신</a>
+							<li data-role="list-divider">회람함
+							<li><a href="appr/list.jsp?menu=810" data-ajax="false">보낸회람</a>
+							<li><a href="appr/list.jsp?menu=820" data-ajax="false">받은회람</a>
+						</ul>
+						
+					<li><%=msglang.getString("mail.email") /* 전자메일 */ %>
+						<ul data-role="listview">
+							<li><a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.title") /* 편지쓰기 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.title") /* 편지쓰기 */ %></a>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=1" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %></a><span class="ui-li-count mailcount">0</span>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.InBox") /* 받은편지함 */ %>" src="/common/images/icon-mail-receive.png">
+								<%=msglang.getString("mail.InBox") /* 받은편지함 */ %></a>
+							<li id="mailboxes1">
+							    <label for="select-native-1" style="font-weight: bold;"><%=msglang.getString("mail.InBox.personal") /* 받은편지함(개인용) */ %></label>
+							    <select name="select-native-1" id="select-native-1" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<li><a href="/mobile/mail/list.jsp?box=2" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %>" src="/common/images/icon-mail-send.png">
+								<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %></a>
+							<li id="mailboxes2">
+							    <label for="select-native-2" style="font-weight: bold;"><%=msglang.getString("mail.OutBox.personal") /* 보낸편지함(개인용) */ %></label>
+							    <select name="select-native-2" id="select-native-2" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=7" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="스팸편지함" src="/common/images/icon-mail-sign.png">스팸편지함</a> -->
+							<li><a href="/mobile/mail/list.jsp?box=3" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %>" src="/common/images/icon-mail-temp.png"><%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %></a>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=6" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="예약편지함" src="/common/images/icon-clock-arrow.png">예약편지함</a> -->
+							<!-- <li><a href="/mobile/mail/list.jsp?box=4" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="지운편지함" src="/common/images/icon-mail-minus.png">지운편지함</a> -->
+						</ul>		
+					<li>사내쪽지
+						<ul data-role="listview">
+							<li><a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="받은쪽지함" src="/common/images/icons/approual_icon_4.jpg">받은쪽지함</a>
+							<li><a href="/mobile/notification/list.jsp?boxId=1&noteType=1" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="읽지않은쪽지" src="/common/images/icons/notification_icon_1.jpg">읽지않은 쪽지</a>
+							<!-- <li><a href="/mobile/notification/list.jsp?boxId=1&noteType=2" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="전자결재알림" src="/common/images/icons/approual_icon_10.jpg">전자결재 알림</a> -->
+							<li><a href="/mobile/notification/list.jsp?boxId=2&noteType=0" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="보낸쪽지함" src="/common/images/icons/approual_icon_2.jpg">보낸쪽지함</a>
+							<!-- <li><a href="/mobile/notification/list.jsp?boxId=2&noteType=-1" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="수신확인" src="/common/images/icons/admin_icon_9.jpg">수신확인</a> -->
+						</ul>
+					<li><%=msglang.getString("main.Board") /* 게시판 */ %>
+						<ul data-role="listview" id="bbs">
+<%-- 							<li><a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false"><%=msglang.getString("main.notice") /* 공지사항 */ %></a> --%>
+							<li><a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false"><%=msglang.getString("main.notice") /* 공지사항 */ %></a>
+							<li><a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000004" data-ajax="false">자유게시판</a>
+							<!-- <li><a href="/mobile/bbs/list.jsp?bbsId=bbs20140902094343" data-ajax="false">갤러리</a> -->
+							<!-- <li><a href="/mobile/bbs/list.jsp?bbsId=bbs20110922153448" data-ajax="false">사내경조사</a> -->
+							<%-- 
+							<li id="teamBbs">
+							    <label for="select-native-3" style="font-weight: bold;"><%=msglang.getString("main.board.team") /* 팀게시판 */ %></label>
+							    <select name="select-native-3" id="select-native-3" onchange="linkTeamBbs(this)">
+							    	<option value=""><%=msglang.getString("t.select.board") /* 게시판 선택 */ %></option>
+							    </select>
+							--%>
+						</ul>
+					<li><%=msglang.getString("t.worksupport") /* 업무지원 */ %>
+						<ul data-role="listview">
+							<li><a href="/mobile/addressbook/user.jsp" data-ajax="false"><%=msglang.getString("main.Employee.Info") /* 임직원정보 */ %></a>
+							<li><a href="/mobile/addressbook/list.jsp" data-ajax="false"><%=msglang.getString("main.Business.Card") /* 주소록관리 */ %></a>
+						</ul>
+					
+					<!-- <img class="ui-li-icon ui-corner-none" alt="PC 전환" src="/common/images/icons/email_icon_10.jpg"> -->
+					<li><a href="/jpolite/index.jsp" data-ajax="false"><%=msglang.getString("t.switch.pc.version") /* PC 버전 보기 전환 */ %></a>
+				<%} %>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+<!-- 	<div data-role="footer" class="footer-docs" data-theme="c"> -->
+<!-- 		<p>Mobile Groupware</p> -->
+<!-- 	</div> -->
+</div>
 </body>
 </html>
