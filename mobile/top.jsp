@@ -51,64 +51,36 @@
 	</script>
 	
 	<ul data-role="listview" data-theme="a" data-divider-theme="a" data-filter="true" data-filter-theme="a" data-filter-placeholder="Search menu...">
-			<!-- 	
-			<li data-filtertext="전자결재 기안목록">
-				<a href="appr/list.html?menu=130" data-ajax="false">기안목록</a>
-			</li>
-			<li data-filtertext="전자결재 결재할문서">
-				<a href="appr/list.html?menu=240" data-ajax="false">결재할문서</a>
-			</li>
-			<li data-filtertext="전자결재 결재한문서">
-				<a href="appr/list.html?menu=340" data-ajax="false">결재한문서</a>
-			</li>
-			<li data-filtertext="전자결재 반려된문서">
-				<a href="appr/list.html?menu=530" data-ajax="false">반려된문서</a>
-			</li>
-			<li data-filtertext="전자결재 전체보기">
-				<a href="appr/list.html?menu=540" data-ajax="false">전체보기</a>
-			</li>
-			<li data-filtertext="전자결재 부서수신">
-				<a href="appr/list.html?menu=620" data-ajax="false">부서수신</a>
-			</li>
-			<li data-filtertext="전자결재 개인수신">
-				<a href="appr/list.html?menu=630" data-ajax="false">개인수신</a>
-			</li>
-			<li data-filtertext="전자결재 보낸회람">
-				<a href="appr/list.html?menu=810" data-ajax="false">보낸회람</a>
-			</li>
-			<li data-filtertext="전자결재 받은회람">
-				<a href="appr/list.html?menu=820" data-ajax="false">받은회람</a>
-			</li>
-			 -->
+			
 			<li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("mail.InBox") /* 받은편지함 */ %>">
-				<a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("mail.InBox") /* 받은편지함 */ %></a>
+				<a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("main.E-mail") /* 받은편지함 */ %></a>
 			</li>
-			<%--
-			<li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("c.logout") /* 쪽지함 */ %>">
-				<a href="/mobile/notification/list.html?boxId=1&noteType=0" data-ajax="false"><%=msglang.getString("c.logout") /* 쪽지함 */ %></a>
+            <li data-filtertext="">
+				<a href="appr/list.jsp?menu=240" data-ajax="false">전자결재</a>
 			</li>
-			--%>
-			<li data-filtertext="<%=msglang.getString("main.Board") /* 게시판 */ %> <%=msglang.getString("main.notice") /* 공지사항 */ %>">
-				<a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false"><%=msglang.getString("main.notice") /* 공지사항 */ %></a>
+            <li data-filtertext="">
+				<a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false">사내쪽지</a>
 			</li>
-			<li data-filtertext="<%=msglang.getString("main.Board") /* 게시판 */ %> <%=msglang.getString("main.Work.Board") /* 업무게시판 */ %>">
-				<a href="/mobile/bbs/list_work.jsp" data-ajax="false"><%=msglang.getString("main.Work.Board") /* 업무게시판 */ %></a>
+			<li data-filtertext="">
+				<a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000004" data-ajax="false">게시판</a>
 			</li>
-<!-- 			<li data-filtertext="게시판 자유게시판"> -->
-<!-- 				<a href="bbs/list.html?bbsId=bbs00000000000004" data-ajax="false">자유게시판</a> -->
-<!-- 			</li> -->
-<!-- 			<li data-filtertext="게시판 사내경조사"> -->
-<!-- 				<a href="bbs/list.html?bbsId=bbs20110922153448" data-ajax="false">사내경조사</a> -->
-<!-- 			</li> -->
-			<li data-filtertext="<%=msglang.getString("t.worksupport") /* 업무지원 */ %> <%=msglang.getString("main.Employee.Info") /* 임직원정보 */ %>">
-				<a href="/mobile/addressbook/user.jsp" data-ajax="false"><%=msglang.getString("main.Employee.Info") /* 임직원정보 */ %></a>
+            <!--<li data-filtertext="">
+				<a href="" data-ajax="false">업무지원</a>
+			</li>-->
+            <li data-filtertext="">
+				<a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false">공지사항</a>
 			</li>
-			<li data-filtertext="<%=msglang.getString("t.worksupport") /* 업무지원 */ %> <%=msglang.getString("main.Business.Card") /* 주소록 */ %>">
-				<a href="/mobile/addressbook/list.jsp" data-ajax="false"><%=msglang.getString("main.Business.Card") /* 주소록관리 */ %></a>
+            <li data-filtertext="">
+				<a href="/mobile/addressbook/user.jsp" data-ajax="false">임직원정보</a>
+			</li>
+            <li data-filtertext="">
+				<a href="/mobile/addressbook/list.jsp" data-ajax="false">주소록관리</a>
 			</li>
 		</ul>
 	</div><!-- /content -->
-
+    <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position: fixed;bottom:-100%;background:#f5f5f5;width:80%;right:0;">
+    <img src="/common/images/m_icon/13.png"> PC버전으로 보기
+</div>
 </div><!-- /page -->
 </body>
 </html>
