@@ -157,7 +157,7 @@ body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;
     .sidebar_menu{
  display: none;
         width: 80%;
-        height: 100%;
+        height:100vh;
         background: #fff;
         position: fixed;
         top:0;
@@ -184,7 +184,8 @@ body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;
         height:100vh;
         overflow: hidden;
     }
-    .menu_wrap .nav_div{position:absolute;width:100%;left:0;top:-59px;}
+    .menu_wrap .nav_div{position:absolute;width:100%;left:0;top:-59px;height:calc(100vh - (-59px + 80px));overflow: auto;}
+    .ui-mobile .type-home .ui-content{position:relative;z-index: 9;}
 select,input,button,a,label,li,div{ -webkit-tap-highlight-color:transparent;}
 .ham_user_name{float:left;margin: 10px;}
 .logout_btn{float:right;background:#266fb5;color:#fff;font-weight: 600;padding:1% 5%;font-size:13px;margin: 10px;}
