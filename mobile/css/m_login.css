@@ -1,0 +1,21 @@
+body{position:relative;overflow-x: hidden !important;}
+.ui-mobile .ui-page-active{height:100vh !important;}
+select,input,button,a,label,li,div{ -webkit-tap-highlight-color:transparent;text-shadow:none !important;box-shadow: none !important;}
+.container_login{width:82%;margin:-20% auto 0;text-align: center;max-width: 320px;position: absolute;top:50%;left:50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);-z-transform: translate(-50%,-50%);}
+.login { position: relative; width: 100%; height: 443px; background: url(/common/images/login/bg_login_garam.gif) no-repeat; }
+#footmenu { position: absolute; left: 33px; top: 350px; width: 740px; height: 14px;font-weight:normal;  }
+#authorinfo { position: absolute; left: 50px; top: 380px; width: 600px; height: 90px; color:#858585;font-size:11px;font-weight:normal; line-height:110%; }
+.toplogotxt { font-size:26px; }
+.toplogodec { font-size:14px; letter-spacing: -0.1em; }
+input.ui-input-text{background:#fff;height:50px;line-height: 50px;border-radius: 0;    color: #000;}
+.login_img img{width:33%;}
+.login_btn{font-size:0;margin:4% 0 0 0;border:0;width:100%;background:#266fb4;}
+input[name="checksaveid"]{margin:0;position: relative;left:0;float: left;top: 6px !important;}
+.container_login_input{text-align:left;}
+.ui-btn-text{font-size:0;}
+.ui-page{min-height: auto !important;    overflow: auto !important;}
+#authorinfo{width:100%;left:0;}
+@media (min-width: 1024px) and (max-width: 1280px) {
+.container_login{margin:-30px auto 0;}
+
+}
