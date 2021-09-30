@@ -78,7 +78,7 @@
 			</li>
 		</ul>
 	</div><!-- /content -->
-    <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position:relative;background:#f5f5f5;width:100%;right:0;bottom:-100%;">
+    <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position:fixed;;background:#f5f5f5;width:80%;right:0;bottom:-100%;">
     <img src="/common/images/m_icon/13.png"> PC버전으로 보기
 </div>
 </div><!-- /page -->
