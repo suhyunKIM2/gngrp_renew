@@ -51,7 +51,9 @@
 	</script>
 	
 	<ul data-role="listview" data-theme="a" data-divider-theme="a" data-filter="true" data-filter-theme="a" data-filter-placeholder="Search menu...">
-			
+			<li data-filtertext="편지작성">
+				<a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">편지작성</a>
+			</li>
 			<li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("mail.InBox") /* 받은편지함 */ %>">
 				<a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("main.E-mail") /* 받은편지함 */ %></a>
 			</li>

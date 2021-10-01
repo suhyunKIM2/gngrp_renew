@@ -128,8 +128,8 @@ body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;
         .quick_menu ul li img{height: 20px;image-rendering: -webkit-optimize-contrast;image-rendering:-moz-auto;image-rendering:-o-auto;image-rendering:auto;margin-right: 4px;    vertical-align: middle;}
         .quick_menu ul li:nth-child(1){    padding-bottom: 0.8em;}
         .quick_menu ul li:nth-child(2) img{height:14px;}
-        .ui-icon, .ui-icon-searchfield:after{background: rgb(38 111 181);}
-        .ui-icon{position: absolute;right: 0; background:rgba(0,0,0,.4) url(/common/jquery/mobile/1.2.0/images/icons-36-white.png) !important;background-position: -108px 50%!important;background-size: 776px 18px!important;opacity: 1;}
+        /*.ui-icon, .ui-icon-searchfield:after{background: rgb(38 111 181);}*/
+        .ui-icon{position: absolute;right: 0; /*background:rgba(0,0,0,.4) url(/common/jquery/mobile/1.2.0/images/icons-36-white.png);background-position: -108px 50%;background-size: 776px 18px;opacity: 1;*/}
         .ui-icon-searchfield:after{opacity: 1 !important;}
         .quick_menu ul li .ui-li-count{    background: #8b8b8b;
     padding: 5px 6px;

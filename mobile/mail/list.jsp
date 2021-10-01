@@ -78,7 +78,7 @@ if(searchValue == null) searchValue = "";
 		var pageNo = data.page;
 		var records = data.records;
 		
-		var html = (pageNo == 1)? "<li data-role='list-divider'>"+boxMenu(box)+" <span class='ui-li-count'>"+records+"</span></li>": "";
+		var html = (pageNo == 1)? "<li data-role='list-divider'>"+boxMenu(box)+" <span class='ui-li-count'><font style='color:#000'>안읽은메일 :</font> "+records+"개</span></li>": "";
 
 		for (var i=0; i<data.rows.length; i++) {
 			var item = data.rows[i];
@@ -129,6 +129,7 @@ if(searchValue == null) searchValue = "";
     </script>
     <!----S: 2021리뉴얼 추가------->
 <link rel="stylesheet" href="/mobile/css/mobile.css"/>
+<link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
 <script>
     $(document).ready(function(){
  
@@ -158,69 +159,7 @@ if(searchValue == null) searchValue = "";
         });
 });
 </script>
-<style>
-select, input, button, a, label, li, div {
-text-shadow: none !important;
-box-shadow: none !important;
-}
-.nav-search .ui-content {
-    margin-top:16px;
-}
-.nav-search .ui-corner-top {
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-}
-.nav-search .ui-bar-a {
-    background-image:none;
-    background-color:#555;
-}
-.nav-search .ui-btn-up-a {
-    background-image:none;
-    background-color:#333333;
-}
-.nav-search .ui-btn-inner {
-    border-top: 1px solid #888;
-    border-color: rgba(255, 255, 255, .1);
-}
-.nav-search .ui-content{display: block;}
-.ui-checkbox .ui-btn-icon-left .ui-icon, .ui-radio .ui-btn-icon-left .ui-icon{display:none;}
-.burger-icon{border:0;background:none;top:-1px;width:135px;margin:0 !important;}
-#page-list{background:#fff !important;}
-.menu_wrap .nav_div{top:8px;}
-.ui-icon, .ui-icon-searchfield:after {
-background: rgba(0,0,0,.4) url(/common/jquery/mobile/1.2.0/images/icons-36-white.png);
-background-position: 940px 18px;
-background-size: 776px 18px;
-opacity: 1;
-}
-.close_btn > a{color:#000 !important;}
-.logout_btn{text-shadow: none;}
-.menu_wrap ul li{    padding: .7em 15px;}
-.ui-content{background: #f7f7f7;}
-.content_div .ui-icon{background:rgba(0,0,0,.4) url(/common/jquery/mobile/1.2.0/images/icons-36-white.png) !important;    background-position: -216px 50% !important;
-background-size: 776px 18px !important;}
-.content_div .ui-btn-corner-all{border-radius:0;}
-.content_div .ui-grid-a > :nth-child(n){width:auto;}
-.content_div .ui-select .ui-btn{border-color: #9f9f9f;background:#fff;margin-left: 0;width: 90px;}
-.content_div #list{clear:both;box-shadow: none;}
-.content_div .ui-content fieldset,.ui-btn-corner-all{float:left;} 
-.content_div .ui-input-search input.ui-input-text{padding: .5em 0;}
-.content_div .ui-input-search{padding: 0 0 0 30px;}
-.content_div .ui-btn-icon-right .ui-btn-inner{padding: .54em 24px .54em 6px!important;}
-.content_div .ui-btn-inner{padding: .48em 20px;}
-.content_div .ui-grid-a{width:auto;float:left;}
-.ui-listview-filter .ui-input-search{width:98%;}
-.ui-icon{background-color: #266fb5  !important;}
-.content_div .button_color span{background:#266fb5;border: 0;}
-.content_div .button_color .ui-btn-corner-all{border:1px solid #266fb5;}
-.ui-select .ui-btn-icon-right .ui-icon {
-    right: 5px;
-}
-.ui-select .ui-btn-text{width:60px;}
-.content_div #list .ui-btn-inner {width:97%;padding-right:2% !important;}
-</style>
-	
+
 <script>
     $('body').delegate('.nav-search', 'pageshow', function( e ) {
         $('.ui-input-text').attr("autofocus", true)
@@ -245,6 +184,9 @@ background-size: 776px 18px !important;}
                  <div class="nav_div">
                  <div data-role="content">   
                  <ul data-role="listview" data-theme="a" data-divider-theme="a" data-filter="true" data-filter-theme="a" data-filter-placeholder="Search menu...">
+                     <li data-filtertext="편지작성">
+                        <a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">편지작성</a>
+                    </li>
 			        <li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("mail.InBox") /* 받은편지함 */ %>">
                         <a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("main.E-mail") /* 받은편지함 */ %></a>
                     </li>
@@ -280,7 +222,7 @@ background-size: 776px 18px !important;}
     </div>
 
      <h1 class="left_logo">
-         <a href="">
+         <a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">
             <img src="/common/images/icon/logo.png" height="29" border="0" >
         </a>
      </h1>

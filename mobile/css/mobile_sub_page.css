@@ -1,0 +1,97 @@
+select, input, button, a, label, li, div {
+text-shadow: none !important;
+box-shadow: none !important;
+}
+.nav-search .ui-content {
+    margin-top:16px;
+}
+.nav-search .ui-corner-top {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.nav-search .ui-bar-a {
+    background-image:none;
+    background-color:#555;
+}
+.nav-search .ui-btn-up-a {
+    background-image:none;
+    background-color:#333333;
+}
+.nav-search .ui-btn-inner {
+    border-top: 1px solid #888;
+    border-color: rgba(255, 255, 255, .1);
+}
+.nav-search .ui-content{display: block;}
+.ui-checkbox .ui-btn-icon-left .ui-icon, .ui-radio .ui-btn-icon-left .ui-icon{display:none;}
+.burger-icon{border:0;background:none;top:-2px;width:135px;margin:0 !important;}
+#page-list{background:#fff !important;}
+.menu_wrap .nav_div{top:8px;}
+.ui-icon, .ui-icon-searchfield:after {
+/*background: rgba(0,0,0,.4) url(/common/jquery/mobile/1.2.0/images/icons-36-white.png);
+background-position: 940px 18px;*/
+background-size: 776px 18px;
+opacity: 1;
+}
+.close_btn > a{color:#000 !important;}
+.logout_btn{text-shadow: none;}
+.menu_wrap ul li{    padding: .7em 15px;}
+.ui-content{background: #f7f7f7;height: calc(100vh - 79px);}
+.content_div .ui-icon{background:rgba(0,0,0,.4) url(/common/jquery/mobile/1.2.0/images/icons-36-white.png) !important;    background-position: -216px 50% !important;
+background-size: 776px 18px !important;}
+.content_div .ui-btn-corner-all{border-radius:0;right: 0;}
+.content_div .ui-grid-a > :nth-child(n){width:auto;}
+.content_div .ui-select .ui-btn{border-color: #9f9f9f;background:#fff;margin-left: 0;width: 90px;}
+.content_div #list{clear:both;box-shadow: none;}
+.content_div .ui-content fieldset,.ui-btn-corner-all{float:left;} 
+.content_div .ui-input-search input.ui-input-text{padding: .5em 0;}
+.content_div .ui-input-search{padding: 0 0 0 35px;}
+.content_div .ui-btn-icon-right .ui-btn-inner{padding: .54em 24px .54em 6px!important;}
+.content_div .ui-btn-inner{padding: .48em 20px;}
+.content_div .ui-grid-a{width:auto;float:left;}
+.ui-listview-filter .ui-input-search{width:94%;margin: 0 3% 3%;}
+.ui-icon{background-color: #266fb5  !important;}
+.content_div .button_color span{border: 0;vertical-align: middle;padding: .6em 10px;}
+.content_div .button_color .ui-btn-corner-all{border:0;}
+.ui-select .ui-btn-icon-right .ui-icon {
+    right: 5px;
+}
+.ui-select .ui-btn-text{width:60px;}
+.content_div #list .ui-btn-inner {width:97%;padding:0 !important;margin:auto;}
+.content_div .ui-input-search,.content_div .button_color .ui-btn{height:40px;}
+.content_div .button_color .ui-btn{background: #266fb5;}
+.content_div .ui-select .ui-btn{height:38px;}
+.ui-input-search input.ui-input-text{width:100%;}
+.ui-btn-inner{min-width:1.2em;    color: #000;}
+.ui-btn.ui-btn-up-a.ui-btn-icon-right.ui-li-has-arrow.ui-li{border-top:0;border-bottom: 1px solid #eee;}
+.ui-listview-inset .ui-li{border-radius: 0;background: none;border:0;color:#266fb5;padding-left:0;font-size:15px;border-bottom: 1px solid #f7f7f7;}
+.content_div .ui-corner-top .ui-li-count{border:0;background:none;font-size: 13px;color: #266fb5;    padding-right: 0;}
+.content_div .ui-btn-inline{float:none;    background: #266fb5;color: #fff;border: 0;padding: 1% 2%;}
+.content_div .ui-btn-inline span{border:0;}
+.ui-li-heading{font-size:15px;}
+.ui-li-desc,.ui-li-heading{color:#575757 !important;}
+@media all and (max-width:375px) {
+.content_div .ui-input-search{width:51%;}
+}
+@media all and (max-width:360px) {
+.content_div .ui-input-search{width:48%;}
+}
+@media all and (max-width:320px) {
+.content_div .ui-input-search{width:41%;}
+}
+@media all and (max-width:280px) {
+.content_div .ui-input-search{width:71%;}
+.content_div .ui-select .ui-btn{margin:0;}
+.ui-btn-icon-left > .ui-btn-inner > .ui-icon, .ui-btn-icon-right > .ui-btn-inner > .ui-icon{margin-top:-13px;}
+.content_div .ui-btn-icon-right .ui-btn-inner {
+    padding: .1em 24px .54em 6px!important;
+}
+.content_div .ui-select .ui-btn {
+    height: 28px;
+}
+.content_div .ui-input-search input.ui-input-text{    padding: .3em 0;}
+.content_div .ui-input-search, .content_div .button_color .ui-btn {
+    height: 35px;
+}
+.content_div .button_color span{padding: .4em 10px;}
+}
