@@ -51,7 +51,7 @@ background-size: 776px 18px !important;}
 .content_div .ui-grid-a{width:auto;float:left;}
 .ui-listview-filter .ui-input-search{width:94%;margin: 0 3% 3%;}
 .ui-icon{background-color: #266fb5  !important;}
-.content_div .button_color span{border: 0;vertical-align: middle;padding: .6em 10px;}
+.content_div .button_color span{border: 0;vertical-align: middle;padding: .6em 10px;color:#fff;}
 .content_div .button_color .ui-btn-corner-all{border:0;}
 .ui-select .ui-btn-icon-right .ui-icon {
     right: 5px;
@@ -67,9 +67,10 @@ background-size: 776px 18px !important;}
 .ui-listview-inset .ui-li{border-radius: 0;background: none;border:0;color:#266fb5;padding-left:0;font-size:15px;border-bottom: 1px solid #f7f7f7;}
 .content_div .ui-corner-top .ui-li-count{border:0;background:none;font-size: 13px;color: #266fb5;    padding-right: 0;}
 .content_div .ui-btn-inline{float:none;    background: #266fb5;color: #fff;border: 0;padding: 1% 2%;}
-.content_div .ui-btn-inline span{border:0;}
+.content_div .ui-btn-inline span{border:0;color:#fff;}
 .ui-li-heading{font-size:15px;}
 .ui-li-desc,.ui-li-heading{color:#575757 !important;}
+
 @media all and (max-width:375px) {
 .content_div .ui-input-search{width:51%;}
 }

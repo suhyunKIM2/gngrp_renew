@@ -163,12 +163,14 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     	}
     </script>
 <style>
-.ui-icon, .ui-icon-searchfield:after{    background: #266fb5 !important;
-    background: rgba(0,0,0,.4) /*{global-icon-disc}*/;
+/*.ui-icon, .ui-icon-searchfield:after{    background: #266fb5 !important;
+    background: rgba(0,0,0,.4) {global-icon-disc};
     background-image: url(/common/jquery/mobile/1.2.0/images/icons-18-white.png)  !important;}
 .ui-icon-arrow-r {
     background-position: -108px 50% !important;
-}    
+}   */ 
+.quick_menu .ui-icon,.ui-listview .ui-icon{background: #1064b0 url(/common/jquery/mobile/1.2.0/images/icons-36-white.png);background-size: 776px 18px;
+    background-position: -108px 50%;}
 </style>
 
 </head>

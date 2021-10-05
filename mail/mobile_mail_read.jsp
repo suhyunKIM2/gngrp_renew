@@ -357,20 +357,7 @@
 	<link rel="stylesheet" href="/common/jquery/mobile/1.2.0/jqm-docs.css"/>
     <script src="/common/jquery/js/jquery-1.8.0.min.js"></script>
     <script src="/common/jquery/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <style type="text/css">
-    	dd { overflow: auto; }
-		.ui-collapsible-content { overflow: auto;}
-        #mailBodyValue .ui-collapsible-content{height: calc(100vh - 373px);}
-        .ui-grid-c .ui-block-a .ui-icon {background:url(/common/images/m_icon/16.png)no-repeat !important;    background-size: 100% !important;border-radius: 0;width: 23px;height:23px;left: 18px;}
-        .ui-grid-c .ui-block-b .ui-icon {background:url(/common/images/m_icon/17.png)no-repeat !important;    background-size: 100% !important;border-radius: 0;width: 23px;height:23px;}
-        .ui-grid-c .ui-block-c .ui-icon {background:url(/common/images/m_icon/18.png)no-repeat !important;    background-size: 100% !important;border-radius: 0;width: 23px;height:23px;left: 20px;}
-        .ui-grid-c .ui-block-d .ui-icon {background:url(/common/images/m_icon/19.png)no-repeat !important;    background-size: 100% !important;border-radius: 0;width: 23px;height:23px;left: 22px;}
-        .ui-navbar li .ui-btn {text-align: center;}
-        .ui-content.ui-content_mail{background:#fff;}
-        .ui-navbar ul.ui-grid-c{border-top:1px solid #eee;}
-        .ui-content_mail ul.ui-grid-c .ui-btn-up-a{background:#f7f7f7 !important;}
-        hr{display: none;}
-    </style>
+   
     <script type="text/javascript">
 		var mailid = "<%=message_name %>";
     	var boxid = "<%=mailboxID %>";
@@ -405,6 +392,7 @@
         <!----S: 2021리뉴얼 추가------->
 <link rel="stylesheet" href="/mobile/css/mobile.css"/>
 <link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
+<link rel="stylesheet" href="/mobile/css/mobile_mail_read.css"/>
 <script>
     $(document).ready(function(){
  
@@ -432,6 +420,18 @@
             $('.ham_pc_footer_div').hide(); 
             }); 
         });
+         
+        $('.blindcopyto_span').toggle(
+            function(){ $('.blindcopyto_span').text("닫기▲"); 
+                        $('.blindcopyto_box').css('display','block');
+                },
+
+            function(){$('.blindcopyto_span').text("비밀참조인▼"); 
+                       $('.blindcopyto_box').css('display','none');
+        
+               });
+
+        
 });
 </script>
 
@@ -512,46 +512,38 @@
 				<li><a href="javascript:deleteMail();" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-theme="a" data-ajax="false"><fmt:message key="t.delete"/><!-- 삭제 --></a></li>
 			</ul>
 		</div>
-        <div><%=mailDateValue %></div>
-		<p style="font-size:18px;"><b><%=HtmlEncoder.encode(envelope.getSubject())%></b></p>
+        <div class="date_text"><%=mailDateValue %></div>
+		<p style="font-size:18px;" class="mail_title p_line"><b><%=HtmlEncoder.encode(envelope.getSubject())%></b></p>
 		<hr/>
-		<p style="font-size:14px;">
-			<fmt:message key="t.outgoing"/><!-- 발신 --> : 
-			<%=mailFromsValue %>
+		<p style="font-size:14px;" class="p_line">
+			<b><fmt:message key="t.outgoing"/><!-- 발신 -->  </b>
+			<span class="span_left"><%=mailFromsValue %></span>
+		</p>
+        
+        <p style="font-size:14px;" class="p_line">
+			<b><fmt:message key="mail.sendto"/><!-- 수신 --></b> 
+			<span class="span_left"><%=mailTosValue %></span>
 		</p>
 		
-		<div data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true">
-		    <h4><fmt:message key="mail.sendto"/><!-- 수신 --></h4>
-		    <p style="font-size:14px;">
-			
-			<%=mailTosValue %></p>
-			
-			<div data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true">
-				<h4><fmt:message key="mail.copyto"/><!-- 참조 --></h4>
-				<p style="font-size:14px;"><img align="absmiddle" src="/common/images/icon-users.png"/> 
-				<%=mailCcsValue %></p>
-			</div>
-			
-			<div data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true">
-			<h4><fmt:message key="mail.blindcopyto"/><!-- 비밀참조 --></h4>
-			<p style="font-size:14px;"><img align="absmiddle" src="/common/images/icon-users.png"/> 
-			<%=mailBccsValue %></p>
-			</div>
-		</div>
-	
-		<div data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true">
-			<h4><fmt:message key="t.attached"/><!-- 첨부 --></h4>
-		    <p style="font-size:14px;">
-			<%=mailAttachValue %></p>
-		</div>
-				
+        <p style="font-size:14px;" class="p_line">
+			<b><fmt:message key="mail.copyto"/><!-- 참조 --><br><span class="blindcopyto_span"><fmt:message key="mail.blindcopyto"/>▼<!-- 비밀참조 --></span></b> 
+			<span class="span_left"><%=mailCcsValue %></span>
+        </p>
+        <p style="font-size:14px;" class="blindcopyto_box p_line">
+			<span class="span_left"><%=mailBccsValue %></span>
+        </p>
+        
+        <p style="font-size:14px;" class="file_box">
+            <b><fmt:message key="t.attached"/><!-- 첨부 --></b> 
+			<span class="span_left"><%=mailAttachValue %></span>
+        </p>
+  
 		<hr/>
 		<%-- <div class="ui-corner-all" style="/* border:1px solid #aaa; width:760px; */"></div> --%>
 		
-		<div id="mailBodyValue" data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true" data-collapsed="false">
-			<h4>내용</h4>
-		    <%=mailBodyValue %>
-		</div>
+        <div id="mailBodyValue"><%=mailBodyValue %></div>
+
+		
 	</div>
     </div>
 
