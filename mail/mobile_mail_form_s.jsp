@@ -310,7 +310,8 @@ if (envelope != null) {
 <link rel="stylesheet" href="/common/jquery/mobile/1.2.0/jqm-docs.css"/>
 <link rel="stylesheet" type="text/css" href="/common/jquery/plugins/token-input-facebook.css" />
 <link rel="stylesheet" type="text/css" href="/mail/css/garamtagit.css">
-<script src="/common/jquery/js/jquery-1.6.4.min.js"></script>
+<!--<script src="/common/jquery/js/jquery-1.6.4.min.js"></script> 2021리뉴얼 주석처리-->
+<script src="/common/jquery/js/jquery-1.8.0.min.js"></script><!--2021리뉴얼 추가-->
 <script src="/common/jquery/ui/1.8.16/jquery-ui.min.js"></script>
 <script src="/common/jquery/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 <script src="/common/jquery/plugins/jquery.ui.touch-punch.min.js"></script>
@@ -456,15 +457,169 @@ function AddressToString(objAddress) {
 	return strAddress;
 }
 </script>
+<!----S: 2021리뉴얼 추가------->
+<link rel="stylesheet" href="/mobile/css/mobile.css"/>
+<link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
+<link rel="stylesheet" href="/mobile/css/mobile_mail_read.css"/>
+
+<script>
+    $(document).ready(function(){
+ 
+        $('#burger-check').on('click', function(){
+            $('.menu_bg').show(); 
+            $('.sub_ham_page').css('display','block'); 
+            $('.sidebar_menu').show().animate({
+                right:0
+            });
+            $('.ham_pc_footer_div').show().animate({
+                bottom:0,right:0
+            });
+        });
+        $('.close_btn>a').on('click', function(){
+            $('.menu_bg').hide(); 
+            $('.sidebar_menu').animate({
+                right: '-' + 100 + '%'
+                       },function(){
+            $('.sidebar_menu').hide(); 
+            }); 
+            $('.ham_pc_footer_div').animate({
+                right: '-' + 100 + '%',
+                bottom:'-' + 100 + '%'
+                       },function(){
+            $('.ham_pc_footer_div').hide(); 
+            }); 
+        });
+         
+        $('.blindcopyto_span').toggle(
+            function(){ $('.blindcopyto_span').text("닫기▲"); 
+                        $('.blindcopyto_box').css('display','block');
+                },
+
+            function(){$('.blindcopyto_span').text("비밀참조인▼"); 
+                       $('.blindcopyto_box').css('display','none');
+        
+               });
+
+        
+});
+</script>
+
+<script>
+    $('body').delegate('.nav-search', 'pageshow', function( e ) {
+        $('.ui-input-text').attr("autofocus", true)
+    });			
+</script>
+<style>
+body, div {
+    font-size: 100%;
+}
+.ui-content{height:auto;}
+.ui-widget .ui-widget{font-size:9pt;}
+.ui-icon-close{
+        background-image: url(/common/jquery/mobile/1.2.0/images/icons-18-white.png) !important;
+        background-size: auto;
+        background-position: 9.5% 50% !important;
+}
+.ui-field-contain .ui-input-search {
+    width: 97% !important;
+    margin: 0 1.5% !important;
+    border-radius: 0;
+    border-color: #ddd;
+    padding: 0 2%;
+}
+ul.autocompleteTag li{width:100%;padding: 0;border: 0;}
+.ui-content{background:#fff;}
+.ui-corner-all{border:0;}
+.left_label{float:left;}
+.ui-mini{width:75%;float:right;padding-top:0 !important;margin-top: 0;}
+.ui-field-contain{border:0;}
+label.ui-input-text{float:left;}
+input.ui-input-text{width:87%;float: right;}
+.ui-menu .ui-menu-item a{white-space: pre-line;}
+.ui-autocomplete{top:125px !important;width:66.3%;right:5.7%;border:1px solid #999;border-top:0;border-radius: 0;left:auto !important;}
+.blue{color:#266fb5;}
+input[name="autocomplete_check"]{vertical-align:top; }
+.fieldcontain_box{clear: both;display: block;width:99.6%; border:1px solid #999;overflow: auto;height: 70px;}
+.file_btn{float:right;background:#266fb5;padding:2% 4%;font-size:13px;margin-bottom: 7px;}
+.file_btn a{color:#fff !important;text-decoration: none;}
+</style>
+<!----E: 2021리뉴얼 추가------->
+<script language='javascript' type='text/javascript'>
+            // 라인을 늘일 변수
+            var uf = '';
+            // sw_file_add_form div에 input 태그를 추가하는 함수
+            function sw_file_add(size, ext) {
+                // 최초 sw_file_add_form에 추가하고 다음부터는 sw_file_add_form1, 2, 3, 4, ... 로 계속 추가가 된다.
+                // 물론 그에 맞는 div도 계속 생성한다. 차후에 추가한 div를 제거하는 것도 필요하다.
+                eval('sw_file_add_form' + uf).innerHTML += "<input type=file name=file[] size='" + size + "' " + ext + "><div id='sw_file_add_form" + (uf+1) + "'></div>";
+                uf++;
+            }
+        </script>
 </head>
 <body>
 
 <div data-role="page" id="page-list">
-	<div data-role="header" data-theme="b">
-		<h2>Mobile Groupware</h2>
-		<a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">Home</a>
-		<a href="/mobile/nav.jsp" data-icon="search" data-rel="dialog" data-transition="fade" data-iconpos="right">Menu</a>
-	</div>
+
+    <div class="main_contents_top">
+    <div class="menu_bg"></div>
+    <div class="sidebar_menu">
+         <div class="close_btn">
+            <a href="#">닫기 <img src="/common/images/m_icon/15.png"></a>
+         </div>
+         <div class="ham_user_name"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b></div>
+         <div class="logout_btn" onClick="location.href='/logout.jsp'">로그아웃</div>
+         <div class="menu_wrap">
+             <div data-role="page" class="type-home sub_ham_page" id="page-home" style="position:relative;clear: both;z-index: 1;background: #fff;">
+                 <div class="nav_div">
+                 <div data-role="content">   
+                 <ul data-role="listview" data-theme="a" data-divider-theme="a" data-filter="true" data-filter-theme="a" data-filter-placeholder="Search menu...">
+                     <li data-filtertext="편지작성">
+                        <a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">편지작성</a>
+                    </li>
+			        <li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("mail.InBox") /* 받은편지함 */ %>">
+                        <a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("main.E-mail") /* 받은편지함 */ %></a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/appr/list.jsp?menu=240" data-ajax="false">전자결재</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false">사내쪽지</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000004" data-ajax="false">게시판</a>
+                    </li>
+                    <!--<li data-filtertext="">
+                        <a href="" data-ajax="false">업무지원</a>
+                    </li>-->
+                    <li data-filtertext="">
+                        <a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false">공지사항</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/addressbook/user.jsp" data-ajax="false">임직원정보</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/addressbook/list.jsp" data-ajax="false">주소록관리</a>
+                    </li>
+                </ul>
+                </div>
+                <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position:fixed;;background:#f5f5f5;width:80%;right:0;bottom:-100%;">
+                    <img src="/common/images/m_icon/13.png"> PC버전으로 보기
+                </div>
+                </div>
+             </div>
+         </div>
+    </div>
+
+     <h1 class="left_logo">
+         <a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">
+            <img src="/common/images/icon/logo.png" height="29" border="0" >
+        </a>
+     </h1>
+    <div class="right_menu" >
+        <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
+     </div>
+</div>
+
 	
 	<div data-role="content">
 	
@@ -485,45 +640,57 @@ function AddressToString(objAddress) {
 		    <jsp:param name="ctype" value="1"/>
 		</jsp:include>
 		<div data-role="fieldcontain">
-			<label for="reTo"><fmt:message key="mail.sendto"/><!-- 받는사람 --></label>
+			<label for="reTo" class="left_label"><b><fmt:message key="mail.sendto"/><!-- 받는사람 --></b></label>
 			<div class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini" style="padding:4px 3px 3px 3px;">
 				<input data-mini="true" type="text" name="receive_to" id="reTo" value="">
 			</div>
 		</div>
 		<div data-role="fieldcontain">
-			<label for="reCc"><fmt:message key="mail.copyto"/><!-- 참조인 --></label>
+			<label for="reCc" class="left_label"><b><fmt:message key="mail.copyto"/><!-- 참조인 --></b></label>
 			<div class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini" style="padding:4px 3px 3px 3px;">
 				<input data-mini="true" type="text" name="receive_cc" id="reCc" value="">
 			</div>
 		</div>
 		<div data-role="fieldcontain">
-			<label for="reBcc"><fmt:message key="mail.blindcopyto"/><!-- 비밀참조인 --></label>
+			<label for="reBcc" class="left_label"><b><fmt:message key="mail.blindcopyto"/><!-- 비밀참조인 --></b></label>
 			<div class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini" style="padding:4px 3px 3px 3px;">
 				<input data-mini="true" type="text" name="receive_bcc" id="reBcc" value="">
 			</div>
 		</div>
 		<div data-role="fieldcontain">
-			<label for="filehidden"><fmt:message key="t.attached"/></label>
+			<label for="filehidden"><b><fmt:message key="t.attached"/></b></label>
+            <form name="sw_write_form" method="post" enctype="multipart/form-data" action="">
+        
+        
+            <div class="file_btn"><a href="javascript:sw_file_add(50, 'class=input_write');">+ 파일 추가</a></div>
+            <div class="fieldcontain_box">
+                <input type="file" name="file[]" size="50" class="input_write" />
+        
+            <!-- 여기에 추가가 된다. -->
+            <div id="sw_file_add_form"></div>    
+            </div>
+            </form>
+            
 			<input data-mini="true" name="filehidden" id="filehidden" style="display: none;">
-			<input type="file" name="file1" value="" data-mini="true" style="line-height: 2em;margin:0;padding:0;">
+			<input type="file" name="file1" value="" data-mini="true" style="line-height: 2em;margin-left:13.5%;padding:0;">
 			<input type="file" name="file2" value="" data-mini="true" style="display: block;width: 78%; margin-left: 22%;line-height: 2em;">
 			<input type="file" name="file3" value="" data-mini="true" style="display: block;width: 78%; margin-left: 22%;line-height: 2em;">
 			<input type="file" name="file4" value="" data-mini="true" style="display: block;width: 78%; margin-left: 22%;line-height: 2em;">
 			<input type="file" name="file5" value="" data-mini="true" style="display: block;width: 78%; margin-left: 22%;line-height: 2em;">
 		</div>
 		<div data-role="fieldcontain">
-			<label for="subject"><fmt:message key="mail.subject"/></label>
+			<label for="subject" class="left_label"><b><fmt:message key="mail.subject"/></b></label>
 			<input data-mini="true" type="text" name="subject" id="subject" value="<%=subject %>">
 		</div>
 		<div data-role="fieldcontain">
-			<label for="mailbody"><fmt:message key="t.content"/><!-- 본문 --></label>
+			<label for="mailbody" class="left_label"><b><fmt:message key="t.content"/><!-- 본문 --></b></label>
 			<textarea data-mini="true" cols="40" rows="8" name="mailbody" id="mailbody" style="display: none;"></textarea>
 			<div data-role="content" contenteditable="true" id="txtContent" 
-				 class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini"></div>
+				 class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini" style="float: none;width:100%;"></div>
 		</div>
 		<div data-role="fieldcontain">
 			<fieldset data-role="controlgroup">
-			    <legend><fmt:message key="t.option"/><!-- 옵션 --></legend>
+			    <legend class="left_label"><b><fmt:message key="t.option"/><!-- 옵션 --></b></legend>
 			    <div style="display: none;">
 				    <input data-mini="true" type="checkbox" name="saveaftersent" id="saveaftersent" checked="checked">
 				    <label for="saveaftersent"><fmt:message key="mail.save.afterSend"/></label>

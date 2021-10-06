@@ -191,7 +191,7 @@ if(searchValue == null) searchValue = "";
                         <a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("main.E-mail") /* 받은편지함 */ %></a>
                     </li>
                     <li data-filtertext="">
-                        <a href="appr/list.jsp?menu=240" data-ajax="false">전자결재</a>
+                        <a href="/mobile/appr/list.jsp?menu=240" data-ajax="false">전자결재</a>
                     </li>
                     <li data-filtertext="">
                         <a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false">사내쪽지</a>
