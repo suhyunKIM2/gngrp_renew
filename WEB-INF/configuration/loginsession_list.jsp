@@ -129,11 +129,12 @@ $(document).ready(function(){
 
 </script>
 <style>
-.ui-jqgrid .ui-jqgrid-btable, .ui-jqgrid .ui-pg-table{table-layout: fixed !important;}
+.ui-jqgrid .ui-jqgrid-btable, .ui-jqgrid .ui-pg-table{table-layout: fixed !important;display: table;}
 .ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr {
     padding-left: 29.5px;
 }
 #dataGrid_cb{padding-left:0;}
+#dataGrid tr td:last-child{white-space: pre-line;line-height: normal;text-align: left !important;padding-left: 0 !important;padding-right: 1%;}
 </style>
 </head>
 
