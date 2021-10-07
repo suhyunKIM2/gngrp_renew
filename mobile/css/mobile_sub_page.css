@@ -69,7 +69,7 @@ background-size: 776px 18px !important;}
 .content_div .ui-btn-inline{float:none;    background: #266fb5;color: #fff;border: 0;padding: 1% 2%;}
 .content_div .ui-btn-inline span{border:0;color:#fff;}
 .ui-li-heading{font-size:15px;}
-.ui-li-desc,.ui-li-heading{color:#575757 !important;}
+.ui-li-desc,.ui-li-heading{color:#575757 !important;width: 95%;}
 
 @media all and (max-width:375px) {
 .content_div .ui-input-search{width:51%;}

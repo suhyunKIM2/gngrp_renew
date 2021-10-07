@@ -503,7 +503,7 @@
         <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
      </div>
 </div>
-	<div data-role="content" style="padding:5px;" class="ui-content_mail">
+	<div data-role="content"  class="ui-content_mail">
 	    <div data-role="navbar" data-iconpos="left">
 			<ul>
 				<li><a href="/mail/mobile_mail_form_s.jsp?cmd=reply&message_name=<%=message_name %>" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-r" data-theme="a" data-ajax="false"><fmt:message key="mail.reply"/><!-- 회신 --></a></li>
