@@ -310,10 +310,7 @@ if (envelope != null) {
 <link rel="stylesheet" href="/common/jquery/mobile/1.2.0/jqm-docs.css"/>
 <link rel="stylesheet" type="text/css" href="/common/jquery/plugins/token-input-facebook.css" />
 <link rel="stylesheet" type="text/css" href="/mail/css/garamtagit.css">
-
 <script src="/common/jquery/js/jquery-1.6.4.min.js"></script>
-<script src="/common/jquery/js/jquery-1.8.0.min.js"></script><!--2021리뉴얼 추가-->
-
 <script src="/common/jquery/ui/1.8.16/jquery-ui.min.js"></script>
 <script src="/common/jquery/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 <script src="/common/jquery/plugins/jquery.ui.touch-punch.min.js"></script>
@@ -465,11 +462,14 @@ function AddressToString(objAddress) {
 <link rel="stylesheet" href="/mobile/css/mobile.css"/>
 <link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
 <link rel="stylesheet" href="/mobile/css/mobile_mail_read.css"/>
-
+<link rel="stylesheet" href="/mobile/css/mobile_mail_form_s.css"/>
+<script src="/mobile/js/sw_file_add.js"></script>
 
 <script>
     $(document).ready(function(){
-        $('#burger-check').on('click', function(){
+        
+        
+        $('#burger-check').click(function(){
             $('.menu_bg').show(); 
             $('.sub_ham_page').css('display','block'); 
             $('.sidebar_menu').show().animate({
@@ -479,7 +479,7 @@ function AddressToString(objAddress) {
                 bottom:0,right:0
             });
         });
-        $('.close_btn>a').on('click', function(){
+        $('.close_btn>a').click(function(){
             $('.menu_bg').hide(); 
             $('.sidebar_menu').animate({
                 right: '-' + 100 + '%'
@@ -513,158 +513,12 @@ function AddressToString(objAddress) {
         $('.ui-input-text').attr("autofocus", true)
     });			
 </script>
-<style>
-body, div {
-    font-size: 100%;
-}
-.ui-content{height:auto;border-top: 1px solid #eee;}
-.ui-widget .ui-widget{font-size:9pt;}
-.ui-icon-close{
-        background-image: url(/common/jquery/mobile/1.2.0/images/icons-18-white.png) !important;
-        background-size: auto;
-        background-position: 9.5% 50% !important;
-}
-.ui-field-contain .ui-input-search {
-    width: 97% !important;
-    margin: 0 1.5% !important;
-    border-radius: 0;
-    border-color: #ddd;
-    padding: 0 2%;
-}
-ul.autocompleteTag li{width:100%;padding: 0;border: 0;}
-.ui-content{background:#fff;}
-.ui-corner-all{border:0;}
-.left_label{float:left;}
-.ui-mini{width:75%;float:right;padding-top:0 !important;margin-top: 0;}
-.ui-field-contain{border:0;font-size: 13px;}
-label.ui-input-text{float:left;font-size: 13px;height: 35px;line-height: 35px;}
-input.ui-input-text{width:87%;float: right;border: 1px solid #ccc;border-radius: 0;height: 36px;padding: 0 0 0 2%;font-size: 13px;}
-.ui-menu .ui-menu-item a{white-space: pre-line;}
-.ui-autocomplete{top:125px !important;width:66.3%;right:5.7%;border:1px solid #999;border-top:0;border-radius: 0;left:auto !important;}
-.blue{color:#266fb5;}
-input[name="autocomplete_check"]{vertical-align:top; }
-.fieldcontain_box{clear: both;display: block;width:99.6%; border:1px solid #ccc;overflow: auto;height:50px;}
-.file_btn{float:right;background:#266fb5;padding:1% 4%;font-size:13px;margin-bottom: 7px;}
-.file_btn a{color:#fff !important;text-decoration: none;}
-#txtContent{float:none;width: 95%;padding:5% 2.2% !important;border:1px solid #ccc;border-radius:0;font-size: 13px;border-top:0;min-height: calc(100vh - 500px);max-height: calc(100vh - 500px);overflow:auto;}
 
-div.fileUploadSection div.fileUpWrapper div.uploadPathDiv{float:left;line-height:23px;height:25px;width:70%;border:1px solid #ccc;}
-
-/*파일 추가 삭제*/
-div.addAttachFileSection{float:left;width:100%;margin:5px 0 0 0;}
-div.addAttachFileSection ul.attachFileList{float:left;list-style-type:none;padding:0;margin:0;width:100%;word-break:break-all;word-wrap:break-word;whilte-space:pre-wrap;}
-div.addAttachFileSection ul.attachFileList li{border:0;padding:0;text-align:left;}
-div.addAttachFileSection ul.attachFileList li span.removeAttach{border:1px solid #ccc;line-height:25px;padding:0 7px 0 7px;margin:0 4px 0 4px;}
-div.addAttachFileSection ul.attachFileList li span.attachFileName{vertical-align:middle;line-height:25px;}
-span.fileUp{font-size:13px;color:#fff;font-weight: 600;}
-
-div#viewLoading {text-align:center;padding-top:120px;filter:alpha(opacity=60);opacity: alpha*0.6;background-color:#fff;color:#bcbfc4;}
-div#viewLoading div.progressTitle{text-align:left;border:2px solid #111111;border-bottom:1px solid #111111;padding:15px 0 15px 0;width:99.2%;}
-div#viewLoading div.progressTitle span{padding-left:3px;padding-bottom:5px;}
-div#viewLoading div.progressWrapper{border:1px solid #111111;width:99.2%;text-align:center;}
-div#viewLoading div.progressWrapper div.progresspercent{background-color:#1a1a1a;height:40px;border:1px solid #000000;}
-div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper{line-height:38px;}
-div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper span.pgbar{display:block;float:left;background-color:#fecf23;width:90%;}
-div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper span.pgpercent{position:absolute;left:30%;right:30%;color:#c0c0c0;}
-div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper span.pgpercent strong{font-weight:bold;}
-div#viewLoading div.progressfilereadsize{margin:0 0 5px 0;height:40px;border:1px solid #111111;}
-div#viewLoading div.progressfilereadsize span{line-height:40px;}
-div#viewLoading div.progressfilereadsize span.divider strong{font-weight:400;}
-div#viewLoading div.progressSpeed{margin:0 0 5px 0;height:40px;border:1px solid #111111;text-align:center;}
-div#viewLoading div.progressSpeed span.kbps{line-height:40px;}
-div#viewLoading div.progressSpeed span.kbps strong{font-weight:400;}
-
-.pgbarbgcolor{background-color:#fecf23;}
-.fileUp_0{display:none;}
-.mailbody_name{width:100%;height:30px;line-height: 30px;background:#ccc;text-align: center;}
-.che_ui_box{border:1px solid #ccc;border-top:0;padding:0 2.2%;width:95%;}
-.che_ui_box ul li{border-bottom:0;display: inline-block;vertical-align: middle;}
-.che_ui_box ul li label{background:none;border:0;width:auto;float:none;margin:0;}
-.che_ui_box ul li input{margin:0;top: 10px;}
-.save_btn_box{height:auto;overflow:hidden;}
-.save_btn_box a{display:inline-block;float:none;width:auto;border: 0;border-radius: 0;}
-.save_btn_box .btn_save{background:#e7e7e7;padding: 3% 11% !important;}
-.save_btn_box .btn_send{background:#266fb5;padding: 3% 13% !important;}
-.save_btn_box a .ui-icon{background: none !important;box-shadow: none;}
-.save_btn_box a.ui-mini.ui-btn-icon-left .ui-btn-inner{padding:0;border: 0;}
-.save_btn_box a.btn_send.ui-mini.ui-btn-icon-left .ui-btn-inner{color:#fff;}
-.ui-field-contain:last-child{text-align: center;}
-.none_hidden {display:none !important;}
-@media all and (max-width:320px) {
-.che_ui_box ul li input{top:4px;}
-}
-</style>
 <!----E: 2021리뉴얼 추가------->
-<script language='javascript' type='text/javascript'>
-            // 라인을 늘일 변수
-            var uf = '';
-            // sw_file_add_form div에 input 태그를 추가하는 함수
-            function sw_file_add(size, ext) {
-                // 최초 sw_file_add_form에 추가하고 다음부터는 sw_file_add_form1, 2, 3, 4, ... 로 계속 추가가 된다.
-                // 물론 그에 맞는 div도 계속 생성한다. 차후에 추가한 div를 제거하는 것도 필요하다.
-                eval('sw_file_add_form' + uf).innerHTML += "<input type=file name=file[] size='" + size + "' " + ext + "><div id='sw_file_add_form" + (uf+1) + "'></div>";
-                uf++;
-            }
-        </script>
+
 </head>
 
-<script type="text/javascript">
-//input file의 인덱스번호로 쓰임(전역변수)
-var fileIndex = 0;	
 
-
-//업로드 파일 지정
-var makeUploadElem = function(fileElemObj){
-	fileIndex++;	//global var	
-	var addAttachFileSectionElem = $("div").filter(".addAttachFileSection");
-	var attachFileListElem = $(addAttachFileSectionElem).find("ul");	
-	
-	var targetElem=$("div#fileUpBtnWrapper");
-	var fileElem=$("<input id='file"+fileIndex+"' class='file' type='file' value='' data-mini='true' name='file"+fileIndex+"' style='position: absolute;right:0px;top:0px; opacity:0; filter: alpha(opacity=0);cursor: pointer;outline:none;'/>");
-	//var fileUpBtnElem = $("<span class='fileUp' style='font-size:0;'>&nbsp;파일</span>");
-	
-	$(fileElem).change(function(){
-		makeUploadElem(this);	//recursive				
-	});
-	
-	$(targetElem).append(fileElem);
-	//$(targetElem).append(fileUpBtnElem);
-	$(fileElemObj).hide();	
-	
-	//파일 목록 추가 / 삭제
-	var fileElemObjVal = $(fileElemObj).val();	
-	$(attachFileListElem).append(
-		"<li>" +			
-			"<span class='removeAttach' onClick='deleteFileList(this,"+fileIndex+");'>x</span>" +
-			"<span class='attachFileName'>"+fileElemObjVal+"</span>" +
-		"</li>"
-	);			
-	
-	//$("div#debug").text($("div.fileUploadSection").html());
-};
-//업로드 파일 리스트 삭제
-var deleteFileList = function(fileListElem,fileElemIndex){
-	//기본으로 마크업된 input file의 인덱스 번호가 0으로 시작되는데
-	//전역변수로 증가 시킨 상태이므로 -1을 시켜서 인덱스 번호를 맞춰준다.
-	var fileElemIdx = fileElemIndex - 1;
-	var fileUpBtnWrapElem = $("div").filter("#fileUpBtnWrapper");
-	
-	$(fileUpBtnWrapElem).find("input:file").filter("input[name=file"+fileElemIdx+"]").remove();	
-	$(fileListElem).parent().remove();
-	
-	//$("div#debug").text($("div.fileUploadSection").html());
-};
-
-//전송이 완료되거나 실패시에도 input file과 li를 모두삭제 시켜주고
-//전역변수로 사용된 인덱스를 초기화 시켜준다.
-var deleteFileListAndFileElems = function(){
-	var fileUploadSectionElem = $("div").filter(".fileUpWrapper");
-	var addAttachFileSectionElem = $("div").filter(".addAttachFileSection").find("ul");
-	$(fileUploadSectionElem).children().remove();
-	$(addAttachFileSectionElem).children().remove();
-	fileIndex = 0;
-};
-</script>
 <body>
 
 <div data-role="page" id="page-list">
@@ -774,7 +628,7 @@ var deleteFileListAndFileElems = function(){
                 <div class="fileUpWrapper">				
                     <div id="fileUpBtnWrapper" class="fileUpBtnWrapper" style="position:relative;">				 								
                         <%-- input의 id명 뒤의 숫자를 변경하지 말것(인덱스 번호로 사용됨) --%>				
-                        <input id="file" onchange="makeUploadElem(this)" class='file' type="file" name="upFile[]" style="position: absolute;right:0px;top:0px; opacity:0; filter: alpha(opacity=0);cursor: pointer;outline:none;" / >					 				
+                        <input id="file" onchange="makeUploadElem(this)" class='file' type="file" name="upFile[]" style="width: 94px;position: absolute;right:0px;top:0px; opacity:0; filter: alpha(opacity=0);cursor: pointer;outline:none;" / >					 				
                         <span class="fileUp">+ 파일추가</span>
                      </div>
                 </div>
@@ -809,7 +663,7 @@ var deleteFileListAndFileElems = function(){
 			<input type="file" name="file4" value="" data-mini="true" style="display: block;width: 78%; margin-left: 22%;line-height: 2em;">
 			<input type="file" name="file5" value="" data-mini="true" style="display: block;width: 78%; margin-left: 22%;line-height: 2em;">-->
 		</div>
-		<div data-role="fieldcontain">
+		<div data-role="fieldcontain" class="mail_subject">
 			<label for="subject" class="left_label"><b><fmt:message key="mail.subject"/></b></label>
 			<input data-mini="true" type="text" name="subject" id="subject" value="<%=subject %>">
 		</div>

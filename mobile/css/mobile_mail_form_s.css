@@ -1,0 +1,129 @@
+body, div {
+    font-size: 100%;
+}
+.ui-content{height:auto;border-top: 1px solid #eee;}
+.nav_div .ui-content{border-top:0;}
+.ui-widget .ui-widget{font-size:9pt;margin: 1% 0;background: #e9f4fd;}
+.ui-icon-close{
+        background-image: url(/common/jquery/mobile/1.2.0/images/icons-18-white.png) !important;
+        background-size: auto;
+        background-position: 9.5% 50% !important;
+}
+.ui-field-contain .ui-input-search {
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0;
+    border-color: #ccc;
+    padding: 0 2%;
+    height: 40px !important;
+    /* margin-right: 0 !important; */
+    float: right;
+}
+ul.autocompleteTag li{width:100%;padding: 0;border: 0;}
+.ui-content{background:#fff;}
+.ui-corner-all{border:0;}
+.left_label{float:left;}
+.ui-mini{width: 75%;float:right;padding-top:0 !important;margin-top: 0;padding-right: 0 !important;}
+.ui-field-contain{border:0;font-size: 13px;padding: 0;}
+label.ui-input-text{float:left;font-size: 13px;height: 40px;line-height:40px;}
+input.ui-input-text{width:87%;float: right;border: 1px solid #ccc;border-radius: 0;height:40px;padding: 0 0 0 2%;font-size: 13px;}
+.ui-menu .ui-menu-item a{white-space: pre-line;width:90%;}
+.ui-autocomplete{border:1px solid #999;border-radius: 0;width:66% !important;}
+.blue{color:#266fb5;}
+input[name="autocomplete_check"]{vertical-align:top; }
+.fieldcontain_box{clear: both;display: block;width:99.6%; border:1px solid #ccc;overflow: auto;    min-height: 50px;}
+.file_btn{float:right;width:94px;}
+.file_btn .fileUpBtnWrapper{float:right;background:#266fb5;padding:1% 4%;font-size:13px;margin-bottom: 7px;width:94px;text-align: center;height:24px;line-height: 24px;}
+.file_btn a{color:#fff !important;text-decoration: none;}
+#txtContent{float:none;width: 95%;padding:5% 2.2% !important;border:1px solid #ccc;border-radius:0;font-size: 13px;border-top:0;min-height:300px;overflow:auto;}
+.button.gray.medium{    margin-right: 5px;
+    position: absolute;
+    top: 42.5px;
+    right: 12px;
+    z-index: 9;
+    background: #266fb5;
+    padding: 4px 12px;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 600;}
+div.fileUploadSection div.fileUpWrapper div.uploadPathDiv{float:left;line-height:23px;height:25px;width:70%;border:1px solid #ccc;}
+.fileUploadSectionWrapper{margin-bottom:15px;}
+.mail_subject{margin-bottom:10px;height: auto;overflow: hidden;}
+
+/*파일 추가 삭제*/
+div.addAttachFileSection{float:left;width:100%;margin:5px 0 0 0;}
+div.addAttachFileSection ul.attachFileList{float:left;list-style-type:none;padding:0;margin:0;width:100%;word-break:break-all;word-wrap:break-word;whilte-space:pre-wrap;}
+div.addAttachFileSection ul.attachFileList li{border:0;padding:0;text-align:left;height: auto;overflow: hidden;margin-bottom: 6px;}
+div.addAttachFileSection ul.attachFileList li span.removeAttach{border:1px solid #ccc;line-height: 18px;padding:0 7px 0 7px;margin:0 4px 0 4px;float: left;height: 18px;}
+div.addAttachFileSection ul.attachFileList li span.attachFileName{vertical-align: middle;/* line-height: 20px; */height: auto;float: right;text-align: left;width: 89%;font-size: 10px;white-space: pre-line;display: inline-table;line-height: normal;overflow: hidden;padding: 3px 0;}
+span.fileUp{font-size:13px;color:#fff;font-weight: 600;}
+
+div#viewLoading {text-align:center;padding-top:120px;filter:alpha(opacity=60);opacity: alpha*0.6;background-color:#fff;color:#bcbfc4;}
+div#viewLoading div.progressTitle{text-align:left;border:2px solid #111111;border-bottom:1px solid #111111;padding:15px 0 15px 0;width:99.2%;}
+div#viewLoading div.progressTitle span{padding-left:3px;padding-bottom:5px;}
+div#viewLoading div.progressWrapper{border:1px solid #111111;width:99.2%;text-align:center;}
+div#viewLoading div.progressWrapper div.progresspercent{background-color:#1a1a1a;height:40px;border:1px solid #000000;}
+div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper{line-height:38px;}
+div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper span.pgbar{display:block;float:left;background-color:#fecf23;width:90%;}
+div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper span.pgpercent{position:absolute;left:30%;right:30%;color:#c0c0c0;}
+div#viewLoading div.progressWrapper div.progresspercent span.percentwrapper span.pgpercent strong{font-weight:bold;}
+div#viewLoading div.progressfilereadsize{margin:0 0 5px 0;height:40px;border:1px solid #111111;}
+div#viewLoading div.progressfilereadsize span{line-height:40px;}
+div#viewLoading div.progressfilereadsize span.divider strong{font-weight:400;}
+div#viewLoading div.progressSpeed{margin:0 0 5px 0;height:40px;border:1px solid #111111;text-align:center;}
+div#viewLoading div.progressSpeed span.kbps{line-height:40px;}
+div#viewLoading div.progressSpeed span.kbps strong{font-weight:400;}
+
+.pgbarbgcolor{background-color:#fecf23;}
+.fileUp_0{display:none;}
+.mailbody_name{width:100%;height:30px;line-height: 30px;background:#ccc;text-align: center;}
+.che_ui_box{border:1px solid #ccc;border-top:0;padding:0 2.2%;width:95%;}
+.che_ui_box ul li{border-bottom:0;display: inline-block;vertical-align: middle;}
+.che_ui_box ul li label{background:none;border:0;width:auto;float:none;margin:0;}
+.che_ui_box ul li input{margin:0;top: 10px;}
+.save_btn_box{height:auto;overflow:hidden;margin: 5% 0;}
+.save_btn_box a{display:inline-block;float:none;width:auto;border: 0;border-radius: 0;}
+.save_btn_box .btn_save{background:#e7e7e7;padding: 3% 11% !important;}
+.save_btn_box .btn_send{background:#266fb5;padding: 3% 13% !important;}
+.save_btn_box a .ui-icon{background: none !important;box-shadow: none;}
+.save_btn_box a.ui-mini.ui-btn-icon-left .ui-btn-inner{padding:0;border: 0;}
+.save_btn_box a.btn_send.ui-mini.ui-btn-icon-left .ui-btn-inner{color:#fff;}
+.ui-field-contain:last-child{text-align: center;}
+.none_hidden {display:none !important;}
+
+.burger-icon:before{display:none;}
+.che_ui_box input[type=checkbox] {
+    display: none;
+}
+
+.che_ui_box input[type=checkbox] + label{
+    cursor: pointer;
+    padding-left:25px;
+    
+}
+
+.che_ui_box input[type=checkbox] + label:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:7px;
+    left: 6px;
+    background-color: #f7f7f7;
+    border-radius: 2px; 
+}
+
+.che_ui_box input[type=checkbox]:checked + label:before{
+    content: "\02713";
+    font-family: san
+    font-size: 18px;
+    line-height: 18px;
+    font-weight:600; 
+    color: #fff;  
+    background:#2f87c1;
+    text-align: center; 
+        text-shadow: 1px 0px white;
+}
+@media all and (max-width:320px) {
+.che_ui_box ul li input{top:4px;}
+}

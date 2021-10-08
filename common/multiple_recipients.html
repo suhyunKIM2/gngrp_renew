@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>다중 검색 결과 선택</title>
+<link rel=stylesheet href="../common/css/popup.css" type="text/css">
+<script language="javascript">
+
+var RECIPIENT_TYPE_USER			= 0;
+var RECIPIENT_TYPE_DEPARTMENT	= 1;
+
+function OnClickCancel() {
+	window.returnValue = null;
+	window.close();
+}
+
+function OnClickSelect() {
+	var elems = document.getElementsByName("recipient");
+	var objSelecteds = new Array();
+	for (var i = 0; i < elems.length; i++) {
+		if (elems[i].checked) {
+			var value = elems[i].value;
+			if (value.charAt(0) == 'D') {
+				//부서인 경우
+				if (elems[i].nextSibling.nextSibling.checked) {
+					value += ":+";
+				} else {
+					value += ":-";
+				}
+			}
+			objSelecteds.push(value);
+		}
+	}
+
+	if (objSelecteds.length == 0) {
+		alert("추가할 대상을 선택하세요!");
+		return false;
+	}
+
+	window.returnValue = objSelecteds;
+	window.close();
+}
+//-->
+</script>
+</head>
+<body leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
+	<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr height="40">
+			<td>
+				<table width="100%" cellspacing=0 cellpadding=0 border=0>
+					<tr>
+						<td width=30><img src="../common/images/popup_title.gif"></td>
+						<td width="*" height=40 class=title background="../common/images/popup_bg.gif">대상자를 선택하세요</td>
+					</tr>
+					<tr><td colSpan=2></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<div style="width:100%;height:220px;overflow:auto" id="searchResult">
+	<script language="javascript">
+	var objMultis = window.dialogArguments;
+
+	for (var i = 0; i < objMultis.length; i++) {
+		var objElem = objMultis[i];		
+		var objElems = objElem.getElementsByTagName("ou");
+		document.write("<div style='margin-top:5px; margin-left: 10px;'><div><b>'" + objElem.getAttribute("keyword") + "'</b>에 대한 검색 결과(" + objElems.length + " 건)</div>")
+		for (var j = 0; j < objElems.length; j++) {
+			var objRecipient = objElems[j];
+			var type = objRecipient.getAttribute("type");
+			if (type == "user") {
+				var name		= objRecipient.getAttribute("name");
+				var position	= objRecipient.getAttribute("position");
+				var uid			= objRecipient.getAttribute("uid");
+				var department	= objRecipient.getAttribute("department");
+				var sabun		= objRecipient.getAttribute("sabun");
+				var dpid		= objRecipient.getAttribute("dpid");
+
+				var data = "P:" + name + ":" + uid + ":" + position + ":" + department + ":" + sabun + ":" + dpid;
+				document.write("<div><input type='checkbox' name='recipient' value='" + data + "'>");
+				document.write(name);
+				document.write(" / ");
+				document.write(position);
+				document.write(" / ");
+				document.write(department);
+				document.write("</div>");
+			} else if (type == "department") {
+				var name		= objRecipient.getAttribute("name");
+				var deptid		= objRecipient.getAttribute("deptid");
+
+				var data = "D:" + name + ":" + deptid;
+				document.write("<div><input type='checkbox' name='recipient' value='" + data + "'>");
+				document.write(name);
+				document.write("&nbsp;&nbsp;(<input type='checkbox'>예하 부서 포함)");
+				document.write("</div>");				
+			}
+		}
+		document.write("</div><hr size='1' style='width:90%'>");
+	}
+</script>
+				</div>
+			</td>
+		</tr>
+		<tr height="25" bgcolor="E7E7E7">
+			<td align="center" style="padding-top:6px;">
+				<img src="../common/images/bu_ok.gif" onclick="OnClickSelect()" style="cursor:hand;">&nbsp;&nbsp;
+				<img src="../common/images/bu_cancel.gif" onclick="OnClickCancel()" style="cursor:hand;">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
