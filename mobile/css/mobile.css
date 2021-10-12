@@ -7,7 +7,7 @@ body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;
     .main_contents{background:#f7f7f7;width:92%;padding:5% 4%;min-height:calc(100vh - 250px);border-top:1px solid #eee;}
     /*햄버거메뉴*/
     .nav-search .ui-content{display:none;}
-    .ui-content{border-top:1px solid #eee;}
+    .ui-content{border-top:1px solid #eee;padding:15px 13px;}
     .menu {
           position: absolute;
           top: 0;
