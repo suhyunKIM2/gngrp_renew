@@ -1,7 +1,7 @@
 body, div {
     font-size: 100%;
 }
-.ui-content{height:auto;border-top: 1px solid #eee;}
+.ui-content{height:auto;}
 .nav_div .ui-content{border-top:0;}
 .ui-widget .ui-widget{font-size:9pt;margin: 1% 0;background: #e9f4fd;}
 .ui-icon-close{

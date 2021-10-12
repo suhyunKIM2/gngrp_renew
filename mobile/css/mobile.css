@@ -1,11 +1,13 @@
 body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;}
     body.ui-mobile-viewport{background:#fff;}
+    .main_contents_box{height:100%;}
     .main_contents_top{width:93%;margin:auto;height:auto;overflow:hidden;}
     .left_logo{width:50%;float:left;margin: 0.5em 0;}
     .right_menu{width:50%;float:right;height:37px;line-height: 37px;margin:1em 0;text-align: right;color: #266fb5;font-weight: 600;}
-    .main_contents{background:#f7f7f7;width:92%;padding:5% 4%;height:calc(100vh-80px);}
+    .main_contents{background:#f7f7f7;width:92%;padding:5% 4%;min-height:calc(100vh - 250px);border-top:1px solid #eee;}
     /*햄버거메뉴*/
     .nav-search .ui-content{display:none;}
+    .ui-content{border-top:1px solid #eee;}
     .menu {
           position: absolute;
           top: 0;
@@ -149,7 +151,7 @@ body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;
         width: 100%;
         height: 100%;
         background: rgba(0,0,0,0.7);
-        position: absolute;
+        position: fixed;
         top:0;
         display: none;
         z-index: 9;
@@ -197,6 +199,7 @@ select,input,button,a,label,li,div{ -webkit-tap-highlight-color:transparent;outl
 .ui-btn-up-a:visited, .ui-btn-up-a a.ui-link-inherit{color:#333 !important;text-shadow: none;}
 .ui-li-has-arrow .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-arrow{padding-right:10px !important;}
 .ui-li .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li{padding:.4em 5px !important;font-size: 14px;}
+.nav_div .ui-li .ui-btn-inner a.ui-link-inherit{padding:.4em 5px !important;}
 .ui-btn-icon-right .ui-btn-inner{border-top:0;}
 .ui-btn-up-a:nth-child(1),.ui-li-static.ui-li-has-arrow{border-top:0;}
 .ui-shadow-inset{box-shadow:none !important;}
@@ -212,9 +215,26 @@ select,input,button,a,label,li,div{ -webkit-tap-highlight-color:transparent;outl
 .ui-listview-filter .ui-input-search{margin:2% auto 1% !important;width:96% !important;}
 .menu_wrap .nav_div{top:-104px;}
 .ui-content .ui-listview{margin:0 !important;}
+.nav_div .ui-li-static.ui-li{padding: 0.2em 5px !important;}
+}
+
+@media (min-width: 750px){
+.ui-mobile .type-home .nav_div .ui-content{margin: 17px 0 0 0px;width: 90%;padding: 0 5%;}
+.burger-icon{width:120px;}
+.main_contents{    min-height: calc(100vh - 225px);}
+}
+@media (min-width: 1024px){
+.burger-icon{width:132px;}
+.main_contents {
+    min-height: calc(100vh - 250px);
+}
 }
 @media all and (max-width:320px) {
 .footer_pc_ver{height:60px;line-height: 60px;}
+.nav_div .ui-li .ui-btn-inner a.ui-link-inherit {
+    padding: 0 5px !important;
+}
+.ui-btn-icon-right .ui-icon{right:0;}
 }
 @media all and (max-width:280px) {
 .logout_btn{margin: 8px 5px 0 0;}

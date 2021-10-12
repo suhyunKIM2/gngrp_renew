@@ -73,6 +73,14 @@ background-size: 776px 18px !important;}
 .ui-li-desc,.ui-li-heading{color:#575757 !important;width: 95%;}
 .ui-li-desc{margin-bottom: 0;}
 .ui-li .ui-btn-inner a.ui-link-inherit{padding:1em 5px !important;}
+@media (min-width: 1024px) and (max-width: 1280px) {
+.menu_wrap .nav_div ul li {
+    padding: .2em 15px;
+}
+}
+@media (min-width: 750px){
+.ui-listview-filter .ui-input-search{margin: 17px 3% 3%;}
+}
 @media all and (max-width:375px) {
 .content_div .ui-input-search{width:51%;}
 }
