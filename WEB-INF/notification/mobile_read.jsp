@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ include file="/common/usersession_mobile.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
@@ -89,50 +90,160 @@
 	<link rel="stylesheet" href="/common/jquery/mobile/1.2.0/jqm-docs.css"/>
     <script src="/common/jquery/js/jquery-1.8.0.min.js"></script>
     <script src="/common/jquery/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <!----S: 2021리뉴얼 추가------->
+    <link rel="stylesheet" href="/mobile/css/mobile.css"/>
+    <link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
+    <link rel="stylesheet" href="/mobile/css/mobile_mail_read.css"/>
+    <link rel="stylesheet" href="/mobile/css/mobile_mail_form_s.css"/>
+    <script src="/mobile/js/sw_file_add.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+
+            $('#burger-check').click(function(){
+                $('.menu_bg').show(); 
+                $('.sub_ham_page').css('display','block'); 
+                $('.sidebar_menu').show().animate({
+                    right:0
+                });
+                $('.ham_pc_footer_div').show().animate({
+                    bottom:0,right:0
+                });
+            });
+            $('.close_btn>a').click(function(){
+                $('.menu_bg').hide(); 
+                $('.sidebar_menu').animate({
+                    right: '-' + 100 + '%'
+                           },function(){
+                $('.sidebar_menu').hide(); 
+                }); 
+                $('.ham_pc_footer_div').animate({
+                    right: '-' + 100 + '%',
+                    bottom:'-' + 100 + '%'
+                           },function(){
+                $('.ham_pc_footer_div').hide(); 
+                }); 
+            });
+
+            $('.blindcopyto_span').toggle(
+                function(){ $('.blindcopyto_span').text("닫기▲"); 
+                            $('.blindcopyto_box').css('display','block');
+                    },
+
+                function(){$('.blindcopyto_span').text("비밀참조인▼"); 
+                           $('.blindcopyto_box').css('display','none');
+
+                   });
+
+
+    });
+    </script>
+
+    <script>
+        $('body').delegate('.nav-search', 'pageshow', function( e ) {
+            $('.ui-input-text').attr("autofocus", true)
+        });			
+    </script>
+
+    <!----E: 2021리뉴얼 추가-------> 
 </head>
 <body>
 
 <div data-role="page" id="page-list">
-	<div data-role="header" data-position="fixed" data-theme="b">
-		<h2>Mobile Groupware</h2>
-		<a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">Home</a>
-		<a href="/mobile/nav.jsp" data-icon="search" data-rel="dialog" data-transition="fade" data-iconpos="right">Menu</a>
-	</div>
+	<div class="main_contents_top">
+    <div class="menu_bg"></div>
+    <div class="sidebar_menu">
+         <div class="close_btn">
+            <a href="#">닫기 <img src="/common/images/m_icon/15.png"></a>
+         </div>
+         <div class="ham_user_name"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b></div>
+         <div class="logout_btn" onClick="location.href='/logout.jsp'">로그아웃</div>
+         <div class="menu_wrap">
+             <div data-role="page" class="type-home sub_ham_page" id="page-home" style="position:relative;clear: both;z-index: 1;background: #fff;">
+                 <div class="nav_div">
+                 <div data-role="content">   
+                 <ul data-role="listview" data-theme="a" data-divider-theme="a" data-filter="true" data-filter-theme="a" data-filter-placeholder="Search menu...">
+                     <li data-filtertext="편지작성">
+                        <a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">편지작성</a>
+                    </li>
+			        <li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("mail.InBox") /* 받은편지함 */ %>">
+                        <a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("main.E-mail") /* 받은편지함 */ %></a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/appr/list.jsp?menu=240" data-ajax="false">전자결재</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false">사내쪽지</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000004" data-ajax="false">게시판</a>
+                    </li>
+                    <!--<li data-filtertext="">
+                        <a href="" data-ajax="false">업무지원</a>
+                    </li>-->
+                    <li data-filtertext="">
+                        <a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false">공지사항</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/addressbook/user.jsp" data-ajax="false">임직원정보</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/addressbook/list.jsp" data-ajax="false">주소록관리</a>
+                    </li>
+                </ul>
+                </div>
+                <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position:fixed;;background:#f5f5f5;width:80%;right:0;bottom:-100%;">
+                    <img src="/common/images/m_icon/13.png"> PC버전으로 보기
+                </div>
+                </div>
+             </div>
+         </div>
+    </div>
+
+     <h1 class="left_logo">
+         <a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">
+            <img src="/common/images/icon/logo.png" height="29" border="0" >
+        </a>
+     </h1>
+    <div class="right_menu" >
+        <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
+     </div>
+</div>
 	
-	<div data-role="content" style="padding:5px;">
+	<div data-role="content">
+        <div class="date_text"><%=dtformat.format(notes.getCreated()) %></div>
 		<p style="font-size:18px;"><b><%=notes.getSubject() %></b></p>
 		<hr/>
-		<p style="font-size:14px;">
-			<img align="absmiddle" src="/common/images/icon-send-user.png"/> <fmt:message key="t.outgoing"/><!-- 발신 --> : 
-			<%=HtmlEncoder.encode(notes.getSender().toDisplayString()) %>&nbsp;
-			<%=dtformat.format(notes.getCreated()) %>
+		<p style="font-size:14px;" class="p_line">
+			<b><fmt:message key="t.outgoing"/><!-- 발신 --> </b> 
+			<span class="span_left"><%=HtmlEncoder.encode(notes.getSender().toDisplayString()) %></span>
+			
+		</p>
+        
+        <p style="font-size:14px;" class="p_line">
+			<b><fmt:message key="mail.sendto"/><!-- 수신 --></b> 
+			<span class="span_left"><%=notiTosValue %></span>
+			
 		</p>
 		
-		<div data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true">
-		    <h4><fmt:message key="mail.sendto"/><!-- 수신 --></h4>
-		    <p style="font-size:14px;">
-			<img align="absmiddle" src="/common/images/icon-users.png"/> 
-			<%=notiTosValue %></p>
-		</div>
+        <p style="font-size:14px;" class="file_box">
+			<b><fmt:message key="t.attached"/><!-- 첨부 --></b> 
+			<span class="span_left"><%=notiAttachValue %></span>
+			
+		</p>
+	
 
-		<div data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true">
-			<h4><fmt:message key="t.attached"/><!-- 첨부 --></h4>
-		    <p style="font-size:14px;">
-			<%=notiAttachValue %></p>
-		</div>
-		
 		<hr/>
-		<div class="ui-corner-all" style="/* border:1px solid #aaa; width:760px; */">
-		<%=notes.getBody() %>
-		</div>
+        
+        <div id="mailBodyValue"><%=notes.getBody() %></div>
+        
+        <div class="ui-btn-inline" onClick="javascript:location.href='/mobile/notification/list.jsp?boxId=<%=boxId %>&noteType=<%=noteType %>&searchKey=<%=searchKey %>&searchValue=<%=searchValue %>'">
+            확인
+        </div>
+        
 	</div>
 
-	<div data-role="footer" data-position="fixed" class="footer-docs ui-bar" data-theme="b">
-		<!-- 		<a href="javascript:history.back()" data-ajax='false' data-icon="arrow-l">Back</a> -->
-		<a href="javascript:location.href='/mobile/notification/list.jsp?boxId=<%=boxId %>&noteType=<%=noteType %>&searchKey=<%=searchKey %>&searchValue=<%=searchValue %>'" data-ajax='false' data-icon="arrow-l">Back</a>
-		<a href="javascript:location.reload()" data-ajax='false' data-icon="refresh">Reload</a>
-		<a href="/mobile/logout.jsp" data-ajax='false' data-rel="dialog" data-icon="delete" data-iconpos="right" style="float:right;">Logout</a>
-	</div>
 </div>
 <style>
 dt {padding:0px; margin:0px;}
@@ -141,6 +252,7 @@ margin-right: 2px;
 margin-left: 2px;
 }
 .ui-navbar li .ui-btn {text-align:left;}
+.ui-btn-inline{background: #266fb5;color: #fff;width: 116px;text-align: center;margin: 5% auto;display: block;padding:20px 0;cursor: pointer;font-weight: 600;font-size: 13px;}
 </style>
 </body>
 </html>
