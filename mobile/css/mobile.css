@@ -8,6 +8,7 @@ body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;
     /*햄버거메뉴*/
     .nav-search .ui-content{display:none;}
     .ui-content{border-top:1px solid #eee;padding:15px 13px;}
+    .nav_div .ui-content{border-top:0;}
     .menu {
           position: absolute;
           top: 0;

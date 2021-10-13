@@ -75,7 +75,7 @@
 			var pageTotal = data.total;
 			var pageNo = data.page;
 			var records = data.records;
-			var html = (pageNo == 1)? "<li data-role='list-divider'>"+bbsMenu(menu)+" <span class='ui-li-count'><font style='color:#000'>안읽은메일 :</font> "+records+"개</span></li>": "";
+			var html = (pageNo == 1)? "<li data-role='list-divider'>"+bbsMenu(menu)+" <span class='ui-li-count'><font style='color:#000'>안읽은문서 :</font> "+records+"개</span></li>": "";
 
 			for (var i=0; i<data.rows.length; i++) {
 				var item = data.rows[i];
