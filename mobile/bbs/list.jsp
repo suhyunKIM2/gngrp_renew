@@ -263,7 +263,11 @@ if(searchValue == null) searchValue = "";
 				<button onclick="loadDataAjax('search')" data-theme="b">검색</button>
 			</div>
 		
+<<<<<<< HEAD
 		<div class="new_btn"><a id="newDoc" href="javascript:newDoc();" data-role="button" data-ajax='false' data-mini="true" data-inline="true" data-theme="b" ><font style="font-size:18px;">+</font> 글쓰기</a></div>
+=======
+		<div class="new_btn"><a id="newDoc" href="javascript:newDoc();" data-role="button" data-ajax='false' data-mini="true" data-inline="true" data-theme="b" ><font style="font-size:18px;">+</font> 새문서</a></div>
+>>>>>>> origin/master
 		
 		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b" id="list" style="margin-top: 3px;"></ul>
 		<div class="ui-grid-solo ui-btn">
