@@ -177,7 +177,8 @@ if(searchValue == null) searchValue = "";
         padding: 0.6% 1% 1.3%;
     }
     .ui-li-desc, .ui-li-heading{width:85%;}
-
+    .content_div .new_btn{display:block;clear: both;}
+    .content_div .new_btn .ui-btn-inline{background:#999;padding:0;margin:0;}
     </style>
 
     <!----E: 2021리뉴얼 추가------->  
@@ -262,7 +263,7 @@ if(searchValue == null) searchValue = "";
 				<button onclick="loadDataAjax('search')" data-theme="b">검색</button>
 			</div>
 		
-		<a id="newDoc" href="javascript:newDoc();" data-role="button" data-ajax='false' data-mini="true" data-inline="true" data-theme="b" ><font style="font-size:18px;">+</font> 새문서</a>
+		<div class="new_btn"><a id="newDoc" href="javascript:newDoc();" data-role="button" data-ajax='false' data-mini="true" data-inline="true" data-theme="b" ><font style="font-size:18px;">+</font> 새문서</a></div>
 		
 		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b" id="list" style="margin-top: 3px;"></ul>
 		<div class="ui-grid-solo ui-btn">
