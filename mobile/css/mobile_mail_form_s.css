@@ -48,7 +48,7 @@ input[name="autocomplete_check"]{vertical-align:top; }
     font-weight: 600;}
 div.fileUploadSection div.fileUpWrapper div.uploadPathDiv{float:left;line-height:23px;height:25px;width:70%;border:1px solid #ccc;}
 .fileUploadSectionWrapper{margin-bottom:15px;}
-.mail_subject{margin-bottom:10px;height: auto;overflow: hidden;}
+.bbs_mobile_form .ui-field-contain.mail_subject{margin-bottom:10px !important;height: auto;overflow: hidden;}
 
 /*파일 추가 삭제*/
 div.addAttachFileSection{float:left;width:100%;margin:5px 0 0 0;}
@@ -124,6 +124,24 @@ div#viewLoading div.progressSpeed span.kbps strong{font-weight:400;}
     text-align: center; 
         text-shadow: 1px 0px white;
 }
-@media all and (max-width:320px) {
+
+
+.bbs_mobile_form input[name="bbs.writerName"]{width:78%;}
+.right_box_line{width:78%;float:right;}
+.bbs_mobile_form  .ui-field-contain.fieldcontain_bottom{margin-bottom:.3em !important;height:auto;overflow:hidden;}
+.bbs_mobile_form .che_ui_box ul li{padding:0;}
+.bbs_mobile_form .ui-field-contain{margin-bottom:0 !important;}
+.che_ui_box{margin:auto;}
+@media (min-width: 540px) and (max-width: 1280px) {
+.ui-field-contain label.ui-input-text{width:auto;}
+.ui-mini{width:84%;}
+input.ui-input-text{width:87% !important;}
+.right_box_line{width:87%;}
+}
+@media screen and (max-width:320px){
 .che_ui_box ul li input{top:4px;}
+.right_box_line{float:none;display: block;width:100%;}
+.bbs_mobile_form label[for="bbs.writerName"].left_label_02{line-height:normal;height:auto;}
+.bbs_mobile_form .ui-field-contain.fieldcontain_bottom{margin-bottom:1em !important;}
+.ui-mini{width:70%;}
 }

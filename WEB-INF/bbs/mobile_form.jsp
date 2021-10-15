@@ -21,6 +21,7 @@ String bbsWriter = (String)request.getAttribute("bbsWriter");
 	<link rel="stylesheet" href="/common/jquery/mobile/1.2.0/jqm-docs.css"/>
     <script src="/common/jquery/js/jquery-1.8.0.min.js"></script>
     <script src="/common/jquery/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    
     <script src="/common/scripts/mobile_common.js"></script>
     <script type="text/javascript">
 // 		var page = null;
@@ -80,63 +81,51 @@ String bbsWriter = (String)request.getAttribute("bbsWriter");
 			form.submit();
 		}
     </script>
-<!----S: 2021리뉴얼 추가------->
-<link rel="stylesheet" href="/mobile/css/mobile.css"/>
-<link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
-<link rel="stylesheet" href="/mobile/css/mobile_mail_read.css"/>
-<link rel="stylesheet" href="/mobile/css/mobile_mail_form_s.css"/>
-<script src="/mobile/js/sw_file_add.js"></script>
+    <!----S: 2021리뉴얼 추가------->
+    <link rel="stylesheet" href="/mobile/css/mobile.css"/>
+    <link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
+    <link rel="stylesheet" href="/mobile/css/mobile_mail_read.css"/>
+    <link rel="stylesheet" href="/mobile/css/mobile_mail_form_s.css"/>
+    <script src="/mobile/js/bbs_file_add.js"></script>
 
-<script>
-    $(document).ready(function(){
-        
-        
-        $('#burger-check').click(function(){
-            $('.menu_bg').show(); 
-            $('.sub_ham_page').css('display','block'); 
-            $('.sidebar_menu').show().animate({
-                right:0
+    <script>
+        $(document).ready(function(){
+
+
+            $('#burger-check').click(function(){
+                $('.menu_bg').show(); 
+                $('.sub_ham_page').css('display','block'); 
+                $('.sidebar_menu').show().animate({
+                    right:0
+                });
+                $('.ham_pc_footer_div').show().animate({
+                    bottom:0,right:0
+                });
             });
-            $('.ham_pc_footer_div').show().animate({
-                bottom:0,right:0
+            $('.close_btn>a').click(function(){
+                $('.menu_bg').hide(); 
+                $('.sidebar_menu').animate({
+                    right: '-' + 100 + '%'
+                           },function(){
+                $('.sidebar_menu').hide(); 
+                }); 
+                $('.ham_pc_footer_div').animate({
+                    right: '-' + 100 + '%',
+                    bottom:'-' + 100 + '%'
+                           },function(){
+                $('.ham_pc_footer_div').hide(); 
+                }); 
             });
-        });
-        $('.close_btn>a').click(function(){
-            $('.menu_bg').hide(); 
-            $('.sidebar_menu').animate({
-                right: '-' + 100 + '%'
-                       },function(){
-            $('.sidebar_menu').hide(); 
-            }); 
-            $('.ham_pc_footer_div').animate({
-                right: '-' + 100 + '%',
-                bottom:'-' + 100 + '%'
-                       },function(){
-            $('.ham_pc_footer_div').hide(); 
-            }); 
-        });
-         
-        $('.blindcopyto_span').toggle(
-            function(){ $('.blindcopyto_span').text("닫기▲"); 
-                        $('.blindcopyto_box').css('display','block');
-                },
+     });
+    </script>
 
-            function(){$('.blindcopyto_span').text("비밀참조인▼"); 
-                       $('.blindcopyto_box').css('display','none');
-        
-               });
+    <script>
+        $('body').delegate('.nav-search', 'pageshow', function( e ) {
+            $('.ui-input-text').attr("autofocus", true)
+        });			
+    </script>
 
-        
-});
-</script>
-
-<script>
-    $('body').delegate('.nav-search', 'pageshow', function( e ) {
-        $('.ui-input-text').attr("autofocus", true)
-    });			
-</script>
-
-<!----E: 2021리뉴얼 추가------->    
+    <!----E: 2021리뉴얼 추가------->    
 </head>
 <body>
 <div data-role="page" id="page-list">
@@ -200,7 +189,7 @@ String bbsWriter = (String)request.getAttribute("bbsWriter");
      </div>
 </div>
 	
-	<div data-role="content">
+	<div data-role="content" class="bbs_mobile_form">
 	<form:form enctype="multipart/form-data" commandName="bbsWebForm" action="./save.htm">
 	<c:if test="${bbsWebForm.search != null }">
 		<form:hidden path="search.searchKey" />
@@ -226,49 +215,72 @@ String bbsWriter = (String)request.getAttribute("bbsWriter");
 			<form:options items="${preservePeriods }" itemValue="preserveId" itemLabel="title" />
 		</form:select>
 	</div>
-	
-		<div data-role="fieldcontain">
-			<label for="bbs.writerName"><fmt:message key="t.writer"/><!-- 게시자 --></label>
+		<div data-role="fieldcontain" class="fieldcontain_bottom">
+			<label for="bbs.writerName" class="left_label"><b><fmt:message key="t.writer"/><!-- 게시자 --></b></label>
 			<form:input data-mini="true" path="bbs.writerName" value="<%=bbsWriter %>"/>
 		</div>
-		<div data-role="fieldcontain">
-			<label for="bbs.writerName"><fmt:message key="t.posting.period"/><!-- 게시기간 --></label>
-			<fieldset class="ui-grid-b">
-				<div class="ui-block-a" style="width:49%;"><form:input data-mini="true" path="bbs.openDate" type="date"/></div>
+		<div data-role="fieldcontain" class="fieldcontain_bottom">
+			<label for="bbs.writerName" class="left_label left_label_02"><b><fmt:message key="t.posting.period"/><!-- 게시기간 --></b></label>
+			<fieldset class="ui-grid-b right_box_line">
+				<div class="ui-block-a" style="width:49%;"><form:input data-mini="true" path="bbs.openDate" type="date" style="width:100% !important;"/></div>
 				<div class="ui-block-b" style="width:2%;"></div>	   
-				<div class="ui-block-c" style="width:49%;"><form:input data-mini="true" path="bbs.closeDate" type="date"/></div>
-			</fieldset>
+				<div class="ui-block-c" style="width:49%;"><form:input data-mini="true" path="bbs.closeDate" type="date" style="width:100% !important;"/></div>
+            </fieldset>
 		</div>
-		<div data-role="fieldcontain">
-			<fieldset data-role="controlgroup">
-			    <legend><fmt:message key="t.posting.period"/><!-- 게시기간 --> <fmt:message key="t.option"/><!-- 옵션 --></legend>
-			    <input data-mini="true" type="checkbox" name="never" id="never">
-			    <label for="never"><fmt:message key='t.permanent.post' /><!-- 영구게시 --></label>
-			</fieldset>
+        
+       
+        
+        <div data-role="fieldcontain">
+        <div class="fileUploadSectionWrapper">
+            <label for="filehidden"><b><fmt:message key="t.attached"/></b></label>
+            <!-- 첨부파일 -->
+            <div class="fileUploadSection file_btn">			
+                <div class="fileUpWrapper">				
+                    <div id="fileUpBtnWrapper" class="fileUpBtnWrapper" style="position:relative;">				 								
+                        <%-- input의 id명 뒤의 숫자를 변경하지 말것(인덱스 번호로 사용됨) --%>				
+                        <input id="file" onchange="makeUploadElem(this)" class='file' type="file" name="upFile[]" style="width: 94px;position: absolute;right:0px;top:0px; opacity:0; filter: alpha(opacity=0);cursor: pointer;outline:none;" / >					 				
+                        <span class="fileUp">+ 파일추가</span>
+                     </div>
+                </div>
+            </div>		
+            <!-- 첨부추가/제거 -->
+            <div class="fieldcontain_box">
+            <div class="addAttachFileSection">
+                <ul class="attachFileList">
+                </ul>
+            </div>	
+            </div>
+        </div>
+
 		</div>
-		<div data-role="fieldcontain">
-			<label for="subject"><fmt:message key="t.subject"/><!-- 제목 --></label>
+        
+        
+		
+		<div data-role="fieldcontain" class="mail_subject">
+			<label for="subject" class="left_label ui-input-text"><b><fmt:message key="t.subject"/><!-- 제목 --></b></label>
 			<form:input data-mini="true" path="bbs.subject"/>
 		</div>
 		<div data-role="fieldcontain">
-			<label for="mailbody"><fmt:message key="t.content"/><!-- 본문 --></label>
+			<div class="mailbody_name"><b><label for="mailbody"><fmt:message key="t.content"/><!-- 본문 --></label></b></div>
 			<form:textarea data-mini="true" path="bbs.content" style="display:none;"/>
 			<div data-role="content" contenteditable="true" id="txtContent" 
-				 class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini"></div>
+				 class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini" style="margin-bottom:0;"></div>
 		</div>
-		<div data-role="fieldcontain">
-			<label for="filehidden"><fmt:message key="t.attached"/><!-- 첨부 --></label>
-			<input data-mini="true" name="filehidden" id="filehidden" style="display: none;">
-			<input type="file" name="bbs.mobileFiles[0]" value="" data-mini="true" style="display:block;line-height: 2em;margin:0;padding:0;">
-			<input type="file" name="bbs.mobileFiles[1]" value="" data-mini="true" style="display:block;line-height: 2em;margin:0;padding:0;">
-			<input type="file" name="bbs.mobileFiles[2]" value="" data-mini="true" style="display:block;line-height: 2em;margin:0;padding:0;">
-			<input type="file" name="bbs.mobileFiles[3]" value="" data-mini="true" style="display:block;line-height: 2em;margin:0;padding:0;">
-			<input type="file" name="bbs.mobileFiles[4]" value="" data-mini="true" style="display:block;line-height: 2em;margin:0;padding:0;">
-		</div>
-		<div data-role="fieldcontain">
-		    <a onclick="OnClickSend()" href="#" data-mini="true" data-role="button" data-icon="check" data-theme="b" data-inline="true"><fmt:message key="t.save"/></a>
-		    <a href="/mobile/index.jsp" data-mini="true" data-role="button" data-icon="check" data-theme="c" data-inline="true"><fmt:message key="t.cancel"/></a>
-		</div>
+		
+        <div class="che_ui_box">
+            <ul>
+                <li style="font-size: 13px;"><b><fmt:message key="t.option"/><!-- 옵션 --></b></li>
+                <li>
+				    <input data-mini="true" type="checkbox" name="never" id="never">
+			    <label for="never" style="margin:0;"><fmt:message key='t.permanent.post' /><!-- 영구게시 --> </label></li>
+            </ul>
+        </div>
+        
+        <div data-role="fieldcontain" class="save_btn_box">
+		    <a href="/mobile/index.jsp" data-mini="true" data-role="button" data-icon="check" data-theme="c" data-inline="true" class="btn_save" style="padding: 3% 13% !important;"><fmt:message key="t.cancel"/></a>
+            <a onclick="OnClickSend()" href="#" data-mini="true" data-role="button" data-icon="check" data-theme="b" data-inline="true" class="btn_send"><fmt:message key="t.save"/></a>
+		 </div>
+        
 	</form:form>
 	</div>
 </div>

@@ -584,7 +584,7 @@ function AddressToString(objAddress) {
 </div>
 
 	
-	<div data-role="content">
+	<div data-role="content" class="bbs_mobile_form">
 	
 	<form name="fmMail" id="fmMail" method="post" action="mail_send.jsp" enctype="multipart/form-data" onsubmit="return false;">
 		<input type="hidden" name="cmd" value="<%=cmd%>">
