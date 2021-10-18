@@ -252,7 +252,7 @@ margin-right: 2px;
 margin-left: 2px;
 }
 .ui-navbar li .ui-btn {text-align:left;}
-.ui-btn-inline{background: #266fb5;color: #fff;width: 116px;text-align: center;margin: 5% auto;display: block;padding:20px 0;cursor: pointer;font-weight: 600;font-size: 13px;}
+.ui-btn-inline{background: #266fb5;color: #fff;width: 116px;text-align: center;margin: 5% auto;display: block;padding:15px 0;cursor: pointer;font-weight: 600;font-size: 13px;}
 </style>
 </body>
 </html>

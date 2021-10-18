@@ -174,28 +174,42 @@ $("#page-list").live("pageshow", function(e) {
 </div>
 	
 	<div data-role="content" class="ui-content_mail">
+        <div class="date_text">
+            <spring:message code="t.posting.period" text="게시기간"/> : 
+			<c:out value="${bbs.openDate}" /> ~ <c:out value="${bbs.closeDate}" />
+        </div>
 		<p style="font-size:18px;"  class="mail_title p_line"><b><c:out value="${bbs.subject}" /></b></p>
 		<hr/>
-		<p style="font-size:14px;" class="p_line">
-			
-			<spring:message code="t.posting.period" text="게시기간"/> : 
-			<c:out value="${bbs.openDate}" /> ~ <c:out value="${bbs.closeDate}" />
-		</p>
-
-		<div data-role="collapsible" data-theme="c" data-content-theme="d" data-mini="true">
-			<h4><fmt:message key="t.attached"/><!-- 첨부 --></h4>
-		    <p style="font-size:14px;">
-			<%=bbsAttachValue %></p>
-		</div>
+        
+        <p style="font-size:14px;" class="file_box">
+            <b><fmt:message key="t.attached"/><!-- 첨부 --></b> 
+			<span class="span_left"><%=bbsAttachValue %></span>
+        </p>
+        
+		
 		
 		<hr/>
-		<div id="bbsContent" class="ui-corner-all" style="/* border:1px solid #aaa; width:760px; */">
-		${bbs.content}
-		</div>
+        <div id="mailBodyValue">
+            <div id="bbsContent" class="ui-corner-all" style="/* border:1px solid #aaa; width:760px; */">
+            ${bbs.content}
+            </div>
+        </div>
+        
+        <div class="ui-btn-inline" onClick="javascript:location.href='/mobile/bbs/list.jsp?bbsId=<%=bbsId %>&bbsNm=<%=bbsNm %>&searchKey=<%=searchKey %>&searchValue=<%=searchValue %>'">
+            확인
+        </div>
 	</div>
 
 
 </div>
-
+<style>
+dt {padding:0px; margin:0px;}
+.ui-btn-left, .ui-btn-right, .ui-input-clear, .ui-btn-inline, .ui-grid-a .ui-btn, .ui-grid-b .ui-btn, .ui-grid-c .ui-btn, .ui-grid-d .ui-btn, .ui-grid-e .ui-btn, .ui-grid-solo .ui-btn {
+margin-right: 2px;
+margin-left: 2px;
+}
+.ui-navbar li .ui-btn {text-align:left;}
+.ui-btn-inline{background: #266fb5;color: #fff;width: 116px;text-align: center;margin: 5% auto;display: block;padding:15px 0;cursor: pointer;font-weight: 600;font-size: 13px;}
+</style>
 </body>
 </html>
