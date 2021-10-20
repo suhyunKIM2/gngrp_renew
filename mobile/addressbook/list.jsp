@@ -53,7 +53,7 @@ if(searchValue == null) searchValue = "";
 			var pageNo = data.page;
 			var records = data.records;
 			var rowcnt = data.rowcnt;
-			var html = (pageNo == 1)? "<li data-role='list-divider'><%=msglang.getString("t.worksupport") /* 업무지원 */ %> &gt; <%=msglang.getString("main.Business.Card") /* 주소록관리 */ %> <span class='ui-li-count'>"+records+"</span></li>": "";
+			var html = (pageNo == 1)? "<li data-role='list-divider'><%=msglang.getString("t.worksupport") /* 업무지원 */ %> &gt; <%=msglang.getString("main.Business.Card") /* 주소록관리 */ %> <span class='ui-li-count'><font style='color:#000'>TOTAL :</font> "+records+"명</span></li>": "";
 
 			$('#rowCnt').html(rowcnt);
 			
@@ -101,20 +101,122 @@ if(searchValue == null) searchValue = "";
 			}
 		}
     </script>
+<!----S: 2021리뉴얼 추가------->
+<link rel="stylesheet" href="/mobile/css/mobile.css"/>
+<link rel="stylesheet" href="/mobile/css/mobile_sub_page.css"/>
+<script>
+    $(document).ready(function(){
+ 
+        $('#burger-check').on('click', function(){
+            $('.menu_bg').show(); 
+            $('.sub_ham_page').css('display','block'); 
+            $('.sidebar_menu').show().animate({
+                right:0
+            });
+            $('.ham_pc_footer_div').show().animate({
+                bottom:0,right:0
+            });
+        });
+        $('.close_btn>a').on('click', function(){
+            $('.menu_bg').hide(); 
+            $('.sidebar_menu').animate({
+                right: '-' + 100 + '%'
+                       },function(){
+            $('.sidebar_menu').hide(); 
+            }); 
+            $('.ham_pc_footer_div').animate({
+                right: '-' + 100 + '%',
+                bottom:'-' + 100 + '%'
+                       },function(){
+            $('.ham_pc_footer_div').hide(); 
+            }); 
+        });
+});
+</script>
+
+<script>
+    $('body').delegate('.nav-search', 'pageshow', function( e ) {
+        $('.ui-input-text').attr("autofocus", true)
+    });			
+</script>
+<style>
+ .content_div .ui-icon.ui-icon-arrow-r.ui-icon-shadow{background-color: #266fb5 !important; background-position: -884px 50% !important;} 
+ .ui-li-has-arrow.ui-li-has-count .ui-li-count {
+    right: 33px;
+    top: 33%;
+    text-shadow: none;
+    font-size: 0;
+    padding: 0.6% 1% 1.3%;
+}
+.ui-li-desc, .ui-li-heading{width:85%;}
+
+</style>
+<!----E: 2021리뉴얼 추가------->    
 </head>
 <body>
 <div data-role="page" id="page-list">
-	<div data-role="header" data-position="fixed" data-theme="b">
-		<h2>Mobile Groupware</h2>
-		<a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">Home</a>
-		<a href="/mobile/nav.jsp" data-icon="search" data-rel="dialog" data-transition="fade" data-iconpos="right">Menu</a>
-	</div>
+	<div class="main_contents_top">
+    <div class="menu_bg"></div>
+    <div class="sidebar_menu">
+         <div class="close_btn">
+            <a href="#">닫기 <img src="/common/images/m_icon/15.png"></a>
+         </div>
+         <div class="ham_user_name"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b></div>
+         <div class="logout_btn" onClick="location.href='/logout.jsp'">로그아웃</div>
+         <div class="menu_wrap">
+             <div data-role="page" class="type-home sub_ham_page" id="page-home" style="position:relative;clear: both;z-index: 1;background: #fff;">
+                 <div class="nav_div">
+                 <div data-role="content">   
+                 <ul data-role="listview" data-theme="a" data-divider-theme="a" data-filter="true" data-filter-theme="a" data-filter-placeholder="Search menu...">
+                     <li data-filtertext="편지작성">
+                        <a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">편지작성</a>
+                    </li>
+			        <li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("mail.InBox") /* 받은편지함 */ %>">
+                        <a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false"><%=msglang.getString("main.E-mail") /* 받은편지함 */ %></a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/appr/list.jsp?menu=240" data-ajax="false">전자결재</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false">사내쪽지</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000004" data-ajax="false">게시판</a>
+                    </li>
+                    <!--<li data-filtertext="">
+                        <a href="" data-ajax="false">업무지원</a>
+                    </li>-->
+                    <li data-filtertext="">
+                        <a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false">공지사항</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/addressbook/user.jsp" data-ajax="false">임직원정보</a>
+                    </li>
+                    <li data-filtertext="">
+                        <a href="/mobile/addressbook/list.jsp" data-ajax="false">주소록관리</a>
+                    </li>
+                </ul>
+                </div>
+                <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position:fixed;;background:#f5f5f5;width:80%;right:0;bottom:-100%;">
+                    <img src="/common/images/m_icon/13.png"> PC버전으로 보기
+                </div>
+                </div>
+             </div>
+         </div>
+    </div>
+
+     <h1 class="left_logo">
+         <a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">
+            <img src="/common/images/icon/logo.png" height="29" border="0" >
+        </a>
+     </h1>
+    <div class="right_menu" >
+        <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
+     </div>
+</div>
 	
-	<div data-role="content">
+	<div data-role="content" class="content_div">
 	
-		<div class="ui-grid-solo">
-			<input type="search" name="searchValue" id="searchValue" value="" placeholder="<%=msglang.getString("t.searchValue") /* 검색어 */ %>" />
-		</div>
 		<fieldset class="ui-grid-a">
 			<div class="ui-block-a">
 				<select name="searchKey" id="searchKey">
@@ -124,11 +226,16 @@ if(searchValue == null) searchValue = "";
 					<option value="writer_.nName"><%=msglang.getString("t.writer") /* 작성자 */ %></option>
 				</select>
 			</div>
-			<div class="ui-block-b">
-				<button onclick="loadDataAjax('search')" data-theme="b">Search</button>
-			</div>
 		</fieldset>
+        
+        <div class="ui-grid-solo">
+			<input type="search" name="searchValue" id="searchValue" value="" placeholder="<%=msglang.getString("t.searchValue") /* 검색어 */ %>" />
+		</div>
 		
+		<div class="ui-block-b button_color">
+            <button onclick="loadDataAjax('search')" data-theme="b">검색</button>
+        </div>
+        
 		<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b" id="list"></ul>
 		<div class="ui-grid-solo ui-btn">
 			<button onclick="loadDataAjax()" data-inline="true" data-mini="true" class="pagerBtn ui-btn-hidden">
@@ -138,11 +245,7 @@ if(searchValue == null) searchValue = "";
 		</div>
 	</div>
 
-	<div data-role="footer" data-position="fixed" class="footer-docs ui-bar" data-theme="b">
-		<a href="javascript:history.back()" data-ajax='false' data-icon="arrow-l">Back</a>
-		<a href="javascript:location.reload()" data-ajax='false' data-icon="refresh">Reload</a>
-		<a href="/mobile/logout.jsp" data-ajax='false' data-rel="dialog" data-icon="delete" data-iconpos="right" style="float:right;">Logout</a>
-	</div>
+	
 </div>
 </body>
 </html>
