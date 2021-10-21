@@ -2069,13 +2069,11 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
   var newdate_span = $('#newdate_span_2').text();
     $('.layer_bg , .start_layer').css('display','none');
     $('.start_time').text(newdate_span);
-    $('.nth-child_01').css('pointer-events','none');
   });
   $('.close_save_btn').click(function(){
   var newdate_span_end = $('#newdate_span_4').text();
     $('.layer_bg , .end_layer').css('display','none');
     $('.end_time').text(newdate_span_end);
-     $('.nth-child_03').css('pointer-events','none');
   });
 });  
 
@@ -2089,7 +2087,7 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
     -ms-transform: translateY(0%);
     -z-transform: translateY(0%);
     -o-transform: translateY(0%);}
-.inline_block_li{display:inline-block;width:31.3%;text-align: center;font-weight: 600;color:#fff;cursor: pointer;padding: 2% 0;
+.inline_block_li{display:inline-block;width:30%;text-align: center;font-weight: 600;color:#fff;cursor: pointer;padding: 2% 0;
     border-radius: 5px;}
 .inline_block_li.nth-child_01{background:#266fb5;}
 .inline_block_li.nth-child_02{background:#eee;color:#000;}
@@ -2166,9 +2164,9 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
             <li style="margin-bottom: 6px;"><!-- topMenu 로그인유저 추가 -->
                 <div><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b> 반갑습니다.</div> 
             </li>
-            <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
-            <li class="inline_block_li nth-child_02">근무체크</li>
-            <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">업무종료</li>
+            <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">출근</li>
+            <li class="inline_block_li nth-child_02">근무중</li>
+            <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">퇴근</li>
             
             
          <!---20210713 출퇴근 신규 등록---->
@@ -2457,4 +2455,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>>>>>>>>>>>>>>>>>>>>>
+<!-- top End -->>>>>>>>>>>>>>>>>>>>>
