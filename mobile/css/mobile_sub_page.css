@@ -88,6 +88,9 @@ background-size: 776px 18px !important;}
 @media (min-width: 750px){
 .ui-listview-filter .ui-input-search{margin: 17px 3% 3%;}
 }
+@media all and (max-width:390px) {
+.content_div .ui-input-search{width:53.7%;}
+}
 @media all and (max-width:375px) {
 .content_div .ui-input-search{width:51%;}
 }
