@@ -13,7 +13,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
 /* 	background: #5C9CCC url(/common/images/f1_bg.png) 50% 50% repeat-x; */
 /* 	color: white; */
 /* 	font-weight: bold; */
-/* }  */
+/* } */
 
 .ui-dialog .ui-dialog-titlebar {
 padding: 7px 0px 7px 10px;
@@ -78,7 +78,6 @@ overflow-y: auto;
 }
 
 /*20210714 출퇴근 UI신규 추가 관련 style*/
-.user_info_right .work{display:none;}
 table tr td.work{color:#fff;font-family:sans-serif;text-align:left;padding-left: 5px;float:left;height:45px;line-height: 49px;}
 table tr td.work .btn_work_div{background:#ededed;position:relative;height:25px;line-height: 25px;margin-top:10px;padding:0 12px 0 28px;border-radius:12px;font-weight:600;letter-spacing: -1px;font-size:9pt;}
 table tr td.work_off .btn_work_div{background:#ed4b5f; color:#fff;}
@@ -86,7 +85,8 @@ table tr td.work span{font-family:malgun gothic;font-size:9pt;vertical-align: mi
 table tr td.work img{vertical-align: middle;position:absolute;left:3px;top:2px;height:20px;}
 div#menu{background:#7795bb !important;}
 div#menu li.back {width:0 !important;height:0 !important;}  
-
+.work_finish{display:none;}
+.working{display:none;}
 
 </style>
 <script src="/common/scripts/WebTree.js"></script>
@@ -97,8 +97,6 @@ div#menu li.back {width:0 !important;height:0 !important;}
 <link rel='stylesheet' type='text/css' href='/common/jquery/plugins/dynatree/skin-vista/ui.dynatree.css'>
 <script src='/common/jquery/plugins/dynatree/jquery.dynatree.js' type="text/javascript"></script> 
 <script src='/common/jquery/plugins/dynatree/config.dynatree.js' type="text/javascript"></script> 
-
-<link rel='stylesheet' type='text/css' href='/common/css/common.css'><!----2021리뉴얼추가---->
 
 <script>
 var popupWinCnt = 0;
@@ -327,6 +325,19 @@ $(document).ready(function() {
 	var get_message = "";
 	var dd = "";
 	var getUrl = "/getAPI.do";
+	var getLatitude='';
+	var getLongitude='';
+	
+	// Geolocation API에 액세스할 수 있는지를 확인
+    if (navigator.geolocation) {
+        //위치 정보를 얻기
+        navigator.geolocation.getCurrentPosition (function(pos) {
+        	getLatitude=pos.coords.latitude;     // 위도
+        	getLongitude=pos.coords.longitude; // 경도
+        });
+    } else {
+        alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.");
+    }
 	
 	// pad 등 , 모바일 타블릿에서 메뉴 클릭 시 없어지도록 하기 위해 : 2013-08-27 김정국
 	$('.ul_sub_menu').find('li').click( function() {
@@ -338,7 +349,6 @@ $(document).ready(function() {
 	$('.ul_sub_menu').parent().click( function() {
 		$(this).find('ul_sub_menu').css("display", "visible");
 	});
-	
 	$(".btn_work_div").click(function(){
 		var gubun=0;
 		
@@ -352,7 +362,7 @@ $(document).ready(function() {
 		$.ajax({
 			type:'post',
 			url	:"/sendAPI.do",
-			data:{"wgb":gubun},
+			data:{"wgb":gubun,"latitude":getLatitude,"longitude":getLongitude},
 			dataType: 'json',
 			success:function(data){
 				var state=data.status;
@@ -404,6 +414,7 @@ $(document).ready(function() {
 	$.ajax({
 		type:'post',
 		url	: getUrl,
+		data:{"latitude":getLatitude,"longitude":getLongitude},
 		dataType: 'json',
 		success:function(data){
 			var rs=data;
@@ -2032,298 +2043,154 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 			}
 		});
 	}
-/*S: 2021리뉴얼 신규추가*/    
-  $(function(){
-  $('.nth-child_01').click(function(){
-    var date = new Date();
-    var date2 = new Date();
-    var today = new Date();
-	var dd = String(today.getDate()).padStart(2, '0');
-	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-	var yyyy = today.getFullYear();
-    var hours = ('0' + today.getHours()).slice(-2); 
-    var minutes = ('0' + today.getMinutes()).slice(-2);
-
-	date =  yyyy+ '년' + mm + '월' + dd  + '일' ;
-    date2 = hours + ':' +  minutes ;
-    $('#newdate_span').text(date);
-     $('#newdate_span_2').text(date2);
-  });
-  
-  $('.nth-child_03').click(function(){
-    var date = new Date();
-    var date2 = new Date();
-    var today = new Date();
-	var dd = String(today.getDate()).padStart(2, '0');
-	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-	var yyyy = today.getFullYear();
-    var hours = ('0' + today.getHours()).slice(-2); 
-    var minutes = ('0' + today.getMinutes()).slice(-2);
-
-	date =  yyyy+ '년' + mm + '월' + dd  + '일' ;
-    date2 = hours + ':' +  minutes ;
-    $('#newdate_span_3').text(date);
-     $('#newdate_span_4').text(date2);
-  });
-
-  $('.save_btn').click(function(){
-  var newdate_span = $('#newdate_span_2').text();
-    $('.layer_bg , .start_layer').css('display','none');
-    $('.start_time').text(newdate_span);
-    $('.nth-child_01').css('pointer-events','none');
-  });
-  $('.close_save_btn').click(function(){
-  var newdate_span_end = $('#newdate_span_4').text();
-    $('.layer_bg , .end_layer').css('display','none');
-    $('.end_time').text(newdate_span_end);
-     $('.nth-child_03').css('pointer-events','none');
-  });
-  
-   $('.nth-child_02').click(function(){
-       alert('근무체크 처리 하였습니다.')
-   });
-});
-
-
-
-/*E: 2021리뉴얼 신규추가*/    
 </script>
-<!----S: 2021리뉴얼추가 파일------->
-<script src="/jpolite/js/layer_popup.js"></script>
-<link rel="stylesheet" href="/jpolite/css/main_renew_2021.css"/>
-<!----E: 2021리뉴얼추가 파일------->
-
-<!--S: 출퇴근레이어팝업-->
-<div class="layer_bg" style="display: block;"></div>
-<div class="layer_wrap start_layer" layer="1">
-    <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
-    <img src="/common/images/icon/img_01.png" border="0" >
-    <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
-    <ul class="today_ul">
-        <li><div id="newdate_span"></div></li>
-        <li><div id="newdate_span_2"></div></li>
-    </ul>
-    <div class="layer_text">업무를 시작하시겠습니까?</div>
-    <div class="save_btn">확인</div>
-</div>
-<div class="layer_wrap end_layer" layer="2">
-    <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
-    <img src="/common/images/icon/img_01.png" border="0" >
-    <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
-    <ul class="today_ul">
-        <li><div id="newdate_span_3"></div></li>
-        <li><div id="newdate_span_4"></div></li>
-    </ul>
-    <div class="layer_text">업무를 종료하시겠습니까?</div>
-    <div class="close_save_btn">확인</div>
-</div>
-
-
-<!--E: 출퇴근레이어팝업-->
 
 <!-- top -->
-<div class="top_top_blank">
-    <a href="javascript:fnlogout();" style="color: #000 !important;padding:2px 18px;background:#4392df;height:13px;border-radius: 15px;margin-right: 2px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.04 26.01" style="height:14px;vertical-align: text-top;"><defs><style>.cls-1{fill:#fffec2;}</style></defs><g id="2" data-name="2"><g id="Layer_1" data-name="Layer 1"><path class="cls-1" d="M18.33,5.19a1.68,1.68,0,0,0-2,2.71,8.18,8.18,0,1,1-9.65,0,1.68,1.68,0,0,0-2-2.71A11.52,11.52,0,1,0,23,14.49,11.59,11.59,0,0,0,18.33,5.19Z"/><path class="cls-1" d="M11.52,12.36a1.72,1.72,0,0,0,1.73-1.73V1.73a1.73,1.73,0,0,0-3.46,0v8.9A1.73,1.73,0,0,0,11.52,12.36Z" /></g></g></svg>
-        <font class="black" style="color:#fff;">로그아웃</font>
-    </a> 
-</div>
-<div class="left_box_logo">
-   <% if (isPartnerTemp) {%>
-    <a href="<%= ( (!isPartnerTemp) ? "/jpolite/index.jsp" : "#" ) %>">
-         <img src="/common/images/icon/logo.png" height="29" border="0" >
-    </a>
-    <% }else {%>
-    <a href="<%= ( (!isPartner) ? "/jpolite/index.jsp" : "#" ) %>">
-        <img src="/common/images/icon/logo.png" height="29" border="0" >
-    </a>
-    <%} %>
-    <div class="user_info_div">
-        <ul class="user_info_left">
-            <img src="/common/images/icon/img_01.png" border="0" >
-        </ul>
-        <ul class="user_info_right">
-            <li style="margin-bottom: 6px;"><!-- topMenu 로그인유저 추가 -->
-                <div><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b> 반갑습니다.</div> 
-            </li>
-            <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
-            <li class="inline_block_li nth-child_02" >근무체크</li>
-            <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">업무종료</li>
-        <!---20210713 출퇴근 신규 등록---->
-             <!-------업무시작전 노출---------
-            <li class="work work_on work_finish">
-                <ul>
-                    <li class="work_on_btn">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-top-right-radius: 8px; border-top-left-radius: 8px;background:#617eaf;"><!--background-image:url(../common/images/top_black_bg.png);--->
+	<tr>
+		<td align="left">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="center" style="height:45px; sborder-right:1px solid #777;width: 120px;">
+						<% if (isPartnerTemp) {%>
+						<a href="<%= ( (!isPartnerTemp) ? "/jpolite/index.jsp" : "#" ) %>">
+							<div style="position:relative; left:20px;  sborder-radius:4px; text-align:left; ">
+								<img src="/userdata/logo<%=logoImg %>" height="29" border="0" style="padding:0px 0px 0px 0px;">
+							</div>
+						</a>
+						<% }else {%>
+						<a href="<%= ( (!isPartner) ? "/jpolite/index.jsp" : "#" ) %>">
+							<div style="position:relative; left:20px;  sborder-radius:4px; text-align:left; ">
+								<img src="/userdata/logo<%=logoImg %>" height="29" border="0" style="padding:0px 0px 0px 0px;">
+							</div>
+						</a>
+						<%} %>
+					</td>
+					<td style=" vertical-align:middle;text-align:left;float:left;height:45px;line-height:50px;"><!-- topMenu 로그인유저 추가 -->
+						<div style="font-family:malgun gothic; font-weight:bold; color:#fffec2; margin:auto;">&nbsp;<%=loginuser.dpName %>&nbsp;<%=loginuser.nName %> <fmt:message key="main.by.who"/></div><br/> 
+					</td>
+                    
+                 <!---20210713 출퇴근 신규 등록---->
+                     <!-------업무시작전 노출--------->
+                    <td class="work work_on work_finish" style="display:block;">
                         <a href="">
                             <div class="btn_work_div" id="work_start_btn"  href=""  type="button">
-                                출근
+                                <img src="https://www.goobne.co.kr/img/icon_work_on.png">
+                                업무시작
                             </div>
                         </a>
-                    </li>
+                    </td>
+                    <!-------//--------->
+                    <!-------업무시작후 노출--------->
+                    <td class="work working">
+                         <span id="worktime_s"></span><span id="worktime_e"></span>
+                    </td>
+                    <td class="work work_check working">
+                        <a href="#">
+                            <div class="btn_work_div work_2" id="work_continue_btn"  href="" type="button">
+                                <img src="https://www.goobne.co.kr/img/icon_work_check.png">
+                                근무체크
+                            </div>
+                        </a>
+                    </td>
+                    <td class="work work_off working work_2">
+                        <a href="">
+                            <div class="btn_work_div" id="work_end_btn"  href=""  type="button">
+                                <img src="https://www.goobne.co.kr/img/icon_work_off.png">
+                                업무종료
+                            </div>
+                        </a>
+                    </td>
+                 <!--------//---------------------->
                     
-                </ul>
-            </li>
-            <!-------//---------
-            <!-------업무시작후 노출---------
-            <li class="work working">
-                <span id="worktime_s"></span><span id="worktime_e"></span>
-            </li>
-            <li class="work work_check working left_btn">
-                <!-- <a href="#"> --
-                    <div class="btn_work_div work_2" id="work_continue_btn"  href="" type="button">
-                        체크
-                    </div>
-                <!-- </a> --
-            </li>
-            <li class="work work_off working work_2 right_btn">
-                <a href="">
-                    <div class="btn_work_div" id="work_end_btn"  href=""  type="button">
-                        퇴근
-                    </div>
-                </a>
-            </li>
-         <!--------//---------------------->
-        </ul>
-        <div class="work_info_div">
-            <ul>
-                <li><b>출근</b> <span class="start_time">-</span></li>
-                <li><b>퇴근</b> <span class="end_time">-</span></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="right_box_menu">
-    <ul class="top_menu_list">
-        <li>
-            <input class="burger-check" type="checkbox" id="burger-check"  checked/><label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
-            <span class="nav_menu_text">ALL Menu</span>
-            <div class="menu">
-              <div class="nav_centent">
-                  <ul>
-                      <% 	if (isPartner)  { %>
-                        <%--  <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME<!-- <fmt:message key="main.Main"/>&nbsp;--><!-- 메인화면 --></b></span></a>--%>
-                        <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME&nbsp;<!-- 전자메일 --></b></span></a>        
-
-                        <%	} %>
-                        <% 	if (isPartnerTemp)  { %>
-                        <%--  <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME<!-- <fmt:message key="main.Main"/>&nbsp;--><!-- 메인화면 --></b></span></a>--%>
-                        <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b><fmt:message key="mail.email"/>&nbsp;<!-- 전자메일 --></b></span></a>        
-                        <!--  2016.07.25 김현식  // 협력업체 전자결재 탭 추가.  -->
-                        <li class="last"><a href="javascript:openTreeMenu('02', 'MENU020201');"><span class="shadowText"><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a>
-
-                        <%	} %>
-                        <% if ( !isPartner) if( !isPartnerTemp) { %>
-                        <li><a href="/jpolite/index.jsp"><span class="shadowText"><b>HOME<!-- <fmt:message key="main.Main"/>&nbsp;--><!-- 메인화면 --></b></span></a>
-                        <li><a href="javascript:openTreeMenu('01', 'MENU010202');" class="parent"><span class="shadowText"><b><fmt:message key="mail.email"/>&nbsp;<!-- 전자메일 --></b></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:newMailWrite();"><span style="color:black;"><fmt:message key="main.E-mail.Write"/>&nbsp;<!-- 편지쓰기--></span></a></li>
-                                <li><a href="javascript:openTreeMenu('01','MENU010202');"><span><fmt:message key="mail.InBox"/>&nbsp;<!-- 받은편지함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('01','MENU001401');"><span><fmt:message key="mail.OutBox"/>&nbsp;<!-- 보낸편지함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('01','MENU010401');"><span><fmt:message key="mail.TempBox"/>&nbsp;<!-- 임시보관함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('01','MENU0105');"><span><fmt:message key="mail.DeletedBox"/>&nbsp;<!-- 지운편지함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('01','MENU010302');"><span><fmt:message key="main.Message"/>&nbsp;<!-- 쪽지 --></span></a></li>                
-                                <li><a href="javascript:openTreeMenu('01','MENU010801');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:openTreeMenu('02', 'MENU020201');" class="parent"><span class="shadowText"><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('02','MENU020101');"><span><fmt:message key="appr.menu.new"/>&nbsp;<!-- 기안서작성 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('02','MENU020201');"><span><fmt:message key="appr.menu.approvalbox"/>&nbsp;<!-- 결재함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('02','MENU020301');"><span><fmt:message key="appr.menu.complete"/>&nbsp;<!-- 결재완료함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('02','MENU020401');"><span><fmt:message key="appr.menu.receipient"/>&nbsp;<!-- 수신함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('02','MENU020802');"><span><fmt:message key="appr.menu.circulating"/>&nbsp;<!-- 회람함 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('02','MENU020601');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:openTreeMenu('04', 'MENU041001');" class="parent"><span class="shadowText"><fmt:message key="sch.Datebook"/>&nbsp;<!-- 일정관리 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('04','MENU0409');"><span><fmt:message key="sch.Integrated.schedule"/>&nbsp;<!-- 통합일정표 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('04','MENU040502');"><span><fmt:message key="sch.Individuals.a.shared.calendar"/>&nbsp;<!-- 개인-공유일정 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('04','MENU041001');"><span><fmt:message key="sch.Company.schedules"/>&nbsp;<!-- 회사일정 --></span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:openTreeMenu('03', 'MENU0301');" class="parent"><span class="shadowText"><fmt:message key="main.Document.Management"/>&nbsp;<!-- 문서관리 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('03','MENU0301');"><span><fmt:message key="main.Document.Management"/>&nbsp;<!-- 문서관리 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('03','MENU0305');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:openTreeMenu('07', 'MENU0705');" class="parent"><span class="shadowText"><fmt:message key="main.Business.Support"/>&nbsp;<!-- 업무지원 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('07','MENU0705');"><span><fmt:message key="main.Employee.Info"/>&nbsp;<!-- 임직원정보 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('07', 'MENU070101');"><span><fmt:message key="main.Business.Card"/>&nbsp;<!-- 주소록관리 --></span></a></li>                
-                                <li><a href="javascript:openTreeMenu('07','MENU070203');"><span><fmt:message key="main.Rent.Management"/>&nbsp;<!-- 자원관리 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('07','MENU070301');"><span><fmt:message key="main.Servey"/>&nbsp;<!-- 설문조사 --></span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:openTreeMenu('05', 'MENU0501');" class="parent"><span class="shadowText"><fmt:message key="main.Board"/>&nbsp;<!-- 게시판 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('05','MENU0501');"><span><fmt:message key="main.notice"/>&nbsp;<!-- 공지사항 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('05','MENU0511');"><span><fmt:message key="main.Work.Board"/>&nbsp; <!-- 업무게시판 --> </span></a></li>
-                                <li><a href="javascript:openTreeMenu('05','MENU0505');"><span><fmt:message key="main.Free.Board"/>&nbsp;<!-- 자유게시판 --></span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:openTreeMenu('10', 'MENU1003');" class="parent"><span class="shadowText"><fmt:message key="main.IMS"/>&nbsp;<!-- IMS --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <!-- <li><a href="javascript:openTreeMenu('10','MENU1001');"><span>마스터&nbsp;<!-- 마스터 </span></a></li> -->
-                                <!-- <li><a href="javascript:openTreeMenu('10','MENU1002');"><span>매출관리&nbsp;<!-- 매출관리 </span></a></li>-->
-                                <li><a href="javascript:openTreeMenu('10','MENU1003');"><span>개인경비&nbsp;<!-- 개인경비 --></span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:openTreeMenu('08', 'MENU0801');" class="parent"><span class="shadowText"><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('08','MENU0801');"><span><fmt:message key="main.Personal.Info"/>&nbsp;<!-- 개인정보 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('08','MENU080201');"><span><fmt:message key="main.E-mail"/>&nbsp;<!-- 전자메일 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('08','MENU080301');"><span><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a></li>
-                            </ul>
-                        </li>
-
-                        <%if(isAdmin){ %>
-                        <li><a href="javascript:openTreeMenu('09', 'MENU0901');" class="parent"><span class="shadowText"><fmt:message key="main.System.Management"/>&nbsp;<!-- 시스템관리 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('09','MENU0901');"><span><fmt:message key="ope.operating.environment"/>&nbsp;<!-- 운영환경 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('09','MENU090401');"><span><fmt:message key="main.Organizational"/>&nbsp;<!-- 조직관리 --></span></a></li>
-                                <!--  <li><a href="javascript:openTreeMenu('09','MENU090501');"><span><fmt:message key="main.Approval"/>&nbsp;</span></a></li> // 전자결재관리-->
-                                <li><a href="javascript:openTreeMenu('09','MENU091501');"><span><fmt:message key="main.Board.Management"/>&nbsp;<!-- 게시판관리 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('09','MENU091301');"><span><fmt:message key="main.Menu.Management"/>&nbsp;<!-- 메뉴관리 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('09','MENU0911');"><span><fmt:message key="main.Connection.Log"/>&nbsp;<!-- 접속로그 --></span></a></li>
-                                <li><a href="javascript:openTreeMenu('09','MENU0912');"><span><fmt:message key="main.Login.Info"/>&nbsp;<!-- 로그인정보 --></span></a></li>
-                            </ul>
-                        </li>
-                    <%} %>
-                        <li><a href="javascript:openTreeMenu('07', 'MENU0705');" class="last"><span class="shadowText"><fmt:message key="main.Employee.Info"/>&nbsp;<!-- 환경설정 --></span></a>
-                            <div class="arrow-up"></div>
-                            <ul class="ul_sub_menu">
-                                <li><a href="javascript:openTreeMenu('07','MENU0705');"><span><fmt:message key="main.Employee.Info"/>&nbsp;<!-- 임직원정보 --></span></a></li>
-                            </ul>
-                        </li>
-                    <%} %>
                     
-                    <li><a href="http://www.gngrp.com" target="_blank" ><span class="shadowText">종합정보사이트</span></a></li>
-                  </ul>
-              </div>
-             
-            </div>
-        </li>
-        <!--<li>
-           <a href="http://www.gngrp.com" target="_blank" >
-               종합정보사이트 <font class="black">바로가기 ></font>
-            </a> 
-        </li>-->
-    </ul>
-</div>
-<!-- //top -->
+                    
+					<td width="*" align="right" valign="top" style="padding-top:5px; padding-right:5px;">
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td>
+									<div style="position:relative;">
+										<input type="text" name="loginId" style="position:absolute;top:1px;left:1px;width:22px;margin:0px;padding:0px;height:21px;border-width:0px;opacity:0;filter:alpha(opacity=0);line-height:21px;font-size:1px;cursor:default;ime-mode:disabled;"/>
+									</div>
+								</td>  
+								<td width="1"></td>
+								<% if ( !isPartner ) if ( !isPartnerTemp)  { %>
+								<td>
+									<span style="position:relative; top:6px;">
+										<input type="text" id="searchtel" onkeypress="searchTelKeyPress();" name="searchtel" style="ime-mode:active; border-radius:4px; border:1px solid #e0e0e0; width:80px; padding:3px 3px 4px 3px; font-weight:bold; display: none;">
+									</span>
+								</td>
+                                
+								
+                                <!-- 2016.05.02 종합정보바로가기 이미지 등록 -->
+								<td>
+								<a href="http://www.gngrp.com" target="_blank" class="btn" style="color:#fff; position:relative; float:right; top:6px;">
+										<img title="종합정보사이트 바로가기" alt="종합정보사이트 바로가기" src="/common/images/icon-site_button.png"/>
+								</a>&nbsp;
+								</td>
+								<td width="10"></td>
+								<!-----20210714 주석----------
+                                <td>
+									<a href="javascript:getTelInfoHtml();" title="Search" class="btn btn-icon" style="position:relative; top:6px; color:#fff; width:23px">
+										<span><span class="icon-search"></span>&nbsp;</span><!-- Mail Write ->
+									</a>
+								</td>
+								<td width="10"></td>
+								<td>
+									<a href="javascript:qmenu(1);" title="Mail Write" class="btn btn-icon" style="position:relative; top:6px; color:#fff; width:23px">
+										<span><span class="icon-mail"></span>&nbsp;</span><!-- Mail Write ->
+									</a>
+									<a href="javascript:qmenu(2);" title="Schedule Write" class="btn btn-icon" style="position:relative; top:6px; color:#fff; width:23px">
+										<span><span class="icon-calendar"></span>&nbsp;</span><!-- Schedule ->
+									</a>
+									<a href="javascript:qmenu(3);" title="Approval Write" class="btn btn-icon" style="position:relative; top:6px; color:#fff; width:23px">
+										<span><span class="icon-document"></span>&nbsp;</span><!-- Approval ->
+									</a>
+								</td>
+								<td width="10"></td>--->
+								<td>
+									<a href="#" id="megaanchor" class="btn-blue btn-icon" style="position:relative; top:5px; color:#fff;">
+										<span><span class="icon-molecule"></span>Menu Map</span>
+									</a>
+								</td>
+								<%} %>
+								<td width="10"></td>
+							<td>
+							<a href="javascript:fnlogout();" class="btn-red btn-icon" style="position:relative; top:5px; color:#fff;">
+									<span><span class="icon-logout"></span>LOG-OUT
+								</span></a>
+								</td>
+								<td width="4"></td>
+							</tr>
+						</table>
+
+						<div style="padding-top:3px; display:none;">
 
 
+							<link type="text/css" href="/common/css/styledButton.css" rel="stylesheet" />
+
+							<div id="qmenu" style="float:right; display:none;">
+								<a href="#" id="q1" class="btn btn-icon" onclick="qmenu(1);">
+									<span><span class="icon-mail"></span><fmt:message key='mail.title'/><!-- 메일작성 -->
+								</span></a>&nbsp;
+								<a href="#" id="q2" class="btn btn-icon" onclick="qmenu(2);">
+									<span><span class="icon-calendar"></span><fmt:message key='main.schedule.write'/><!-- 일정작성 -->
+								</span></a>&nbsp;
+								<a href="#" id="q3" class="btn btn-icon" onclick="qmenu(3);">
+									<span><span class="icon-document"></span><fmt:message key='main.approval.write'/><!-- 결재작성 -->
+								</span></a>&nbsp;
+								<a href="#" id="megaanchor" class="btn-blue btn-icon" style="color:#fff;" donclick="return false">
+									<span><span class="icon-molecule"></span>Menu Map
+								</span></a>&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<!-- 인명검색 종료 -->
+		</td>
+	</tr>
+</table>
 
 <!-- menu area -->
 <link type="text/css" href="/common/jquery/menu/menu.css" rel="stylesheet" />
@@ -2419,7 +2286,111 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 }
 </style>
 
+<div id="marea" style="padding:0px; backgrounds:rgb(74,81,85);">
+<!-- <div id="marea" style="padding:0px; background:#f2f2f2;"> -->
+<div id="menu">
+    <ul class="menu">
+    	<% 	if (isPartner)  { %>
+    	<%--  <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME<!-- <fmt:message key="main.Main"/>&nbsp;--><!-- 메인화면 --></b></span></a>--%>
+    	<li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME&nbsp;<!-- 전자메일 --></b></span></a>        
+        
+    	<%	} %>
+    	<% 	if (isPartnerTemp)  { %>
+    	<%--  <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME<!-- <fmt:message key="main.Main"/>&nbsp;--><!-- 메인화면 --></b></span></a>--%>
+    	<li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b><fmt:message key="mail.email"/>&nbsp;<!-- 전자메일 --></b></span></a>        
+        <!--  2016.07.25 김현식  // 협력업체 전자결재 탭 추가.  -->
+        <li class="last"><a href="javascript:openTreeMenu('02', 'MENU020201');"><span class="shadowText"><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a>
+        
+    	<%	} %>
+    	<% if ( !isPartner) if( !isPartnerTemp) { %>
+    	<li><a href="/jpolite/index.jsp"><span class="shadowText"><b>HOME<!-- <fmt:message key="main.Main"/>&nbsp;--><!-- 메인화면 --></b></span></a>
+        <li><a href="javascript:openTreeMenu('01', 'MENU010202');" class="parent"><span class="shadowText"><b><fmt:message key="mail.email"/>&nbsp;<!-- 전자메일 --></b></span></a>
+            <ul class="ul_sub_menu">
+                <li><a href="javascript:newMailWrite();"><span style="color:black;"><fmt:message key="main.E-mail.Write"/>&nbsp;<!-- 편지쓰기--></span></a></li>
+                <li><a href="javascript:openTreeMenu('01','MENU010202');"><span><fmt:message key="mail.InBox"/>&nbsp;<!-- 받은편지함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('01','MENU001401');"><span><fmt:message key="mail.OutBox"/>&nbsp;<!-- 보낸편지함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('01','MENU010401');"><span><fmt:message key="mail.TempBox"/>&nbsp;<!-- 임시보관함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('01','MENU0105');"><span><fmt:message key="mail.DeletedBox"/>&nbsp;<!-- 지운편지함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('01','MENU010302');"><span><fmt:message key="main.Message"/>&nbsp;<!-- 쪽지 --></span></a></li>                
+                <li><a href="javascript:openTreeMenu('01','MENU010801');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
+            </ul>
+        </li>
+        <li><a href="javascript:openTreeMenu('02', 'MENU020201');" class="parent"><span class="shadowText"><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a>
+            <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('02','MENU020101');"><span><fmt:message key="appr.menu.new"/>&nbsp;<!-- 기안서작성 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('02','MENU020201');"><span><fmt:message key="appr.menu.approvalbox"/>&nbsp;<!-- 결재함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('02','MENU020301');"><span><fmt:message key="appr.menu.complete"/>&nbsp;<!-- 결재완료함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('02','MENU020401');"><span><fmt:message key="appr.menu.receipient"/>&nbsp;<!-- 수신함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('02','MENU020802');"><span><fmt:message key="appr.menu.circulating"/>&nbsp;<!-- 회람함 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('02','MENU020601');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
+            </ul>
+        </li>
+        <li><a href="javascript:openTreeMenu('04', 'MENU041001');" class="parent"><span class="shadowText"><fmt:message key="sch.Datebook"/>&nbsp;<!-- 일정관리 --></span></a>
+	        <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('04','MENU0409');"><span><fmt:message key="sch.Integrated.schedule"/>&nbsp;<!-- 통합일정표 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('04','MENU040502');"><span><fmt:message key="sch.Individuals.a.shared.calendar"/>&nbsp;<!-- 개인-공유일정 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('04','MENU041001');"><span><fmt:message key="sch.Company.schedules"/>&nbsp;<!-- 회사일정 --></span></a></li>
+            </ul>
+		</li>
+        <li><a href="javascript:openTreeMenu('03', 'MENU0301');" class="parent"><span class="shadowText"><fmt:message key="main.Document.Management"/>&nbsp;<!-- 문서관리 --></span></a>
+	        <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('03','MENU0301');"><span><fmt:message key="main.Document.Management"/>&nbsp;<!-- 문서관리 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('03','MENU0305');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
+            </ul>
+		</li>
+        <li><a href="javascript:openTreeMenu('07', 'MENU0705');" class="parent"><span class="shadowText"><fmt:message key="main.Business.Support"/>&nbsp;<!-- 업무지원 --></span></a>
+	        <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('07','MENU0705');"><span><fmt:message key="main.Employee.Info"/>&nbsp;<!-- 임직원정보 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('07', 'MENU070101');"><span><fmt:message key="main.Business.Card"/>&nbsp;<!-- 주소록관리 --></span></a></li>                
+                <li><a href="javascript:openTreeMenu('07','MENU070203');"><span><fmt:message key="main.Rent.Management"/>&nbsp;<!-- 자원관리 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('07','MENU070301');"><span><fmt:message key="main.Servey"/>&nbsp;<!-- 설문조사 --></span></a></li>
+            </ul>
+		</li>
+        <li><a href="javascript:openTreeMenu('05', 'MENU0501');" class="parent"><span class="shadowText"><fmt:message key="main.Board"/>&nbsp;<!-- 게시판 --></span></a>
+	        <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('05','MENU0501');"><span><fmt:message key="main.notice"/>&nbsp;<!-- 공지사항 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('05','MENU0511');"><span><fmt:message key="main.Work.Board"/>&nbsp; <!-- 업무게시판 --> </span></a></li>
+                <li><a href="javascript:openTreeMenu('05','MENU0505');"><span><fmt:message key="main.Free.Board"/>&nbsp;<!-- 자유게시판 --></span></a></li>
+            </ul>
+		</li>
+		<li><a href="javascript:openTreeMenu('10', 'MENU1003');" class="parent"><span class="shadowText"><fmt:message key="main.IMS"/>&nbsp;<!-- IMS --></span></a>
+	        <ul class="ul_sub_menu">
+                <!-- <li><a href="javascript:openTreeMenu('10','MENU1001');"><span>마스터&nbsp;<!-- 마스터 </span></a></li> -->
+                <!-- <li><a href="javascript:openTreeMenu('10','MENU1002');"><span>매출관리&nbsp;<!-- 매출관리 </span></a></li>-->
+                <li><a href="javascript:openTreeMenu('10','MENU1003');"><span>개인경비&nbsp;<!-- 개인경비 --></span></a></li>
+            </ul>
+		</li>
+        <li><a href="javascript:openTreeMenu('08', 'MENU0801');" class="parent"><span class="shadowText"><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a>
+	        <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('08','MENU0801');"><span><fmt:message key="main.Personal.Info"/>&nbsp;<!-- 개인정보 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('08','MENU080201');"><span><fmt:message key="main.E-mail"/>&nbsp;<!-- 전자메일 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('08','MENU080301');"><span><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a></li>
+            </ul>
+		</li>
+		
+		<%if(isAdmin){ %>
+        <li><a href="javascript:openTreeMenu('09', 'MENU0901');" class="parent"><span class="shadowText"><fmt:message key="main.System.Management"/>&nbsp;<!-- 시스템관리 --></span></a>
+	        <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('09','MENU0901');"><span><fmt:message key="ope.operating.environment"/>&nbsp;<!-- 운영환경 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('09','MENU090401');"><span><fmt:message key="main.Organizational"/>&nbsp;<!-- 조직관리 --></span></a></li>
+                <!--  <li><a href="javascript:openTreeMenu('09','MENU090501');"><span><fmt:message key="main.Approval"/>&nbsp;</span></a></li> // 전자결재관리-->
+                <li><a href="javascript:openTreeMenu('09','MENU091501');"><span><fmt:message key="main.Board.Management"/>&nbsp;<!-- 게시판관리 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('09','MENU091301');"><span><fmt:message key="main.Menu.Management"/>&nbsp;<!-- 메뉴관리 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('09','MENU0911');"><span><fmt:message key="main.Connection.Log"/>&nbsp;<!-- 접속로그 --></span></a></li>
+                <li><a href="javascript:openTreeMenu('09','MENU0912');"><span><fmt:message key="main.Login.Info"/>&nbsp;<!-- 로그인정보 --></span></a></li>
+            </ul>
+		</li>
+		<%} %>
+		<li><a href="javascript:openTreeMenu('07', 'MENU0705');" class="last"><span class="shadowText"><fmt:message key="main.Employee.Info"/>&nbsp;<!-- 환경설정 --></span></a>
+	        <ul class="ul_sub_menu">
+                <li><a href="javascript:openTreeMenu('07','MENU0705');"><span><fmt:message key="main.Employee.Info"/>&nbsp;<!-- 임직원정보 --></span></a></li>
+            </ul>
+		</li>
+		<%} %>
+    </ul>
+</div>
 
+</div>
 
 <!-- ***** jQuery megamenu Menu Map ***** 
 1. index.jsp의 마지막에 jkmegamenu.js 링크하고, jkmegamenu.definemenu() 호출함.
@@ -2428,7 +2399,87 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <link rel="stylesheet" type="text/css" href="/common/scripts/jkmegamenu.css" />
 
+<!--Mega Drop Down Menu HTML. Retain given CSS classes-->
+<div id="megamenu1" class="megamenu">
 
+<div class="column">
+	<h3><fmt:message key="mail.email"/>&nbsp;<!-- 전자메일 --></h3>
+	<ul>
+    <li><a href="javascript:openTreeMenu('01','MENU0101');"><span><fmt:message key="main.E-mail.Write"/>&nbsp;<!-- 편지쓰기 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('01','MENU010202');"><span><fmt:message key="mail.InBox"/>&nbsp;<!-- 받은편지함 --></span></a>
+    <li><a href="javascript:openTreeMenu('01','MENU001401');"><span><fmt:message key="mail.OutBox"/>&nbsp;<!-- 보낸편지함 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('01','MENU010401');"><span><fmt:message key="mail.TempBox"/>&nbsp;<!-- 임시보관함 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('01','MENU0105');"><span><fmt:message key="mail.DeletedBox"/>&nbsp;<!-- 지운편지함 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('01','MENU010302');"><span><fmt:message key="main.Message"/>&nbsp;<!-- 쪽지 --></span></a></li>                
+    <li><a href="javascript:openTreeMenu('01','MENU010801');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
+	</ul>
+</div>
+        
+<div class="column">
+	<h3><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></h3>
+	<ul>
+    <li><a href="javascript:openTreeMenu('02','MENU020101');"><span><fmt:message key="appr.menu.new"/>&nbsp;<!-- 기안서작성 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('02','MENU020201');"><span><fmt:message key="appr.menu.approvalbox"/>&nbsp;<!-- 결재함 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('02','MENU020301');"><span><fmt:message key="appr.menu.complete"/>&nbsp;<!-- 결재완료함 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('02','MENU020401');"><span><fmt:message key="appr.menu.receipient"/>&nbsp;<!-- 수신함 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('02','MENU020802');"><span><fmt:message key="appr.menu.circulating"/>&nbsp;<!-- 회람함 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('02','MENU020601');"><span><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></span></a></li>
+	</ul>
+</div>
+
+<div class="column">
+	<h3><fmt:message key="sch.Datebook"/>&nbsp;<!-- 일정관리 --></h3>
+	<ul>
+    <li><a href="javascript:openTreeMenu('04','MENU0409');"><span><fmt:message key="sch.Integrated.schedule"/>&nbsp;<!-- 통합일정표 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('04','MENU040502');"><span><fmt:message key="sch.Individuals.a.shared.calendar"/>&nbsp;<!-- 개인-공유일정 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('04','MENU041001');"><span><fmt:message key="sch.Company.schedules"/>&nbsp;<!-- 회사일정 --></span></a></li>
+    <li style="display:none;"><a href="javascript:openTreeMenu('04','MENU040602');"><span><fmt:message key="main.Trip"/>&nbsp;<!-- 출장현황 --></span></a></li>
+	</ul>
+</div>
+
+<br style="clear: left" /> <!--Break after 3rd column. Move this if desired-->
+
+<div class="column">
+	<h3><fmt:message key="main.Document.Management"/>&nbsp;<!-- 문서관리 --></h3>
+	<ul>
+	<li onclick="javascript:openTreeMenu('03', 'MENU0301');"><a><fmt:message key="document.All.List"/>&nbsp;<!-- 전체보기 --></a></li>
+	<li onclick="javascript:openTreeMenu('03', 'MENU030601');"><a><fmt:message key="dms.share"/>&nbsp;<!-- 개인문서함 --></a></li>
+	<li onclick="javascript:openTreeMenu('03', 'MENU030301');"><a><fmt:message key="dms.person"/>&nbsp;<!-- 공용문서함 --></a></li>
+	<li onclick="javascript:openTreeMenu('03', 'MENU0305');"><a><fmt:message key="main.option"/>&nbsp;<!-- 환경설정 --></a></li>
+	</ul>
+</div> 
+
+<div class="column">
+	<h3><fmt:message key="main.Business.Support"/>&nbsp;<!-- 업무지원 --></h3>
+	<ul>
+		<li><a href="javascript:openTreeMenu('07','MENU0705');"><span><fmt:message key="main.Employee.Info"/>&nbsp;<!-- 임직원정보 --></span></a></li>
+        <li><a href="javascript:openTreeMenu('07', 'MENU070101');"><span><fmt:message key="main.Business.Card"/>&nbsp;<!-- 주소록관리 --></span></a></li>                
+        <li><a href="javascript:openTreeMenu('07','MENU070203');"><span><fmt:message key="main.Rent.Management"/>&nbsp;<!-- 자원관리 --></span></a></li>
+        <li><a href="javascript:openTreeMenu('07','MENU070301');"><span><fmt:message key="main.Servey"/>&nbsp;<!-- 설문조사 --></span></a></li>
+	</ul>
+</div>
+
+<div class="column">
+	<h3><fmt:message key="main.Board"/>&nbsp;<!-- 게시판 --></h3>
+	<ul>
+    <li><a href="javascript:openTreeMenu('05','MENU0501');"><span><fmt:message key="main.notice"/>&nbsp;<!-- 공지사항 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('05','MENU0511');"><span><fmt:message key="main.Work.Board"/>&nbsp; <!-- 업무게시판 --></span></a></li>
+    <li><a href="javascript:openTreeMenu('05','MENU0505');"><span><fmt:message key="main.Free.Board"/>&nbsp;<!-- 자유게시판 --></span></a></li>
+	</ul>
+</div>
+
+<div class="column">
+	<h3><fmt:message key="main.IMS"/>&nbsp;<!-- IMS --></h3>
+	<ul>
+    <!-- <li><a href="javascript:openTreeMenu('10','MENU1001');"><span>마스터&nbsp;<!-- 마스터 </span></a></li>-->
+    <!-- <li><a href="javascript:openTreeMenu('10','MENU1002');"><span>매출관리&nbsp;<!-- 매출관리 </span></a></li>-->  
+    <li><a href="javascript:openTreeMenu('10','MENU1003');"><span>개인경비&nbsp;<!-- 개인경비 --></span></a></li>
+	</ul>
+</div>
+
+<br style="clear: left" /> <!--Break after 3rd column. Move this if desired-->
+</div>
+<!-- ***** jQuery megamenu Menu Map ***** -->
 
 <div style="display:none;" id="copyright"><a href="http://apycom.com/"></a></div>
 <div style="display:none;" id="apprCnt1"></div>
@@ -2437,4 +2488,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>
+<!-- top End -->
