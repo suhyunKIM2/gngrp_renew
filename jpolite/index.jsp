@@ -165,7 +165,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
 <div class="all_centent_box" style="height:auto;overflow:hidden;">
     <div class="top_centent_box">
         <!-- TOP MENU INCLUDE -->
-        <%@ include file="/top_include.jsp"%>
+        <%@ include file="/top_include_2021.jsp"%>
         <!-- TOP MENU INCLUDE -->
     </div>
     <!-- 전체 크기 _메인 -->
@@ -174,17 +174,8 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
         <div class="left_centent_box">
             <div class="main_auto">
                 
-            
-            
-                <!-- calendar area -->
-                <div id="cal" style="border:1px solid #ddd; float:left;">
-                    <div id="datepicker" style="float:left;width:50%; "></div>
-                    <div id="sche" style="float:right; width:48%;border-left: 1px solid #eee; height:156px;overflow: auto; overflow-x:hidden;">
-                    </div>
-                </div>
-                
                 <!---- Quick Menu----->
-                <div class="left_box Quick_box">
+                <div class="left_box Quick_box" style="padding-top: 0;">
                     <h3>Quick Menu</h3>
                     <ul class="Quick_ul">
                         <li onClick="javascript:qmenu(1);"><img src="/common/images/icon_2/img_02.png"><div>편지쓰기</div></li>
@@ -194,8 +185,13 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                         <li onClick="javascript:openTreeMenu('07', 'MENU070101');"><img src="/common/images/icon/img_06.png"><div>주소록</div></li>
                     </ul>
                 </div>
-                
-                
+            
+                <!-- calendar area -->
+                <div id="cal" style="border:1px solid #ddd; float:left;padding:0;margin-top:12%;" class="left_box">
+                    <div id="datepicker" style="float:left;width:50%; "></div>
+                    <div id="sche" style="float:right; width:48%;border-left: 1px solid #eee; height:156px;overflow: auto; overflow-x:hidden;">
+                    </div>
+                </div>
                 
                 <!---- 금주생일자----->
                 <div class="left_box">
