@@ -2032,6 +2032,7 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 			}
 		});
 	}
+/*S: 2021리뉴얼 신규추가*/    
   $(function(){
   $('.nth-child_01').click(function(){
     var date = new Date();
@@ -2078,40 +2079,13 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
      $('.nth-child_03').css('pointer-events','none');
   });
 });  
-
+/*E: 2021리뉴얼 신규추가*/    
 </script>
+<!----S: 2021리뉴얼추가 파일------->
 <script src="/jpolite/js/layer_popup.js"></script>
-<style>
-.user_info_right{line-height:normal;margin-bottom:12px;}
-.user_info_left{top:0;transform: translateY(0%); 
-    -webkit-transform: translateY(0%)
-    -moz-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    -z-transform: translateY(0%);
-    -o-transform: translateY(0%);}
-.inline_block_li{display:inline-block;width:31.3%;text-align: center;font-weight: 600;color:#fff;cursor: pointer;padding: 2% 0;
-    border-radius: 5px;}
-.inline_block_li.nth-child_01{background:#266fb5;}
-.inline_block_li.nth-child_02{background:#eee;color:#000;}
-.inline_block_li.nth-child_03{background:#ee4d61;}
-.work_info_div{clear:both;width:99%;height:50px;border:1px solid #cdcdcd;border-radius: 10px;}
-.work_info_div ul li{float:left;width:49.7%;border-right:1px solid #cdcdcd;height:50px;line-height: 50px;}
-.work_info_div ul li:last-child{border-right:0;}
-.layer_bg{position: fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity: 0.7;z-index: 99999;}
-.layer_wrap{width: 450px;;height: 460px;position: fixed;left:50% !important;top:50% !important;background: #fff;z-index: 99999;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);-z-transform: translate(-50%,-50%);display: none;}
-.start_layer{border:5px solid #266fb5;}
-.end_layer{border:5px solid #ee4d61;}
-.close_div_box{padding:2%;text-align:right;    margin-bottom: 4%;}
-.close_div_box a{font-size:20px;font-weight: 600;}
-.user_name_div{margin:4% 0 2%;}
-.user_name_div b{font-size:18px;}
-.today_ul li{display:inline-block;margin: 0 2px;}
-.today_ul li div{font-size:15px;}
-.layer_text{margin:15px 0;font-size:13px;}
-.save_btn,.close_save_btn{color:#fff;padding:2% 0;width:30%;cursor: pointer;}
-.save_btn{background:#266fb5;}
-.close_save_btn{background:#ee4d61;}
-</style>
+<link rel="stylesheet" href="/jpolite/css/main_renew_2021.css"/>
+<!----E: 2021리뉴얼추가 파일------->
+
 <!--S: 출퇴근레이어팝업-->
 <div class="layer_bg" style="display: block;"></div>
 <div class="layer_wrap start_layer" layer="1">
@@ -2142,10 +2116,10 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 
 <!-- top -->
 <div class="top_top_blank">
-    <span class="left_centent_box" style="height:auto;text-align: left;background: #f7f7f7;"><a href="javascript:fnlogout();" style="color: #5e5e5e !important;">&nbsp;&nbsp;<img src="/common/images/m_icon/15.png" style="vertical-align: text-top;height:13px;transform: rotate(
-180deg);">&nbsp;로그아웃</a></span>
-    <a href="http://www.gngrp.com" target="_blank" >
-       종합정보사이트 <font class="black">바로가기 ></font>
+    <span class="left_centent_box" style="height:25px;text-align: left;background: #fff;"></span>
+    <a href="javascript:fnlogout();" style="color: #000 !important;padding:2px 18px;background:#4392df;height:13px;border-radius: 15px;margin-right: 2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.04 26.01" style="height:14px;vertical-align: text-top;"><defs><style>.cls-1{fill:#fffec2;}</style></defs><g id="2" data-name="2"><g id="Layer_1" data-name="Layer 1"><path class="cls-1" d="M18.33,5.19a1.68,1.68,0,0,0-2,2.71,8.18,8.18,0,1,1-9.65,0,1.68,1.68,0,0,0-2-2.71A11.52,11.52,0,1,0,23,14.49,11.59,11.59,0,0,0,18.33,5.19Z"/><path class="cls-1" d="M11.52,12.36a1.72,1.72,0,0,0,1.73-1.73V1.73a1.73,1.73,0,0,0-3.46,0v8.9A1.73,1.73,0,0,0,11.52,12.36Z" /></g></g></svg>
+        <font class="black" style="color:#fff;">로그아웃</font>
     </a> 
 </div>
 <div class="left_box_logo">
@@ -2169,9 +2143,7 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
             <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
             <li class="inline_block_li nth-child_02">근무체크</li>
             <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">업무종료</li>
-            
-            
-         <!---20210713 출퇴근 신규 등록---->
+        <!---20210713 출퇴근 신규 등록---->
              <!-------업무시작전 노출---------
             <li class="work work_on work_finish">
                 <ul>
@@ -2329,6 +2301,8 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
                             </ul>
                         </li>
                     <%} %>
+                    
+                    <li><a href="http://www.gngrp.com" target="_blank" ><span class="shadowText">종합정보사이트</span></a></li>
                   </ul>
               </div>
              
@@ -2457,4 +2431,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>>>>>>>>>>>>>>>>>>>>>
+<!-- top End -->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

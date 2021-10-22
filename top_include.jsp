@@ -2032,11 +2032,93 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 			}
 		});
 	}
+/*S: 2021리뉴얼 신규추가*/    
+  $(function(){
+  $('.nth-child_01').click(function(){
+    var date = new Date();
+    var date2 = new Date();
+    var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+    var hours = ('0' + today.getHours()).slice(-2); 
+    var minutes = ('0' + today.getMinutes()).slice(-2);
+
+	date =  yyyy+ '년' + mm + '월' + dd  + '일' ;
+    date2 = hours + ':' +  minutes ;
+    $('#newdate_span').text(date);
+     $('#newdate_span_2').text(date2);
+  });
+  
+  $('.nth-child_03').click(function(){
+    var date = new Date();
+    var date2 = new Date();
+    var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+    var hours = ('0' + today.getHours()).slice(-2); 
+    var minutes = ('0' + today.getMinutes()).slice(-2);
+
+	date =  yyyy+ '년' + mm + '월' + dd  + '일' ;
+    date2 = hours + ':' +  minutes ;
+    $('#newdate_span_3').text(date);
+     $('#newdate_span_4').text(date2);
+  });
+  
+  $('.save_btn').click(function(){
+  var newdate_span = $('#newdate_span_2').text();
+    $('.layer_bg , .start_layer').css('display','none');
+    $('.start_time').text(newdate_span);
+    $('.nth-child_01').css('pointer-events','none');
+  });
+  $('.close_save_btn').click(function(){
+  var newdate_span_end = $('#newdate_span_4').text();
+    $('.layer_bg , .end_layer').css('display','none');
+    $('.end_time').text(newdate_span_end);
+     $('.nth-child_03').css('pointer-events','none');
+  });
+});  
+/*E: 2021리뉴얼 신규추가*/    
 </script>
+<!----S: 2021리뉴얼추가 파일------->
+<script src="/jpolite/js/layer_popup.js"></script>
+<link rel="stylesheet" href="/jpolite/css/main_renew_2021.css"/>
+<!----E: 2021리뉴얼추가 파일------->
+
+<!--S: 출퇴근레이어팝업-->
+<div class="layer_bg" style="display: block;"></div>
+<div class="layer_wrap start_layer" layer="1">
+    <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
+    <img src="/common/images/icon/img_01.png" border="0" >
+    <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
+    <ul class="today_ul">
+        <li><div id="newdate_span"></div></li>
+        <li><div id="newdate_span_2"></div></li>
+    </ul>
+    <div class="layer_text">업무를 시작하시겠습니까?</div>
+    <div class="save_btn">확인</div>
+</div>
+<div class="layer_wrap end_layer" layer="2">
+    <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
+    <img src="/common/images/icon/img_01.png" border="0" >
+    <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
+    <ul class="today_ul">
+        <li><div id="newdate_span_3"></div></li>
+        <li><div id="newdate_span_4"></div></li>
+    </ul>
+    <div class="layer_text">업무를 종료하시겠습니까?</div>
+    <div class="close_save_btn">확인</div>
+</div>
+
+
+<!--E: 출퇴근레이어팝업-->
+
 <!-- top -->
 <div class="top_top_blank">
-    <a href="http://www.gngrp.com" target="_blank" >
-       종합정보사이트 <font class="black">바로가기 ></font>
+    <a href="javascript:fnlogout();" style="color: #000 !important;padding:2px 18px;background:#4392df;height:13px;border-radius: 15px;margin-right: 2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.04 26.01" style="height:14px;vertical-align: text-top;"><defs><style>.cls-1{fill:#fffec2;}</style></defs><g id="2" data-name="2"><g id="Layer_1" data-name="Layer 1"><path class="cls-1" d="M18.33,5.19a1.68,1.68,0,0,0-2,2.71,8.18,8.18,0,1,1-9.65,0,1.68,1.68,0,0,0-2-2.71A11.52,11.52,0,1,0,23,14.49,11.59,11.59,0,0,0,18.33,5.19Z"/><path class="cls-1" d="M11.52,12.36a1.72,1.72,0,0,0,1.73-1.73V1.73a1.73,1.73,0,0,0-3.46,0v8.9A1.73,1.73,0,0,0,11.52,12.36Z" /></g></g></svg>
+        <font class="black" style="color:#fff;">로그아웃</font>
     </a> 
 </div>
 <div class="left_box_logo">
@@ -2054,55 +2136,53 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
             <img src="/common/images/icon/img_01.png" border="0" >
         </ul>
         <ul class="user_info_right">
-            <li><!-- topMenu 로그인유저 추가 -->
+            <li style="margin-bottom: 6px;"><!-- topMenu 로그인유저 추가 -->
                 <div><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b> 반갑습니다.</div> 
-                <div style="line-height:18px; font-size:12px; font-family:dotum;"><fmt:message key="main.last.connect"/><!-- 최근 접속일시--> : <span id="lastLoginTime" style="font-size:90%;">2014-06-06 12:00:00</span></div>
             </li>
-            
-         <!---20210713 출퇴근 신규 등록---->
-             <!-------업무시작전 노출--------->
+            <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
+            <li class="inline_block_li nth-child_02">근무체크</li>
+            <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">업무종료</li>
+        <!---20210713 출퇴근 신규 등록---->
+             <!-------업무시작전 노출---------
             <li class="work work_on work_finish">
                 <ul>
-                    <li class="logout_btn">
-                        <a href="javascript:fnlogout();">로그아웃</a>
-                    </li>
                     <li class="work_on_btn">
                         <a href="">
                             <div class="btn_work_div" id="work_start_btn"  href=""  type="button">
-                                <img src="https://www.goobne.co.kr/img/icon_work_on.png">
-                                업무시작
+                                출근
                             </div>
                         </a>
                     </li>
                     
                 </ul>
             </li>
-            <!-------//--------->
-            <!-------업무시작후 노출--------->
+            <!-------//---------
+            <!-------업무시작후 노출---------
             <li class="work working">
                 <span id="worktime_s"></span><span id="worktime_e"></span>
             </li>
             <li class="work work_check working left_btn">
-                <!-- <a href="#"> -->
+                <!-- <a href="#"> --
                     <div class="btn_work_div work_2" id="work_continue_btn"  href="" type="button">
-                        <img src="https://www.goobne.co.kr/img/icon_work_check.png">
-                        근무체크
+                        체크
                     </div>
-                <!-- </a> -->
+                <!-- </a> --
             </li>
             <li class="work work_off working work_2 right_btn">
                 <a href="">
                     <div class="btn_work_div" id="work_end_btn"  href=""  type="button">
-                        <img src="https://www.goobne.co.kr/img/icon_work_off.png">
-                        업무종료
+                        퇴근
                     </div>
                 </a>
             </li>
-            <li class="work_2 logout_btn">
-                <a href="javascript:fnlogout();">로그아웃</a>
-            </li>
          <!--------//---------------------->
         </ul>
+        <div class="work_info_div">
+            <ul>
+                <li><b>출근</b> <span class="start_time">-</span></li>
+                <li><b>퇴근</b> <span class="end_time">-</span></li>
+            </ul>
+        </div>
     </div>
 </div>
 <div class="right_box_menu">
@@ -2220,6 +2300,8 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
                             </ul>
                         </li>
                     <%} %>
+                    
+                    <li><a href="http://www.gngrp.com" target="_blank" ><span class="shadowText">종합정보사이트</span></a></li>
                   </ul>
               </div>
              

@@ -7,10 +7,10 @@ a[href^="http:"] {
 }
 
 .main_centent_box{height: 100vh;}
-.left_centent_box{height: calc(100vh - 233px) !important;}
+.left_centent_box{height: calc(100vh - 233px) !important;position: absolute;top: 199px;}
 .ui-layout-pane-north {height:auto !important;position: relative !important;}
 .right_box_menu,.right_centent_box{width:84% !important;border-left:1px solid #e8e8e8;}
-.left_box_logo,.left_centent_box{width:15% !important;}
+.left_box_logo,.left_centent_box{width:15.95% !important;}
 .left_box_logo img{margin-left:5%;}
 .burger-check:checked~.menu{padding-top:0;height:50px;line-height: 50px;}
 .menu a:link{color:#000;text-decoration: none;}
@@ -22,11 +22,10 @@ a[href^="http:"] {
 .mail_left_table,.mail_left_table,#menu_area div{border:0 !important;background:none !important;}
 .mail_left_table td{background-image:none !important;}
 #if_list{width:100% !important;}
-
-
+.left_box_logo {position:absolute;margin-top:0;}
 @media screen and (max-width: 1590px) {
 .left_box_logo, .left_centent_box {
-    width: 18% !important;
+    width: 19% !important;
 }
 .right_box_menu, .right_centent_box {
     width: 81% !important;
