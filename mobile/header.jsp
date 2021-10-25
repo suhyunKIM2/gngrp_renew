@@ -47,7 +47,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
      <div class="ham_user_name"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b></div>
      <div class="logout_btn" onClick="location.href='/logout.jsp'">로그아웃</div>
      <div class="menu_wrap">
-         <div data-role="page" class="type-home" id="page-home" style="position:relative;clear: both;z-index: 1;background: #fff;"><jsp:include page="/mobile/top.jsp"></jsp:include></div>
+         <div data-role="page" class="type-home" id="page-home" style="position:relative;clear: both;z-index: 1;background: #fff;z-index: 99;"><jsp:include page="/mobile/top.jsp"></jsp:include></div>
      </div>
 </div>
 

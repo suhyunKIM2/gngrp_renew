@@ -81,7 +81,7 @@
 		</ul>
 	</div><!-- /content -->
     <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position:fixed;;background:#f5f5f5;width:80%;right:0;bottom:-100%;">
-    <img src="/common/images/m_icon/13.png"> PC버전으로 보기
+    <a href="/jpolite/index.jsp" style="color:#000;text-decoration: none;"><img src="/common/images/m_icon/13.png"> PC버전으로 보기</a>
 </div>
 </div><!-- /page -->
 </body>

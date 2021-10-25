@@ -2033,6 +2033,25 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 		});
 	}
 /*S: 2021리뉴얼 신규추가*/    
+if(!String.prototype.padStart) {
+	String.prototype.padStart = function padStart(targetLength, padString) {
+		if(this.length >= targetLength) {
+			return String(this);
+		} else {
+			if(padString == null || padString == " ") {
+				padString = " ";
+			} else if(padString.length > 1) {
+				padString = padString.substring(0,1);
+			}
+			targetLength = targetLength - this.length;
+			var prefix = "";
+			for(var i = 0; i < targetLength; i++) {
+				prefix += padString;
+			}
+			return prefix + String(this);
+		}
+	};
+}
   $(function(){
   $('.nth-child_01').click(function(){
     var date = new Date();
@@ -2080,7 +2099,7 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
   });
   
    $('.nth-child_02').click(function(){
-       alert('근무체크 처리 하였습니다.')
+       alert('근무체크 처리 하였습니다.');
    });
 });
 
@@ -2124,7 +2143,7 @@ function OnGetMenuCompleted_BK(xhr, menuTree, container){
 <!-- top -->
 <div class="top_top_blank">
     <a href="javascript:fnlogout();" style="color: #000 !important;padding:2px 18px;background:#4392df;height:13px;border-radius: 15px;margin-right: 2px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.04 26.01" style="height:14px;vertical-align: text-top;"><defs><style>.cls-1{fill:#fffec2;}</style></defs><g id="2" data-name="2"><g id="Layer_1" data-name="Layer 1"><path class="cls-1" d="M18.33,5.19a1.68,1.68,0,0,0-2,2.71,8.18,8.18,0,1,1-9.65,0,1.68,1.68,0,0,0-2-2.71A11.52,11.52,0,1,0,23,14.49,11.59,11.59,0,0,0,18.33,5.19Z"/><path class="cls-1" d="M11.52,12.36a1.72,1.72,0,0,0,1.73-1.73V1.73a1.73,1.73,0,0,0-3.46,0v8.9A1.73,1.73,0,0,0,11.52,12.36Z" /></g></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.04 26.01" style="width:14px;height:14px;vertical-align: text-top;"><defs><style>.cls-1{fill:#fffec2;}</style></defs><g id="2" data-name="2"><g id="Layer_1" data-name="Layer 1"><path class="cls-1" d="M18.33,5.19a1.68,1.68,0,0,0-2,2.71,8.18,8.18,0,1,1-9.65,0,1.68,1.68,0,0,0-2-2.71A11.52,11.52,0,1,0,23,14.49,11.59,11.59,0,0,0,18.33,5.19Z"/><path class="cls-1" d="M11.52,12.36a1.72,1.72,0,0,0,1.73-1.73V1.73a1.73,1.73,0,0,0-3.46,0v8.9A1.73,1.73,0,0,0,11.52,12.36Z" /></g></g></svg>
         <font class="black" style="color:#fff;">로그아웃</font>
     </a> 
 </div>
@@ -2437,4 +2456,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>
+<!-- top End -->>>>>>>>>>>>>

@@ -1,4 +1,4 @@
-body{background: #fff; height:auto !important;overflow:auto !important; min-width: 1194px;}
+body{height:auto !important;overflow:auto !important; min-width: 1194px;}
 .ui-layout-pane-center,.ui-layout-pane-west{inset: 100% auto 36px 0px !important;}
 .ui-layout-pane-center{margin-left:205px !important;}
 
@@ -6,8 +6,8 @@ a[href^="http:"] {
     padding-right: 14px;
 }
 
-.main_centent_box{height: 100vh;}
-.left_centent_box{height: calc(100vh - 233px) !important;position: absolute;top: 199px;}
+.main_centent_box{height: 95vh;}
+.left_centent_box{height: calc(100vh - 198px) !important;position: absolute;top: 199px;}
 .ui-layout-pane-north {height:auto !important;position: relative !important;}
 .right_box_menu,.right_centent_box{width:84% !important;border-left:1px solid #e8e8e8;}
 .left_box_logo,.left_centent_box{width:15.95% !important;}
@@ -25,7 +25,7 @@ a[href^="http:"] {
 .left_box_logo {position:absolute;margin-top:0;}
 @media screen and (max-width: 1590px) {
 .left_box_logo, .left_centent_box {
-    width: 19% !important;
+    width: 18.9% !important;
 }
 .right_box_menu, .right_centent_box {
     width: 81% !important;

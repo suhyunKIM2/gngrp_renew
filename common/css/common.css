@@ -168,8 +168,8 @@ a[href^="http:"]{background-image: none;}
 
 /*∏ﬁ¿Œ*/
 .main_auto{width:90%;margin:auto;}
-.main_centent_box{clear:both;}
-.left_centent_box{width:20%;float:left;height: calc(100vh - 185px);overflow:auto;}
+.main_centent_box{clear:both;background:#fff;}
+.left_centent_box{width:20%;float:left;height: calc(100vh - 189px);overflow:auto;background:#fff;}
 .right_centent_box{position: absolute;width:80%;right:0;top:75px;background:#f7f7f7;overflow:auto;height: calc(100vh - 75px);}
 .ui-datepicker td{padding:0;}
 table.ui-datepicker-calendar span,table.ui-datepicker-calendar a{font-size:9px;}
@@ -303,8 +303,13 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 .moduleFrame b{font-weight:500;}
 .ui-tabs .ui-tabs-panel{margin-top:12px;}
 .moduleFrame ul{border:0 !important;}
-
-
+.ui-layout-south {
+    margin-top: 15px !important;
+    width:100%;
+    text-align: center;
+}
+.ui-jqgrid .ui-jqgrid-bdiv{height:100vh !important;}
+#if_list{max-height: 1488px !important;}
 @media screen and (max-width: 1780px) {
 .left_footer_right{overflow-y:auto;}
 }
@@ -321,7 +326,7 @@ table.ui-datepicker-calendar a.ui-state-active{font-weight:600 !important;}
 
 }
 @media screen and (max-width: 1193px) {
-.ui-layout-center { height: calc(100vh - 135px);}
+.ui-layout-center { height: calc(100vh - 135px);max-height: 1488px;}
 }
 
 

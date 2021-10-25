@@ -144,9 +144,10 @@ body{width:100%;background: #fff !important;    padding: 0 !important;margin: 0;
     font-weight: 500;
     border: 1px solid #bebebe;
     text-shadow: none;font-size:12px;}
-    .footer_pc_ver{cursor:pointer;width:100%;text-align: center;height:80px;line-height: 80px;font-weight: 600;font-size: 13px;    text-shadow: none;
+    .footer_pc_ver{cursor:pointer;width:100%;text-align: center;height:80px;line-height: 80px;font-weight: 600;font-size: 13px;    text-shadow: none;z-index: 99;
 }
     .footer_pc_ver img{height: 30%;image-rendering: -webkit-optimize-contrast;image-rendering:-moz-auto;image-rendering:-o-auto;image-rendering:auto;vertical-align: middle;}
+    .ui-mobile [data-role=page], .ui-mobile [data-role=dialog], .ui-page{z-index: 99 !important;}
     
     .menu_bg{
         width: 100%;

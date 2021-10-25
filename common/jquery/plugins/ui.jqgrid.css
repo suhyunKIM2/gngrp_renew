@@ -2,7 +2,7 @@
 
 .ui-jqgrid {position: relative; font-size:11px; border:0px; }
 
-.ui-jqgrid .ui-jqgrid-view {position: relative;left:0px; top: 0px; padding: .0em;}
+.ui-jqgrid .ui-jqgrid-view {position: relative;left:0px; top: 0px; padding: .0em;height: calc(100vh - 72px);}
 
 /* caption*/
 
@@ -64,7 +64,7 @@ tr.ui-search-toolbar select {margin: 1px 0px 0px 0px}
 
 /* body */ 
 
-.ui-jqgrid .ui-jqgrid-bdiv {position: relative; margin: 0em; padding:0; overflow: auto; overflow-x:hidden; text-align:left;}
+.ui-jqgrid .ui-jqgrid-bdiv {position: relative; margin: 0em; padding:0; overflow: auto; overflow-x:hidden; text-align:left; }
 
 .ui-jqgrid .ui-jqgrid-btable {table-layout:fixed; margin:0.1em; border:0px; position: relative; top: -2px;}
 
@@ -380,7 +380,7 @@ width: 19px;
 /*.ui-jqgrid tr.jqgrow td a:hover {font-weight:bold;}*/
 
 table,.ui-jqgrid .ui-jqgrid-view,.ui-jqgrid,.ui-jqgrid .ui-jqgrid-hdiv,.ui-jqgrid .ui-jqgrid-bdiv,#dataGridPager{width:100% !important;}
-#dataGridPager{text-align: center;}
+#dataGridPager{text-align: center;position: fixed;bottom:0;}
 .ui-jqgrid tr.ui-row-ltr td{height: 31px;line-height: 31px; border-top: 1px dotted #eee;}
 .ui-jqgrid .ui-jqgrid-btable,.ui-jqgrid .ui-pg-table{table-layout: auto !important;width: 100% !important;}
 .ui-jqgrid .ui-pg-table{width:auto !important;margin: auto;}

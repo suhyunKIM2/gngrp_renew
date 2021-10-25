@@ -23,6 +23,7 @@ String baseURL = request.getScheme() + "://" + request.getServerName() + (port !
 %>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 <title><%=logoTxt %>GroupWare System</title><%--=uservariable.campaignTitle --%>
 
 <%-- <link rel="shortcut icon" href="<%=baseURL %>/common/images/starion_fav.png" /> --%>
@@ -75,7 +76,7 @@ String baseURL = request.getScheme() + "://" + request.getServerName() + (port !
 
 </head>
 
-<body classs='normal' style="min-width:1194px; heights:950px; margin:10px; wsidth:1194px; background-color:#fff;" onloads="switchTheme('silver');">
+<body classs='normal' style="min-width:1194px; heights:950px; margin:10px; wsidth:1194px;" onloads="switchTheme('silver');">
 
 <style>
 #top {}
@@ -165,7 +166,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
 <div class="all_centent_box" style="height:auto;overflow:hidden;">
     <div class="top_centent_box">
         <!-- TOP MENU INCLUDE -->
-        <%@ include file="/top_include_2021.jsp"%>
+        <%@ include file="/top_include.jsp"%>
         <!-- TOP MENU INCLUDE -->
     </div>
     <!-- 전체 크기 _메인 -->
