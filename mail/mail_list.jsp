@@ -1431,12 +1431,12 @@ function setChangeMailbox(){
 <!-- List Title -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="position:relative; lefts:-1px; height:37px; z-index:100;table-layout: fixed;">
 <tr>
-<td width="125" style="padding-left:5px; padding-top:5px; "><!-- <img src="../common/images/h3_ctbg.gif" border="0" align="absmiddle"> -->
+<td width="*" style="padding-left:5px; padding-top:5px;float:left; "><!-- <img src="../common/images/h3_ctbg.gif" border="0" align="absmiddle"> -->
 	<span class="ltitle"><img align="absmiddle" src="/common/images/icons/title-list-mail.png" />
 	<%=NavMailBoxName%></span>&nbsp;-&nbsp;
 </td>
-<td width="*">
-	<span style="text-decoration:underline;">
+<td width="*" style="padding-top:9px;float:left;">
+	<span>
 		<fmt:message key="mail.total"/>
 		<!-- 전체 --><span id="totalCnt"></span>
 		<%	if(!unReadChk.equals("1") && (mailboxID == 1 || "1".equals(mainBoxID))) { %>
