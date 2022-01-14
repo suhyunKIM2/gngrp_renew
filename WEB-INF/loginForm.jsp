@@ -31,6 +31,7 @@ String logoText = " ";
 
 <style>
 .error{color: #ff0000;font-style:italic;}
+.container_login_input input{position:relative;z-index: 99;}
 </style>
 <c:if test="${message != null && message != '' }">
 <script type="text/javascript">
@@ -193,7 +194,7 @@ function getid() {
 <!---리뉴얼 로그인창--->
 <div class="container_login">
     <div class="login_img"><img src="../common/images/icon/img_01.png"></div>
-    <div class="login_img login_img_text"><img src="../common/images/icon/logo.png"><img src="../common/images/icon/logo_1.png"></div>
+    <div class="login_img login_img_text"><img src="../common/images/icon/2_logo.png"><img src="../common/images/icon/logo_1.png"></div>
     <div class="container_login_input">
         <form:input path="id" value=""  tabindex="1" placeholder="아이디" />
         <form:password  value="" path="pwd" tabindex="2" placeholder="비밀번호"/>

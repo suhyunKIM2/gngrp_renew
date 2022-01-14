@@ -53,7 +53,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
 
  <h1 class="left_logo">
      <a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">
-        <img src="/common/images/icon/logo.png" height="29" border="0" >
+        <img src="/common/images/icon/2_logo.png" height="29" border="0" >
     </a>
  </h1>
 <div class="right_menu" >

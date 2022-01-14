@@ -174,6 +174,13 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
         <!-- 좌측 메뉴 시작-->
         <div class="left_centent_box">
             <div class="main_auto">
+            
+            <% if(!loginId.equals("taxinv") && !loginId.equals("abcde") && !loginId.equals("bigband")
+											&& !loginId.equals("big_cam11") && !loginId.equals("big_cam12") && !loginId.equals("big_cam13")
+											&& !loginId.equals("big_cam21") && !loginId.equals("big_cam22") && !loginId.equals("big_cam23")
+											&& !loginId.equals("big_cont1") && !loginId.equals("big_cont2") && !loginId.equals("big_cs1")
+											&& !loginId.equals("big_cs2") && !loginId.equals("big_stra1") && !loginId.equals("big_stra2")
+											&& !loginId.equals("big_sup1") && !loginId.equals("big_sup2")){%> 
                 
                 <!---- Quick Menu----->
                 <div class="left_box Quick_box" style="padding-top: 0;">
@@ -186,6 +193,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                         <li onClick="javascript:openTreeMenu('07', 'MENU070101');"><img src="/common/images/icon/img_06.png"><div>주소록</div></li>
                     </ul>
                 </div>
+                <%} %>
             
                 <!-- calendar area -->
                 <div id="cal" style="border:1px solid #ddd; float:left;padding:0;margin-top:12%;" class="left_box">
@@ -202,7 +210,7 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                         <tr height="100%">
                             <td align="center" valign="top" id="birthday">
                                 <table width="100%" border="0">
-                                    <tr height="100%" >
+                                    <tr height="95" >
                                         <td align="center">
                                             <fmt:message key="t.no.birth"/> <!-- 생일자가 없습니다. -->
                                         </td>
@@ -233,7 +241,27 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
         <div class="right_centent_box">
            <!--- 왼쪽 아이콘 메뉴---->
                <div class="left_box_menu">
+                    <% 	if (loginId.equals("taxinv") || loginId.equals("abcde"))  { %>
                     <ul>
+						<li onClick="openTreeMenu('02','MENU020201');">
+                            <div class="count"><div class="speech-bubble"><span id="appr_idx1">0</span></div></div>
+                            <img src="/common/images/icon_2/img_08.png">
+                            <div class="text_btn">전자결재</div>
+                        </li>
+                    </ul>
+                    <%	}else if (loginId.equals("bigband") || loginId.equals("big_cam11") || loginId.equals("big_cam12") || loginId.equals("big_cam13")
+		   		   || loginId.equals("big_cam21") || loginId.equals("big_cam22") || loginId.equals("big_cam23") || loginId.equals("big_cont1")
+		   		   || loginId.equals("big_cont2") || loginId.equals("big_cs1") || loginId.equals("big_cs2") || loginId.equals("big_stra1")
+		   		   || loginId.equals("big_stra2") || loginId.equals("big_sup1") || loginId.equals("big_sup2"))  { %>
+					<ul>
+						<li onClick="openTreeMenu('02','MENU021101');">
+                            <div class="count"><div class="speech-bubble"><span id="appr_idx1">0</span></div></div>
+                            <img src="/common/images/icon_2/img_08.png">
+                            <div class="text_btn">전자결재</div>
+                        </li>
+                    </ul>
+					<%}else{ %>
+					<ul>
                         <li onclick="openTreeMenu('01','MENU010202');">
                             <div class="count"><div class="speech-bubble"><span id="appr_idx5">0</span></div></div>
                             <img src="/common/images/icon_2/img_07.png">
@@ -278,8 +306,8 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                             <div class="text_btn">환경설정</div>
                         </li>
                     </ul>
+                    <%	} %>
                 </div>
-            
              <div class="right_float">
            <!---- 환율정보----->
                 <div class="left_box left_footer_right">
@@ -290,7 +318,16 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                 
                 <!----공지사항-------->
                 <div class="right_box right_01">
-                    <h3><span class="h3_left"><img src="/common/images/icon/img_19.png">공지사항</span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0501');"><img src="/common/images/icon/+.png"></span></h3>
+                    <h3><span class="h3_left"><img src="/common/images/icon/img_19.png">공지사항</span>
+                    <% if(!loginId.equals("taxinv") && !loginId.equals("abcde") && !loginId.equals("bigband")
+							&& !loginId.equals("big_cam11") && !loginId.equals("big_cam12") && !loginId.equals("big_cam13")
+							&& !loginId.equals("big_cam21") && !loginId.equals("big_cam22") && !loginId.equals("big_cam23")
+							&& !loginId.equals("big_cont1") && !loginId.equals("big_cont2") && !loginId.equals("big_cs1")
+							&& !loginId.equals("big_cs2") && !loginId.equals("big_stra1") && !loginId.equals("big_stra2")
+							&& !loginId.equals("big_sup1") && !loginId.equals("big_sup2")){%> 
+                    <span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0501');"><img src="/common/images/icon/+.png"></span>
+                    <%} %>
+                    </h3>
                     <!-- 공지사항 -->
                     <div class="cont_list_box">
                         <div class="moduleFrame nobg">
@@ -305,7 +342,16 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
             <div class="cont_right_main">
                 <ul class="cont_left">
                     <li>
-                        <h3 class="h3_01"><span class="h3_left"><img src="/common/images/icon/img_17.png"></span><span class="h3_right" onClick="openTreeMenu('01','MENU010202');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_01"><span class="h3_left"><img src="/common/images/icon/img_17.png"></span>
+                        <% if(!loginId.equals("taxinv") && !loginId.equals("abcde") && !loginId.equals("bigband")
+							&& !loginId.equals("big_cam11") && !loginId.equals("big_cam12") && !loginId.equals("big_cam13")
+							&& !loginId.equals("big_cam21") && !loginId.equals("big_cam22") && !loginId.equals("big_cam23")
+							&& !loginId.equals("big_cont1") && !loginId.equals("big_cont2") && !loginId.equals("big_cs1")
+							&& !loginId.equals("big_cs2") && !loginId.equals("big_stra1") && !loginId.equals("big_stra2")
+							&& !loginId.equals("big_sup1") && !loginId.equals("big_sup2")){%> 
+                        <span class="h3_right" onClick="openTreeMenu('01','MENU010202');"><img src="/common/images/icon/+.png"></span>
+                        <%} %>
+                        </h3>
                         <div class="cont_list_box">
                         <h2>받은메일함</h2>
                         <div class="moduleFrame nobg">
@@ -320,7 +366,16 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                     </div>
                     </li>
                     <li>
-                        <h3 class="h3_03"><span class="h3_left"><img src="/common/images/icon/img_20.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('02', 'MENU020201');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_03"><span class="h3_left"><img src="/common/images/icon/img_20.png"></span>
+                        <% if(!loginId.equals("taxinv") && !loginId.equals("abcde") && !loginId.equals("bigband")
+							&& !loginId.equals("big_cam11") && !loginId.equals("big_cam12") && !loginId.equals("big_cam13")
+							&& !loginId.equals("big_cam21") && !loginId.equals("big_cam22") && !loginId.equals("big_cam23")
+							&& !loginId.equals("big_cont1") && !loginId.equals("big_cont2") && !loginId.equals("big_cs1")
+							&& !loginId.equals("big_cs2") && !loginId.equals("big_stra1") && !loginId.equals("big_stra2")
+							&& !loginId.equals("big_sup1") && !loginId.equals("big_sup2")){%> 
+                        <span class="h3_right" onClick="javascript:openTreeMenu('02', 'MENU020201');"><img src="/common/images/icon/+.png"></span>
+                        <%} %>
+                        </h3>
                         <div class="cont_list_box">
                             <!-- approval -->
                             <div class="moduleFrame nobg">
@@ -341,7 +396,16 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                 </ul>
                 <ul class="cont_right">
                     <li>
-                        <h3 class="h3_02"><span class="h3_left"><img src="/common/images/icon/img_18.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0511');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_02"><span class="h3_left"><img src="/common/images/icon/img_18.png"></span>
+                        <% if(!loginId.equals("taxinv") && !loginId.equals("abcde") && !loginId.equals("bigband")
+							&& !loginId.equals("big_cam11") && !loginId.equals("big_cam12") && !loginId.equals("big_cam13")
+							&& !loginId.equals("big_cam21") && !loginId.equals("big_cam22") && !loginId.equals("big_cam23")
+							&& !loginId.equals("big_cont1") && !loginId.equals("big_cont2") && !loginId.equals("big_cs1")
+							&& !loginId.equals("big_cs2") && !loginId.equals("big_stra1") && !loginId.equals("big_stra2")
+							&& !loginId.equals("big_sup1") && !loginId.equals("big_sup2")){%> 
+                        <span class="h3_right" onClick="javascript:openTreeMenu('05','MENU0511');"><img src="/common/images/icon/+.png"></span>
+                        <%} %>
+                        </h3>
                         <div class="cont_list_box">
                             <!-- board -->
                             <div class="moduleFrame nobg">
@@ -361,7 +425,16 @@ focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{
                         </div>
                     </li>
                     <li>
-                        <h3 class="h3_04"><span class="h3_left"><img src="/common/images/icon/img_21.png"></span><span class="h3_right" onClick="javascript:openTreeMenu('01','MENU010302');"><img src="/common/images/icon/+.png"></span></h3>
+                        <h3 class="h3_04"><span class="h3_left"><img src="/common/images/icon/img_21.png"></span>
+                        <% if(!loginId.equals("taxinv") && !loginId.equals("abcde") && !loginId.equals("bigband")
+							&& !loginId.equals("big_cam11") && !loginId.equals("big_cam12") && !loginId.equals("big_cam13")
+							&& !loginId.equals("big_cam21") && !loginId.equals("big_cam22") && !loginId.equals("big_cam23")
+							&& !loginId.equals("big_cont1") && !loginId.equals("big_cont2") && !loginId.equals("big_cs1")
+							&& !loginId.equals("big_cs2") && !loginId.equals("big_stra1") && !loginId.equals("big_stra2")
+							&& !loginId.equals("big_sup1") && !loginId.equals("big_sup2")){%> 
+                        <span class="h3_right" onClick="javascript:openTreeMenu('01','MENU010302');"><img src="/common/images/icon/+.png"></span>
+                        <%} %>
+                        </h3>
                         <div class="cont_list_box">
                             <h2>쪽지함</h2>
                             <div class="cont_list_box_div"><c:import url="/notification/widget.htm?boxId=1" charEncoding="utf-8" /></div>

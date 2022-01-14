@@ -24,6 +24,12 @@ BbsMaster bbsMaster = (BbsMaster)request.getAttribute("bbsMaster");
 
 String bbsAttachValue = "";
 String baseURL = "http://" + request.getServerName() + "/bbs/download.htm?bbsId=" + bbs.getBbsId() + "&docId=" + bbs.getDocId() + "&fileNo=";
+if(request.getServerName().indexOf("localhost") != -1){//로컬인지 서버인지 확인
+ 	baseURL = request.getScheme() + "://" + request.getServerName()+":"+request.getServerPort() + "/bbs/download.htm?bbsId=" + bbs.getBbsId() + "&docId=" + bbs.getDocId() + "&fileNo="; //로컬 시 적용  (https 적용)
+}else{
+	baseURL = request.getScheme() + "://" + request.getServerName() + "/bbs/download.htm?bbsId=" + bbs.getBbsId() + "&docId=" + bbs.getDocId() + "&fileNo="; //개발, 운영 시 적용 (https 적용)
+}
+
 String searchKey = request.getParameter("searchKey");
 String searchValue = request.getParameter("searchValue");
 String bbsId = request.getParameter("bbsId");
@@ -165,7 +171,7 @@ $("#page-list").live("pageshow", function(e) {
 
      <h1 class="left_logo">
          <a href="/mobile/index.jsp" data-icon="home" data-direction="reverse" data-ajax="false">
-            <img src="/common/images/icon/logo.png" height="29" border="0" >
+            <img src="/common/images/icon/2_logo.png" height="29" border="0" >
         </a>
      </h1>
     <div class="right_menu" >
@@ -199,7 +205,6 @@ $("#page-list").live("pageshow", function(e) {
             확인
         </div>
 	</div>
-
 
 </div>
 <style>

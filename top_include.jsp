@@ -5,6 +5,9 @@ String passwd = "";
 boolean isAdmin = loginuser.securityId >= 9;
 boolean isPartner = loginuser.securityId == 0;
 boolean isPartnerTemp = loginuser.securityId == 8;
+String loginId = loginuser.loginId;
+/* LoginUser li = loginuser;
+String login_id=""; */
 %>
 <style type="text/css">
 .ui-dialog { position: absolute; border: 2px solid #446f92; padding:1px; }
@@ -13,7 +16,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
 /* 	background: #5C9CCC url(/common/images/f1_bg.png) 50% 50% repeat-x; */
 /* 	color: white; */
 /* 	font-weight: bold; */
-/* }  */
+/* } */
 
 .ui-dialog .ui-dialog-titlebar {
 padding: 7px 0px 7px 10px;
@@ -86,7 +89,8 @@ table tr td.work span{font-family:malgun gothic;font-size:9pt;vertical-align: mi
 table tr td.work img{vertical-align: middle;position:absolute;left:3px;top:2px;height:20px;}
 div#menu{background:#7795bb !important;}
 div#menu li.back {width:0 !important;height:0 !important;}  
-
+.work_finish{display:none;}
+.working{display:none;}
 
 </style>
 <script src="/common/scripts/WebTree.js"></script>
@@ -303,6 +307,8 @@ var nIntervId;
 var isiPad = (navigator.userAgent.toLowerCase().indexOf("ipad") > -1);
 
 $(document).ready(function() {
+	
+	
 	$('input[name=loginId]').bind('keydown',function(e){
 		if (e.keyCode == $.ui.keyCode.ENTER) {
 			var val = $(this).val();
@@ -327,6 +333,19 @@ $(document).ready(function() {
 	var get_message = "";
 	var dd = "";
 	var getUrl = "/getAPI.do";
+	var getLatitude='';
+	var getLongitude='';
+	
+	// Geolocation API에 액세스할 수 있는지를 확인
+    if (navigator.geolocation) {
+        //위치 정보를 얻기
+        navigator.geolocation.getCurrentPosition (function(pos) {
+        	getLatitude=pos.coords.latitude;     // 위도
+        	getLongitude=pos.coords.longitude; // 경도
+        });
+    } else {
+        alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.");
+    }
 	
 	// pad 등 , 모바일 타블릿에서 메뉴 클릭 시 없어지도록 하기 위해 : 2013-08-27 김정국
 	$('.ul_sub_menu').find('li').click( function() {
@@ -338,7 +357,6 @@ $(document).ready(function() {
 	$('.ul_sub_menu').parent().click( function() {
 		$(this).find('ul_sub_menu').css("display", "visible");
 	});
-	
 	$(".btn_work_div").click(function(){
 		var gubun=0;
 		
@@ -352,7 +370,7 @@ $(document).ready(function() {
 		$.ajax({
 			type:'post',
 			url	:"/sendAPI.do",
-			data:{"wgb":gubun},
+			data:{"wgb":gubun,"latitude":getLatitude,"longitude":getLongitude},
 			dataType: 'json',
 			success:function(data){
 				var state=data.status;
@@ -404,6 +422,7 @@ $(document).ready(function() {
 	$.ajax({
 		type:'post',
 		url	: getUrl,
+		data:{"latitude":getLatitude,"longitude":getLongitude},
 		dataType: 'json',
 		success:function(data){
 			var rs=data;
@@ -861,6 +880,10 @@ function getTelInfoHtml() {
 			break;
 		case "MENU020802" :		//받은회람
 			url = "/approval/circulationlist.htm?menu=660&menuid=MENU020802&codekey=";
+			break;	
+			
+		case "MENU021101" :		//빅밴드 결재완료함
+			url = "/approval/bigbandlist.htm?menu=1110&menuid=MENU021101&codekey=";
 			break;	
 			
 		case "MENU020203" :		//반려
@@ -2150,11 +2173,11 @@ if(!String.prototype.padStart) {
 <div class="left_box_logo">
    <% if (isPartnerTemp) {%>
     <a href="<%= ( (!isPartnerTemp) ? "/jpolite/index.jsp" : "#" ) %>">
-         <img src="/common/images/icon/logo.png" height="29" border="0" >
+         <img src="/common/images/icon/2_logo.png" height="29" border="0" >
     </a>
     <% }else {%>
     <a href="<%= ( (!isPartner) ? "/jpolite/index.jsp" : "#" ) %>">
-        <img src="/common/images/icon/logo.png" height="29" border="0" >
+        <img src="/common/images/icon/2_logo.png" height="29" border="0" >
     </a>
     <%} %>
     <div class="user_info_div">
@@ -2165,9 +2188,12 @@ if(!String.prototype.padStart) {
             <li style="margin-bottom: 6px;"><!-- topMenu 로그인유저 추가 -->
                 <div><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b> 반갑습니다.</div> 
             </li>
+            <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("suhyunzzang9")){ %>
             <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
             <li class="inline_block_li nth-child_02" >근무체크</li>
             <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">업무종료</li>
+            <%} %>
         <!---20210713 출퇴근 신규 등록---->
              <!-------업무시작전 노출---------
             <li class="work work_on work_finish">
@@ -2203,12 +2229,15 @@ if(!String.prototype.padStart) {
             </li>
          <!--------//---------------------->
         </ul>
+        <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("suhyunzzang9")){ %>
         <div class="work_info_div">
             <ul>
                 <li><b>출근</b> <span class="start_time">-</span></li>
                 <li><b>퇴근</b> <span class="end_time">-</span></li>
             </ul>
         </div>
+        <%} %>
     </div>
 </div>
 <div class="right_box_menu">
@@ -2219,6 +2248,25 @@ if(!String.prototype.padStart) {
             <div class="menu">
               <div class="nav_centent">
                   <ul>
+                  <% 	if (loginId.equals("taxinv") || loginId.equals("abcde"))  { %>
+                  <li><a href="javascript:openTreeMenu('02', 'MENU020802');" class="parent"><span class="shadowText"><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a>
+                      <div class="arrow-up"></div>
+                      <ul class="ul_sub_menu">
+                          <li><a href="javascript:openTreeMenu('02','MENU020802');"><span><fmt:message key="appr.menu.circulating"/>&nbsp;<!-- 회람함 --></span></a></li>
+                      </ul>	
+                  </li>
+                  <% }else if (loginId.equals("bigband") || loginId.equals("big_cam11") || loginId.equals("big_cam12") || loginId.equals("big_cam13")
+               		   || loginId.equals("big_cam21") || loginId.equals("big_cam22") || loginId.equals("big_cam23") || loginId.equals("big_cont1")
+            		   || loginId.equals("big_cont2") || loginId.equals("big_cs1") || loginId.equals("big_cs2") || loginId.equals("big_stra1")
+            		   || loginId.equals("big_stra2") || loginId.equals("big_sup1") || loginId.equals("big_sup2"))  {%> 
+					 <li><a href="javascript:openTreeMenu('02', 'MENU021101');" class="parent"><span class="shadowText"><fmt:message key="main.Approval"/>&nbsp;<!-- 전자결재 --></span></a>
+                            <div class="arrow-up"></div>
+                            <ul class="ul_sub_menu">
+                                <li><a href="javascript:openTreeMenu('02','MENU021101');"><span><fmt:message key="appr.menu.bigband"/>&nbsp;<!-- 빅밴드 --></span></a></li>
+                            </ul>	
+                        </li>
+					<%}else{ %>
+                  
                       <% 	if (isPartner)  { %>
                         <%--  <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME<!-- <fmt:message key="main.Main"/>&nbsp;--><!-- 메인화면 --></b></span></a>--%>
                         <li class="last"><a href="javascript:openTreeMenu('01', 'MENU010202');"><span class="shadowText"><b>HOME&nbsp;<!-- 전자메일 --></b></span></a>        
@@ -2328,6 +2376,7 @@ if(!String.prototype.padStart) {
                     <%} %>
                     
                     <li><a href="http://www.gngrp.com" target="_blank" ><span class="shadowText">종합정보사이트</span></a></li>
+                    <%} %>
                   </ul>
               </div>
              
@@ -2456,4 +2505,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>>>>>>>
+<!-- top End -->>>>>
