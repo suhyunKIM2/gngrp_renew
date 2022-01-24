@@ -92,6 +92,12 @@ div#menu li.back {width:0 !important;height:0 !important;}
 .work_finish{display:none;}
 .working{display:none;}
 
+/*20220114*/
+.left_centent_box{    position: relative;
+    top: 20px;
+    margin-top: 0;
+    z-index: 9;}
+    body, td, input, div, span, form, select, textarea, center, pre, blockquote, font{font-family: 'Noto Sans KR',맑은 고딕,돋움, malgun gothic, dotum,AppleGothic,Helvetica,sans-serif;}
 </style>
 <script src="/common/scripts/WebTree.js"></script>
 <script src="/common/scripts/common.js"></script>
@@ -1150,6 +1156,7 @@ function resetLeftCount(mailboxID, selectCount, readCount, cmd, moveboxID, unRea
 					$("#lCount4").html((Number(dListCount))+Number((selectCount)));
 				}else if(mailboxID == 4){
 					$("#lCount4").html((Number(dListCount))-Number((selectCount)));
+
 				}else{
 					$("#lCount"+mailboxID).html((Number(listCount))-(Number(readCount)));
 					$("#lCount0").html((Number(noReadCount))-(Number(readCount)));
@@ -2173,27 +2180,32 @@ if(!String.prototype.padStart) {
 <div class="left_box_logo">
    <% if (isPartnerTemp) {%>
     <a href="<%= ( (!isPartnerTemp) ? "/jpolite/index.jsp" : "#" ) %>">
-         <img src="/common/images/icon/2_logo.png" height="29" border="0" >
+         <img src="/common/images/icon/logo.png" height="29" border="0" >
     </a>
     <% }else {%>
     <a href="<%= ( (!isPartner) ? "/jpolite/index.jsp" : "#" ) %>">
-        <img src="/common/images/icon/2_logo.png" height="29" border="0" >
+        <img src="/common/images/icon/logo.png" height="29" border="0" >
     </a>
     <%} %>
     <div class="user_info_div">
-        <ul class="user_info_left">
+        <!--<ul class="user_info_left">
             <img src="/common/images/icon/img_01.png" border="0" >
-        </ul>
+        </ul>-->
         <ul class="user_info_right">
             <li style="margin-bottom: 6px;"><!-- topMenu 로그인유저 추가 -->
                 <div><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b> 반갑습니다.</div> 
             </li>
-            <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
-             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("suhyunzzang9")){ %>
+        </ul>
+        <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424")){ %>
+            <style>
+            .left_centent_box{top:127px;}
+            </style>
+            <ul class="user_info_right">     
             <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
             <li class="inline_block_li nth-child_02" >근무체크</li>
             <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">업무종료</li>
-            <%} %>
+     
         <!---20210713 출퇴근 신규 등록---->
              <!-------업무시작전 노출---------
             <li class="work work_on work_finish">
@@ -2229,8 +2241,7 @@ if(!String.prototype.padStart) {
             </li>
          <!--------//---------------------->
         </ul>
-        <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
-             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("suhyunzzang9")){ %>
+        
         <div class="work_info_div">
             <ul>
                 <li><b>출근</b> <span class="start_time">-</span></li>
@@ -2238,6 +2249,8 @@ if(!String.prototype.padStart) {
             </ul>
         </div>
         <%} %>
+        
+        
     </div>
 </div>
 <div class="right_box_menu">
@@ -2505,4 +2518,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>
+<!-- top End -->>>>>>>>>>>

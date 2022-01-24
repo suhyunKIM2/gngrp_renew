@@ -1,0 +1,53 @@
+.ham_user_name{clear:both;}
+.home_icon_div{padding:2%;background: #3c83ca;width:96%;height:auto;overflow:hidden;}
+.home_icon_div ul li{display: inline-block;
+    width: auto;
+    border-bottom: 0;
+    padding: 0;
+    height: 27px;
+    text-align: center;
+    line-height: 22px;
+    vertical-align: middle;color:#fff;}
+.home_icon_div ul li:nth-child(1){line-height:30px;float:left;background:rgba(126,187,248,0.9);padding:0 6px;border-radius:50%;font-weight: 600;color:#266fb5;font-size:12px;}   
+.home_icon_div ul li:nth-child(2){float:right;border:0;}
+.home_icon_div .close_btn{margin:0;text-align: center;}
+
+
+.nav-search .ui-content {
+			margin-top:16px;
+		}
+		.nav-search .ui-corner-top {
+			-moz-border-radius: 0;
+			-webkit-border-radius: 0;
+			border-radius: 0;
+		}
+		.nav-search .ui-bar-a {
+			background-image:none;
+			background-color:#555;
+		}
+		.nav-search .ui-btn-up-a {
+			background-image:none;
+			background-color:#333333;
+		}
+		.nav-search .ui-btn-inner {
+			border-top: 1px solid #888;
+			border-color: rgba(255, 255, 255, .1);
+		}
+        .nav-search .ui-content{display: block;}
+        
+        /*S: 2022_v2*/
+       /* body, td,b,ul,li,a input, div, span, form, select, textarea, center, pre, blockquote, font {
+    font-family: 'Noto Sans KR',맑은 고딕,돋움, malgun gothic, dotum,AppleGothic,Helvetica,sans-serif;
+}*/
+        .menu_wrap .nav_div{top:0;}
+        .ham li{color:#606060;font-weight: 600;font-size:14px;text-shadow:none;padding:0.9em 0;}
+        .ham li span i{float:right;background:#bebebe;color:#fff;border-radius: 50%;width:22px;height:22px;text-align: center;line-height: 17px;    font-style: normal;font-family: sans-serif;    font-size: 22px;}
+        .ham li span i::after{content: '+';}
+        .hidden_ul{border-top:1px solid #e3e3e3;margin-top:4%;padding:0 4%;background:#f4f4f4;}
+        .ham li.border{padding-bottom:0;}
+        .menu_wrap ul li{padding:0.7em 0;}
+        .ham li.border span i{background:#266fb5;   }
+        .ham li.border span i::after{content: '-';}
+        .ham li .hidden_ul li{border-bottom:1px dotted #d6d6d6;font-size: 12px;font-weight: 500;}
+        .ham li .hidden_ul li:last-child{border-bottom:0;}
+        .ham li .hidden_ul li b.link_arrow{float:right;margin-right: 1%;font-family: serif;color: #c2c2c2;}

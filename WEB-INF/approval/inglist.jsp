@@ -401,6 +401,8 @@ function listShowAttach() {
 </script>
 <style>
 .ui-jqgrid .ui-jqgrid-btable, .ui-jqgrid .ui-pg-table{table-layout: auto;}
+.ui-jqgrid tr.jqgrow td{padding-left:0 !important;}
+#dataGrid_writer{padding-left:15px;}
 </style>
 </head>
 

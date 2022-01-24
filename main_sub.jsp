@@ -554,7 +554,7 @@ margin-top: 2px;
 .ui-layout-west ui-layout-pane {
 overflow: hidden;
 }
-
+ body, td, input, div, span, form, select, textarea, center, pre, blockquote, font{font-family: 'Noto Sans KR',맑은 고딕,돋움, malgun gothic, dotum,AppleGothic,Helvetica,sans-serif;}
 
 </style>
 
