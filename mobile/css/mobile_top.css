@@ -41,7 +41,7 @@
 }*/
         .menu_wrap .nav_div{top:0;}
         .ham li{color:#606060;font-weight: 600;font-size:14px;text-shadow:none;padding:0.9em 0;}
-        .ham li span i{float:right;background:#bebebe;color:#fff;border-radius: 50%;width:22px;height:22px;text-align: center;line-height: 17px;    font-style: normal;font-family: sans-serif;    font-size: 22px;}
+        .ham li span i{float:right;background:#bebebe;color:#fff;border-radius: 50%;width:22px;height:22px;text-align: center;line-height:22px;    font-style: normal;  font-size: 22px;}
         .ham li span i::after{content: '+';}
         .hidden_ul{border-top:1px solid #e3e3e3;margin-top:4%;padding:0 4%;background:#f4f4f4;}
         .ham li.border{padding-bottom:0;}
@@ -51,3 +51,9 @@
         .ham li .hidden_ul li{border-bottom:1px dotted #d6d6d6;font-size: 12px;font-weight: 500;}
         .ham li .hidden_ul li:last-child{border-bottom:0;}
         .ham li .hidden_ul li b.link_arrow{float:right;margin-right: 1%;font-family: serif;color: #c2c2c2;}
+        
+        .WordSection1{overflow:auto;    margin: auto;}
+        .WordSection1 table{width:87% !important;}
+         .WordSection1 table p{white-space:normal;}
+         .WordSection1 table .ui-link{text-decoration: none;}
+         .WordSection1 table p b{    clear: none;min-width: auto;width: auto;float: left;font-size: 18px;margin-right: 4px;}
