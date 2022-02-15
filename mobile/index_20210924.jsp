@@ -310,77 +310,8 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     </style>
 </head>
 <body>
-<div class="main_contents_top">
- <h1 class="left_logo">
-     <a href="">
-        <img src="/common/images/icon/logo.png" height="29" border="0" >
-    </a>
- </h1>
-<div class="right_menu">
 
-   <input class="burger-check" type="checkbox" id="burger-check" />All Menu<label class="burger-icon" for="burger-check"><span class="burger-sticks"></span></label>
-    <div class="menu">
-      <div class="nav_box_div"><jsp:include page="/mobile/nav.jsp"></jsp:include></div>
-    </div>
-    
-</div>
-</div>
-<div class="main_contents">
-    <div class="user_name">
-        <img src="/common/images/icon/img_01.png" border="0" class="user_icon_img"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b>
-    </div>
-    <div class="btn_nav_main">
-        <ul>
-            <li>
-                <a href="">
-                    <div class="count_box_relative">
-                        <div class="count"><div class="speech-bubble"><span class="ui-li-count mailcount">0</span></div></div>
-                    </div>
-                    <img src="/common/images/m_icon/01.png"  border="0" ><div class="nav_btn_div"><b>메일</b></div>
-                 </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="/common/images/m_icon/02.png"  border="0" ><div class="nav_btn_div"><b>전자결재</b></div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="/common/images/m_icon/03.png"  border="0" ><div class="nav_btn_div"><b>쪽지</b></div>
-                 </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="/common/images/m_icon/04.png"  border="0" ><div class="nav_btn_div"><b>업무지원</b></div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="/common/images/m_icon/05.png"  border="0" ><div class="nav_btn_div"><b>게시판</b></div>
-               </a>
-            </li>
-            <li>
-                <a href="">
-                    <img src="/common/images/m_icon/06.png"  border="0" ><div class="nav_btn_div"><b>임직원 정보</b></div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="quick_menu">
-        <h4>Quick Menu</h4>
-        <ul>
-            <li onClick=""><img src="/common/images/m_icon/07.png"> <b>편지쓰기</b> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
-            <li onClick=""><img src="/common/images/m_icon/08.png"> <b>읽지않은 메일</b> <span class="ui-li-count mailcount">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
-            <li onClick=""><img src="/common/images/m_icon/09.png"> <b>결재할 문서</b> <span class="ui-li-count" id="count240">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
-            <li onClick=""><img src="/common/images/m_icon/10.png"> <b>진행중 문서</b> <span class="ui-li-count" id="count340">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
-            <li onClick=""><img src="/common/images/m_icon/11.png"> <b>배포 받은 문서</b> <span class="ui-li-count" id="count640">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
-            <li onClick=""><img src="/common/images/m_icon/12.png"> <b>회람 할 문서</b> <span class="ui-li-count" id="count820">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
-        </ul>
-    </div>
-</div>
-<div class="footer_pc_ver" onClick="">
-    <img src="/common/images/m_icon/13.png"> PC버전으로 보기
-</div>
+
 <div data-role="page" class="type-home" id="page-home" style="position: relative;clear:both;">
 	<div data-role="content">
 		<div class="content-secondary">

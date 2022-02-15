@@ -1313,7 +1313,11 @@ if(apprreadInfo.getOldApprId() !=null&&!"".equals(apprreadInfo.getOldApprId())){
 </form:form>  
   
 <style>  
-.ui-body-c {background:#fff;}  
+.ui-body-c {background:#fff;} 
+ #F_APLINE_H table, #F_APLINE table {
+    float: none;
+}
+#dispContent #F_APLINE_H table,#dispContent #F_APLINE table{margin:10px !important;}
 </style>  
   
 </BODY>  

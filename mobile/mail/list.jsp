@@ -6,6 +6,8 @@ String searchKey = request.getParameter("searchKey");
 String searchValue = request.getParameter("searchValue");
 if(searchKey == null) searchKey = "";
 if(searchValue == null) searchValue = "";
+
+
 %>
 <!DOCTYPE html>
 <html>
@@ -165,12 +167,15 @@ if(searchValue == null) searchValue = "";
         $('.ui-input-text').attr("autofocus", true)
     });			
 </script>
+
 <!----E: 2021리뉴얼 추가------->
 
 <!----S: 2022리뉴얼 추가------->
 <link rel="stylesheet" href="/mobile/css/mobile_top.css"/>
 <script src="/mobile/js/mobile_top.js"></script>
 <!----E: 2022리뉴얼 추가------->
+
+
 </head>
 <body>
 
@@ -192,7 +197,8 @@ if(searchValue == null) searchValue = "";
          <div class="menu_wrap">
              <div data-role="page" class="type-home sub_ham_page" id="page-home" style="position:relative;clear: both;z-index: 1;background: #fff;">
                  <div class="nav_div">
-                 <div data-role="content"  style="border-top:9px solid #f5f5f5;margin-top:1%;">   
+                 <div data-role="content"  style="border-top:9px solid #f5f5f5;margin-top:1%;">
+                 
                  <ul  class="ham">
                         <li class="ham_li">
                             <span>전자메일<i></i></span>
@@ -266,7 +272,6 @@ if(searchValue == null) searchValue = "";
      </div>
 </div>
 	<div data-role="content" class="content_div">
-	
 		<fieldset class="ui-grid-a">
 			<div class="ui-block-a">
 				<select name="searchtype" id="searchtype">
@@ -280,6 +285,7 @@ if(searchValue == null) searchValue = "";
 			</div>
 			
 		</fieldset>
+     
         <div class="ui-grid-solo">
 			<input type="search" name="searchtext" id="searchtext" value="" placeholder="<%=msglang.getString("t.searchValue") /* 검색어 */ %> " />
 		</div>
@@ -297,6 +303,175 @@ if(searchValue == null) searchValue = "";
        </div>
     </div>
 	
+<div data-role="page" class="type-home" id="page-home" style="position: relative;clear:both;">
+	<div data-role="content">
+		<div class="content-secondary">
+			<div id="jqm-homeheader">
+				<h1 id="jqm-logo"><%=logoText %></h1>
+<!-- 				<p>GroupWare System</p> -->
+			</div>
+			<p class="intro"><strong>Welcome.</strong> <%=logoText %>Mobile Groupware</p>
 
+			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f">
+				<li data-role="list-divider">Quick Menu</li>
+				<li><a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">
+					<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.title") /* 메일작성 */ %>" src="/common/images/icon-mail-pencil.png">
+					<%=msglang.getString("mail.title") /* 메일작성 */ %></a>
+				<li><a href="/mobile/mail/list.jsp?box=1&unread=1" data-ajax="false">
+					<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %>" src="/common/images/icons/email_icon_1.jpg">
+					<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %></a>
+					<span class="ui-li-count mailcount">0</span>
+				 
+				<li><a href="appr/list.jsp?menu=240" data-ajax="false">결재할 문서</a><span class="ui-li-count" id="count240">0</span>
+				<li><a href="appr/list.jsp?menu=340" data-ajax="false">진행중 문서</a><span class="ui-li-count" id="count340">0</span>
+				<li><a href="appr/list.jsp?menu=640" data-ajax="false">배포받은 문서</a><span class="ui-li-count" id="count640">0</span>
+				<li><a href="appr/list.jsp?menu=820" data-ajax="false">회람할 문서</a><span class="ui-li-count" id="count820">0</span>
+				
+			</ul>
+		</div>
+
+		<div class="content-primary">
+			<nav>
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+				<li data-role="list-divider">Menu</li>
+				<!-- 2016.07.29 협력사인 경우 전자결재,전자메일, pc버전보기전환 메뉴만 보이게 셋팅 -->
+				<% if (isPartnerTemp) {%>
+					<li>전자결재
+						<ul data-role="listview">
+							<li data-role="list-divider">기안함
+							<li><a href="appr/list.jsp?menu=130" data-ajax="false">기안목록</a>
+							<li data-role="list-divider">결재함
+							<li><a href="appr/list.jsp?menu=240" data-ajax="false">결재할문서</a>
+							<li><a href="appr/list.jsp?menu=340" data-ajax="false">결재한문서</a>
+							<li><a href="appr/list.jsp?menu=530" data-ajax="false">반려된문서</a>
+							<li data-role="list-divider">완료함
+							<li><a href="appr/list.jsp?menu=540" data-ajax="false">전체보기</a>
+							<li data-role="list-divider">수신함
+							<li><a href="appr/list.jsp?menu=620" data-ajax="false">개인수신</a>
+							<li><a href="appr/list.jsp?menu=630" data-ajax="false">부서수신</a>
+							<li data-role="list-divider">회람함
+							<li><a href="appr/list.jsp?menu=810" data-ajax="false">보낸회람</a>
+							<li><a href="appr/list.jsp?menu=820" data-ajax="false">받은회람</a>
+						</ul>
+						
+					<li><%=msglang.getString("mail.email") /* 전자메일 */ %>
+						<ul data-role="listview">
+							<li><a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.title") /* 편지쓰기 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.title") /* 편지쓰기 */ %></a>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=1" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %></a><span class="ui-li-count mailcount">0</span>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.InBox") /* 받은편지함 */ %>" src="/common/images/icon-mail-receive.png">
+								<%=msglang.getString("mail.InBox") /* 받은편지함 */ %></a>
+							<li id="mailboxes1">
+							    <label for="select-native-1" style="font-weight: bold;"><%=msglang.getString("mail.InBox.personal") /* 받은편지함(개인용) */ %></label>
+							    <select name="select-native-1" id="select-native-1" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<li><a href="/mobile/mail/list.jsp?box=2" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %>" src="/common/images/icon-mail-send.png">
+								<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %></a>
+							<li id="mailboxes2">
+							    <label for="select-native-2" style="font-weight: bold;"><%=msglang.getString("mail.OutBox.personal") /* 보낸편지함(개인용) */ %></label>
+							    <select name="select-native-2" id="select-native-2" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=7" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="스팸편지함" src="/common/images/icon-mail-sign.png">스팸편지함</a> -->
+							<li><a href="/mobile/mail/list.jsp?box=3" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %>" src="/common/images/icon-mail-temp.png"><%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %></a>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=6" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="예약편지함" src="/common/images/icon-clock-arrow.png">예약편지함</a> -->
+							<!-- <li><a href="/mobile/mail/list.jsp?box=4" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="지운편지함" src="/common/images/icon-mail-minus.png">지운편지함</a> -->
+						</ul>
+						<li><a href="/jpolite/index.jsp" data-ajax="false"><%=msglang.getString("t.switch.pc.version") /* PC 버전 보기 전환 */ %></a>
+				<% }else {%>
+					<li>전자결재
+						<ul data-role="listview">
+							<li data-role="list-divider">기안함
+							<li><a href="appr/list.jsp?menu=130" data-ajax="false">기안목록</a>
+							<li data-role="list-divider">결재함
+							<li><a href="appr/list.jsp?menu=240" data-ajax="false">결재할문서</a>
+							<li><a href="appr/list.jsp?menu=340" data-ajax="false">결재한문서</a>
+							<li><a href="appr/list.jsp?menu=530" data-ajax="false">반려된문서</a>
+							<li data-role="list-divider">완료함
+							<li><a href="appr/list.jsp?menu=540" data-ajax="false">전체보기</a>
+							<li data-role="list-divider">수신함
+							<li><a href="appr/list.jsp?menu=620" data-ajax="false">개인수신</a>
+							<li><a href="appr/list.jsp?menu=630" data-ajax="false">부서수신</a>
+							<li data-role="list-divider">회람함
+							<li><a href="appr/list.jsp?menu=810" data-ajax="false">보낸회람</a>
+							<li><a href="appr/list.jsp?menu=820" data-ajax="false">받은회람</a>
+						</ul>
+						
+					<li><%=msglang.getString("mail.email") /* 전자메일 */ %>
+						<ul data-role="listview">
+							<li><a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.title") /* 편지쓰기 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.title") /* 편지쓰기 */ %></a>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=1" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %>" src="/common/images/icons/email_icon_1.jpg">
+								<%=msglang.getString("mail.unread") /* 읽지않은 메일 */ %></a><span class="ui-li-count mailcount">0</span>
+							<li><a href="/mobile/mail/list.jsp?box=1&unread=" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.InBox") /* 받은편지함 */ %>" src="/common/images/icon-mail-receive.png">
+								<%=msglang.getString("mail.InBox") /* 받은편지함 */ %></a>
+							<li id="mailboxes1">
+							    <label for="select-native-1" style="font-weight: bold;"><%=msglang.getString("mail.InBox.personal") /* 받은편지함(개인용) */ %></label>
+							    <select name="select-native-1" id="select-native-1" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<li><a href="/mobile/mail/list.jsp?box=2" data-ajax="false">
+								<img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %>" src="/common/images/icon-mail-send.png">
+								<%=msglang.getString("mail.OutBox") /* 보낸편지함 */ %></a>
+							<li id="mailboxes2">
+							    <label for="select-native-2" style="font-weight: bold;"><%=msglang.getString("mail.OutBox.personal") /* 보낸편지함(개인용) */ %></label>
+							    <select name="select-native-2" id="select-native-2" onchange="linkMailboxes(this)">
+							    	<option value=""><%=msglang.getString("mail.select.mailbox") /* 편지함 선택 */ %></option>
+							    </select>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=7" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="스팸편지함" src="/common/images/icon-mail-sign.png">스팸편지함</a> -->
+							<li><a href="/mobile/mail/list.jsp?box=3" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="<%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %>" src="/common/images/icon-mail-temp.png"><%=msglang.getString("appr.menu.tempBox") /* 임시보관함 */ %></a>
+							<!-- <li><a href="/mobile/mail/list.jsp?box=6" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="예약편지함" src="/common/images/icon-clock-arrow.png">예약편지함</a> -->
+							<!-- <li><a href="/mobile/mail/list.jsp?box=4" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="지운편지함" src="/common/images/icon-mail-minus.png">지운편지함</a> -->
+						</ul>		
+					<li>사내쪽지
+						<ul data-role="listview">
+							<li><a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="받은쪽지함" src="/common/images/icons/approual_icon_4.jpg">받은쪽지함</a>
+							<li><a href="/mobile/notification/list.jsp?boxId=1&noteType=1" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="읽지않은쪽지" src="/common/images/icons/notification_icon_1.jpg">읽지않은 쪽지</a>
+							<!-- <li><a href="/mobile/notification/list.jsp?boxId=1&noteType=2" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="전자결재알림" src="/common/images/icons/approual_icon_10.jpg">전자결재 알림</a> -->
+							<li><a href="/mobile/notification/list.jsp?boxId=2&noteType=0" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="보낸쪽지함" src="/common/images/icons/approual_icon_2.jpg">보낸쪽지함</a>
+							<!-- <li><a href="/mobile/notification/list.jsp?boxId=2&noteType=-1" data-ajax="false"><img class="ui-li-icon ui-corner-none" alt="수신확인" src="/common/images/icons/admin_icon_9.jpg">수신확인</a> -->
+						</ul>
+					<li><%=msglang.getString("main.Board") /* 게시판 */ %>
+						<ul data-role="listview" id="bbs">
+<%-- 							<li><a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false"><%=msglang.getString("main.notice") /* 공지사항 */ %></a> --%>
+							<li><a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false"><%=msglang.getString("main.notice") /* 공지사항 */ %></a>
+							<li><a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000004" data-ajax="false">자유게시판</a>
+							<!-- <li><a href="/mobile/bbs/list.jsp?bbsId=bbs20140902094343" data-ajax="false">갤러리</a> -->
+							<!-- <li><a href="/mobile/bbs/list.jsp?bbsId=bbs20110922153448" data-ajax="false">사내경조사</a> -->
+							<%-- 
+							<li id="teamBbs">
+							    <label for="select-native-3" style="font-weight: bold;"><%=msglang.getString("main.board.team") /* 팀게시판 */ %></label>
+							    <select name="select-native-3" id="select-native-3" onchange="linkTeamBbs(this)">
+							    	<option value=""><%=msglang.getString("t.select.board") /* 게시판 선택 */ %></option>
+							    </select>
+							--%>
+						</ul>
+					<li><%=msglang.getString("t.worksupport") /* 업무지원 */ %>
+						<ul data-role="listview">
+							<li><a href="/mobile/addressbook/user.jsp" data-ajax="false"><%=msglang.getString("main.Employee.Info") /* 임직원정보 */ %></a>
+							<li><a href="/mobile/addressbook/list.jsp" data-ajax="false"><%=msglang.getString("main.Business.Card") /* 주소록관리 */ %></a>
+						</ul>
+					
+					<!-- <img class="ui-li-icon ui-corner-none" alt="PC 전환" src="/common/images/icons/email_icon_10.jpg"> -->
+					<li><a href="/jpolite/index.jsp" data-ajax="false"><%=msglang.getString("t.switch.pc.version") /* PC 버전 보기 전환 */ %></a>
+				<%} %>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+<!-- 	<div data-role="footer" class="footer-docs" data-theme="c"> -->
+<!-- 		<p>Mobile Groupware</p> -->
+<!-- 	</div> -->
+</div>
 </body>
 </html>

@@ -2862,5 +2862,8 @@ $(document).on("focusout",".duzon_autoEmpl input",function(){
     </div>
     <div class="tpad_10"></div>
 <iframe name="hiddenFrame" id="hiddenFrame" style="display: none;visibility: hidden;"></iframe>
+<style>
+.ui-th-ltr, .ui-jqgrid .ui-jqgrid-htable th.ui-th-ltr{display:table-cell;}
+</style>
 </body>
 <!-- 컨텐츠 끝 -->

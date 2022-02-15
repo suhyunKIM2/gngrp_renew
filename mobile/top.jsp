@@ -17,60 +17,41 @@
 	<div class="nav_div">
     <!--<div data-role="page" data-theme="a" class="nav-search">-->
 		
-	<div data-role="content" style="border-top:9px solid #f5f5f5;margin-top:1%;">   
+	<div data-role="content">   
 
+	<style>
 
+		.nav-search .ui-content {
+			margin-top:16px;
+		}
+		.nav-search .ui-corner-top {
+			-moz-border-radius: 0;
+			-webkit-border-radius: 0;
+			border-radius: 0;
+		}
+		.nav-search .ui-bar-a {
+			background-image:none;
+			background-color:#555;
+		}
+		.nav-search .ui-btn-up-a {
+			background-image:none;
+			background-color:#333333;
+		}
+		.nav-search .ui-btn-inner {
+			border-top: 1px solid #888;
+			border-color: rgba(255, 255, 255, .1);
+		}
+        .nav-search .ui-content{display: block;}
+	</style>
+	
 	<script>
 		$('body').delegate('.nav-search', 'pageshow', function( e ) {
 			$('.ui-input-text').attr("autofocus", true)
-		});	
-   </script>
-
-	<ul  class="ham">
-			<li class="ham_li">
-                <span>전자메일<i></i></span>
-                <ul  class="hidden_ul">
-                    <li onClick="location.href='/mail/mobile_mail_form_s.jsp'">편지작성<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/mail/list.jsp?box=1&unread='">받은편지함<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/mail/list.jsp?box=2&unread='">보낸편지함<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/mail/list.jsp?box=3&unread='">임시보관함<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/mail/list.jsp?box=4&unread='">지운편지함<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/notification/list.jsp?boxId=1&noteType=0'">사내쪽지<b class="link_arrow">></b></li>
-                </ul>
-            </li>
-            <li class="ham_li">
-                <span>전자결재<i></i></span>
-                <ul  class="hidden_ul">
-                    <li onClick="location.href='/mobile/appr/list.jsp?menu=240'">결재할문서<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/appr/list.jsp?menu=340'">결재한문서<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/appr/list.jsp?menu=640'">수신함<b class="link_arrow">></b></li>
-                    <li onClick="location.href='/mobile/appr/list.jsp?menu=820'">회람함<b class="link_arrow">></b></li>
-                </ul>
-            </li>
-            <li class="ham_li">
-                <span>업무지원<i></i></span>
-                <ul  class="hidden_ul">
-                    <li onClick="location.href='/mobile/addressbook/user.jsp'">
-                        임직원정보<b class="link_arrow">></b>
-                    </li>
-                    <li onClick="location.href='/mobile/addressbook/list.jsp'">
-                        주소록 관리<b class="link_arrow">></b>
-                    </li>
-                </ul>
-            </li>
-            <li class="ham_li">
-                <span>게시판<i></i></span>
-                <ul  class="hidden_ul">
-                    <li onClick="location.href='/mobile/bbs/list.jsp?bbsId=bbs00000000000004'">
-                        게시판<b class="link_arrow">></b>
-                    </li>
-                    <li onClick="location.href='/mobile/bbs/list.jsp?bbsId=bbs00000000000000'">
-                        공지사항<b class="link_arrow">></b>
-                    </li>
-                </ul>
-            </li>
-            
-            <!--<li data-filtertext="편지작성">
+		});			
+	</script>
+	
+	<ul data-role="listview" data-theme="a" data-divider-theme="a" data-filter="true" data-filter-theme="a" data-filter-placeholder="Search menu...">
+			<li data-filtertext="편지작성">
 				<a href="/mail/mobile_mail_form_s.jsp" data-ajax="false">편지작성</a>
 			</li>
 			<li data-filtertext="<%=msglang.getString("main.E-mail") /* 전자메일 */ %> <%=msglang.getString("mail.InBox") /* 받은편지함 */ %>">
@@ -78,9 +59,26 @@
 			</li>
             <li data-filtertext="">
 				<a href="appr/list.jsp?menu=240" data-ajax="false">전자결재</a>
+			</li>
+            <li data-filtertext="">
+				<a href="/mobile/notification/list.jsp?boxId=1&noteType=0" data-ajax="false">사내쪽지</a>
+			</li>
+			<li data-filtertext="">
+				<a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000004" data-ajax="false">게시판</a>
+			</li>
+            <!--<li data-filtertext="">
+				<a href="" data-ajax="false">업무지원</a>
 			</li>-->
+            <li data-filtertext="">
+				<a href="/mobile/bbs/list.jsp?bbsId=bbs00000000000000" data-ajax="false">공지사항</a>
+			</li>
+            <li data-filtertext="">
+				<a href="/mobile/addressbook/user.jsp" data-ajax="false">임직원정보</a>
+			</li>
+            <li data-filtertext="">
+				<a href="/mobile/addressbook/list.jsp" data-ajax="false">주소록관리</a>
+			</li>
 		</ul>
-        
 	</div><!-- /content -->
     <div class="footer_pc_ver ham_pc_footer_div" onClick="location.href='/jpolite/index.jsp'" style="position:fixed;;background:#f5f5f5;width:80%;right:0;bottom:-100%;">
     <a href="/jpolite/index.jsp" style="color:#000;text-decoration: none;"><img src="/common/images/m_icon/13.png"> PC버전으로 보기</a>
