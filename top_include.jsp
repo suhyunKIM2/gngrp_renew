@@ -96,8 +96,9 @@ div#menu li.back {width:0 !important;height:0 !important;}
 .left_centent_box{    position: relative;
     top: 20px;
     margin-top: 0;
-    z-index: 9;}
-    body, td, input, div, span, form, select, textarea, center, pre, blockquote, font{font-family: 'Noto Sans KR',맑은 고딕,돋움, malgun gothic, dotum,AppleGothic,Helvetica,sans-serif;}
+    z-index: 3;}
+.left_box_logo{margin-top:0 !important;}  
+.top_top_blank{width:80% !important;float:right;}
 </style>
 <script src="/common/scripts/WebTree.js"></script>
 <script src="/common/scripts/common.js"></script>
@@ -307,6 +308,14 @@ function OnClickOpenNote(boxID, noteID) {
 <script src="/common/jquery/plugins/noty-master/js/noty/layouts/bottom.js"></script>
 <script src="/common/jquery/plugins/noty-master/js/noty/layouts/bottomCenter.js"></script>
 <script type="text/javascript">
+var get_status = "";
+var get_worktime_s = "";
+var get_worktime_e = "";
+var get_message = "";
+var dd = "";
+var getUrl = "/getAPI.do";
+var getLatitude='';
+var getLongitude='';
 
 var nIntervId;
 
@@ -333,15 +342,6 @@ $(document).ready(function() {
 	// 세션유지시간을 제한하기 위하여 주석처리됨 2015-03-06
 	setInterval(sessionCheck, (30 * 1000));	//30초마다 세션유지한다
 	
-	var get_status = "";
-	var get_worktime_s = "";
-	var get_worktime_e = "";
-	var get_message = "";
-	var dd = "";
-	var getUrl = "/getAPI.do";
-	var getLatitude='';
-	var getLongitude='';
-	
 	// Geolocation API에 액세스할 수 있는지를 확인
     if (navigator.geolocation) {
         //위치 정보를 얻기
@@ -363,68 +363,8 @@ $(document).ready(function() {
 	$('.ul_sub_menu').parent().click( function() {
 		$(this).find('ul_sub_menu').css("display", "visible");
 	});
-	$(".btn_work_div").click(function(){
-		var gubun=0;
-		
-		var ids="";
-		ids=$(this).attr("id");
-		
-		if(ids=="work_start_btn") gubun=1;
-		else if(ids=="work_continue_btn") gubun=2;
-		else gubun=3;
-		
-		$.ajax({
-			type:'post',
-			url	:"/sendAPI.do",
-			data:{"wgb":gubun,"latitude":getLatitude,"longitude":getLongitude},
-			dataType: 'json',
-			success:function(data){
-				var state=data.status;
-				var worktime_s=data.worktime_s;
-				var worktime_e=data.worktime_e;
-				var message=data.message;
-				
-				if(state=='01'){
-					if(gubun==1){
-						alert("업무시작 처리 하였습니다.");
-						get_worktime_s=worktime_s.substring(8,10)+":"+worktime_s.substring(10,12);
-						get_worktime_e=worktime_e.substring(8,10)+":"+worktime_e.substring(10,12);
-						$('#worktime_s').html("출근 "+get_worktime_s);
-						$('#worktime_e').html("");
-						$(".work_finish").css("display","none");
-						$(".working").css("display","block");
-						$(".work_2").css("display","block");
-					}else if(gubun==2){
-						alert("근무체크 처리 하였습니다.");
-						get_worktime_s=worktime_s.substring(8,10)+":"+worktime_s.substring(10,12);
-						get_worktime_e=worktime_e.substring(8,10)+":"+worktime_e.substring(10,12);
-						$('#worktime_s').html("출근 "+get_worktime_s);
-						$('#worktime_e').html("");
-						$(".work_finish").css("display","none");
-						$(".working").css("display","block");
-						$(".work_2").css("display","block");
-					}else{
-						alert("업무종료 처리 하였습니다.");
-						$('#worktime_s').html("출근 "+get_worktime_s);
-						$('#worktime_e').html(" / 퇴근 "+get_worktime_e);
-						$(".work_finish").css("display","block");
-						$(".working").css("display","block");
-						$(".work_2").css("display","none");
-					}
-				}else if(state=='99'){
-					alert("인증키 오류입니다.");
-				}else if(state=='9999'){
-					alert("출근 정보 로드 오류입니다. : "+message);
-				}else{
-					alert("처리중 오류가 발생했습니다. : "+message);
-				}
-			},
-			error:function(jqXHR,status,err){
-				alert("처리중 오류가 발생했습니다.");
-			}
-		});
-	});
 	
+	//홈화면에 들어오면 출퇴근 정보 가져오기(출퇴근)
 	$.ajax({
 		type:'post',
 		url	: getUrl,
@@ -441,22 +381,27 @@ $(document).ready(function() {
 			
 			if(get_worktime_s){
 				if(get_worktime_e){
-					$('#worktime_s').html("출근 "+get_worktime_s);
-					$('#worktime_e').html(" / 퇴근 "+get_worktime_e);
-					$(".work_finish").css("display","none");
-					$(".working").css("display","block");
-					$(".work_2").css("display","none");
+					$('#newdate_span_2').text(get_worktime_s);
+					$('#newdate_span_4').text(get_worktime_e);
+					var newdate_span = $('#newdate_span_2').text();
+				    $('.layer_bg , .start_layer').css('display','none');
+				    $('.start_time').text(newdate_span);
+				    $('.nth-child_01').css('pointer-events','none');
+				    var newdate_span_end = $('#newdate_span_4').text();
+				    $('.layer_bg , .end_layer').css('display','none');
+				    $('.end_time').text(newdate_span_end);
+				    $('.nth-child_03').css('pointer-events','none');
+				    $('.nth-child_02').css('pointer-events','none');
 				}else{
-					$('#worktime_s').html("출근 "+get_worktime_s);
-					$('#worktime_e').html("");
-					$(".work_finish").css("display","none");
-					$(".working").css("display","block");
-					$(".work_2").css("display","block");
+					$('#newdate_span_2').text(get_worktime_s);
+					var newdate_span = $('#newdate_span_2').text();
+				    $('.layer_bg , .start_layer').css('display','none');
+				    $('.start_time').text(newdate_span);
+				    $('.nth-child_01').css('pointer-events','none');
 				}
 			}else{
-				$(".work_finish").css("display","block");
-				$(".working").css("display","none");
-				$(".work_2").css("display","none");
+			    $('.nth-child_02').css('pointer-events','none');
+				$('.nth-child_03').css('pointer-events','none');
 			}
 		},
 		error:function(jqXHR,status,err){
@@ -1156,7 +1101,6 @@ function resetLeftCount(mailboxID, selectCount, readCount, cmd, moveboxID, unRea
 					$("#lCount4").html((Number(dListCount))+Number((selectCount)));
 				}else if(mailboxID == 4){
 					$("#lCount4").html((Number(dListCount))-Number((selectCount)));
-
 				}else{
 					$("#lCount"+mailboxID).html((Number(listCount))-(Number(readCount)));
 					$("#lCount0").html((Number(noReadCount))-(Number(readCount)));
@@ -2115,21 +2059,115 @@ if(!String.prototype.padStart) {
      $('#newdate_span_4').text(date2);
   });
 
-  $('.save_btn').click(function(){
-  var newdate_span = $('#newdate_span_2').text();
-    $('.layer_bg , .start_layer').css('display','none');
-    $('.start_time').text(newdate_span);
-    $('.nth-child_01').css('pointer-events','none');
+  $('.save_btn').click(function(){//업무시작의 확인 버튼 누를 경우(출퇴근)
+	  var gubun=1;
+		
+		var ids="";
+		ids=$(this).attr("choose");
+		
+		$.ajax({
+			type:'post',
+			url	:"/sendAPI.do",
+			data:{"wgb":gubun,"latitude":getLatitude,"longitude":getLongitude},
+			dataType: 'json',
+			success:function(data){
+				var state=data.status;
+				var worktime_s=data.worktime_s;
+				var worktime_e=data.worktime_e;
+				var message=data.message;
+				
+				if(state=='01'){
+					var newdate_span = $('#newdate_span_2').text();
+				    $('.layer_bg , .start_layer').css('display','none');
+				    $('.start_time').text(newdate_span);
+				    $('.nth-child_01').css('pointer-events','none');
+				    $('.nth-child_02').css('pointer-events','auto');
+				    $('.nth-child_03').css('pointer-events','auto');
+				}else if(state=='99'){
+					alert("인증키 오류입니다.");
+				}else if(state=='9999'){
+					alert("출근 정보 로드 오류입니다. : "+message);
+				}else{
+					alert("처리중 오류가 발생했습니다. : "+message);
+				}
+			},
+			error:function(jqXHR,status,err){
+				alert("처리중 오류가 발생했습니다.");
+			}
+		});
   });
-  $('.close_save_btn').click(function(){
-  var newdate_span_end = $('#newdate_span_4').text();
-    $('.layer_bg , .end_layer').css('display','none');
-    $('.end_time').text(newdate_span_end);
-     $('.nth-child_03').css('pointer-events','none');
+  $('.close_save_btn').click(function(){//업무종료의 확인을 누를 경우(출퇴근)
+	  var gubun=3;
+		
+		var ids="";
+		ids=$(this).attr("choose");
+		
+		$.ajax({
+			type:'post',
+			url	:"/sendAPI.do",
+			data:{"wgb":gubun,"latitude":getLatitude,"longitude":getLongitude},
+			dataType: 'json',
+			success:function(data){
+				var state=data.status;
+				var worktime_s=data.worktime_s;
+				var worktime_e=data.worktime_e;
+				var message=data.message;
+				
+				if(state=='01'){
+					var newdate_span_end = $('#newdate_span_4').text();
+				    $('.layer_bg , .end_layer').css('display','none');
+				    $('.end_time').text(newdate_span_end);
+				     $('.nth-child_03').css('pointer-events','none');
+				     $('.nth-child_02').css('pointer-events','none');
+				}else if(state=='99'){
+					alert("인증키 오류입니다.");
+				}else if(state=='9999'){
+					alert("출근 정보 로드 오류입니다. : "+message);
+				}else{
+					alert("처리중 오류가 발생했습니다. : "+message);
+				}
+			},
+			error:function(jqXHR,status,err){
+				alert("처리중 오류가 발생했습니다.");
+			}
+		});
   });
   
-   $('.nth-child_02').click(function(){
-       alert('근무체크 처리 하였습니다.');
+   $('.nth-child_02').click(function(){//근무체크 버튼을 눌렀을 경우(출퇴근)
+	   var end_time_text=$('.end_time').text();
+		if(end_time_text != "-" && end_time_text != null){
+			return ;
+		}
+		var gubun=2;
+		
+		var ids="";
+		ids=$(this).attr("choose");
+		
+		$.ajax({
+			type:'post',
+			url	:"/sendAPI.do",
+			data:{"wgb":gubun,"latitude":getLatitude,"longitude":getLongitude},
+			dataType: 'json',
+			success:function(data){
+				var state=data.status;
+				var worktime_s=data.worktime_s;
+				var worktime_e=data.worktime_e;
+				var message=data.message;
+				
+				if(state=='01'){
+					alert('근무체크 처리 하였습니다.');
+				}else if(state=='99'){
+					alert("인증키 오류입니다.");
+				}else if(state=='9999'){
+					alert("출근 정보 로드 오류입니다. : "+message);
+				}else{
+					alert("처리중 오류가 발생했습니다. : "+message);
+				}
+			},
+			error:function(jqXHR,status,err){
+				alert("처리중 오류가 발생했습니다.");
+			}
+		});
    });
 });
 
@@ -2197,9 +2235,9 @@ if(!String.prototype.padStart) {
             </li>
         </ul>
         <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
-             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424")){ %>
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("test") ){ %>
             <style>
-            .left_centent_box{top:127px;}
+            .left_centent_box{top:127px;z-index:1;}
             </style>
             <ul class="user_info_right">     
             <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
@@ -2518,4 +2556,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>>>>>
+<!-- top End -->>>
