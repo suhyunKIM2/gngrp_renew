@@ -2178,8 +2178,32 @@ if(!String.prototype.padStart) {
 <!----S: 2021리뉴얼추가 파일------->
 <script src="/jpolite/js/layer_popup.js"></script>
 <link rel="stylesheet" href="/jpolite/css/main_renew_2021.css"/>
-<!----E: 2021리뉴얼추가 파일------->
+<script src="/jpolite/js/re_popup.js"></script>
+<link rel="stylesheet" href="/jpolite/css/re_popup.css"/>
 
+<!----E: 2021리뉴얼추가 파일------->
+ <!--S: 로그인시 노출 출퇴근레이어팝업-->
+ <div class="popup_work_check" id="popup_work_check">
+     <div class="popup_work_check_window">
+         <div class="popup_work_check_close_btn" onClick="javascript:closeWin();">X</div>
+         <div class="square">
+          <div class="spin"></div>
+          <div class="notice_icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 581.33 493.33" style="width:50px;height:50px;"><defs><style>.cls-1{fill:#fef6e4;}.cls-2{fill:#eee4cf;}.cls-3{fill:#ee3f2e;}.cls-4{fill:#9cca5a;}.cls-5{fill:#c02226;}.cls-6{fill:#474e5d;}.cls-7{fill:#606776;}.cls-8{fill:#2e3544;}</style></defs><g id="layer_2" data-name="layer_2"><g id="Icons"><path class="cls-1" d="M0,146.67v320a26.67,26.67,0,0,0,26.67,26.66h400a26.67,26.67,0,0,0,26.66-26.66v-320Z"/><rect class="cls-2" y="146.67" width="453.33" height="13.33"/><path class="cls-3" d="M426.67,26.67h-400A26.67,26.67,0,0,0,0,53.33v93.34H453.33V53.33A26.67,26.67,0,0,0,426.67,26.67Zm-340,86.66a26.67,26.67,0,1,1,26.66-26.66A26.67,26.67,0,0,1,86.67,113.33Zm280,0a26.67,26.67,0,1,1,26.66-26.66A26.67,26.67,0,0,1,366.67,113.33Z"/><rect class="cls-2" x="53.33" y="380" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="146.67" y="380" width="66.67" height="66.67" rx="0.67"/><rect class="cls-4" x="240" y="380" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="53.33" y="286.67" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="146.67" y="286.67" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="240" y="286.67" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="333.33" y="286.67" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="146.67" y="193.33" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="240" y="193.33" width="66.67" height="66.67" rx="0.67"/><rect class="cls-2" x="333.33" y="193.33" width="66.67" height="66.67" rx="0.67"/><path class="cls-5" d="M73.33,63.7A26.44,26.44,0,0,1,113,83.33a20.31,20.31,0,0,0,.33-3.33V26.67h-40Z"/><path class="cls-5" d="M353.33,26.67v37A26.44,26.44,0,0,1,393,83.33a20.31,20.31,0,0,0,.33-3.33V26.67Z"/><path class="cls-6" d="M86.67,0a20,20,0,0,0-20,20V73.33a20,20,0,0,0,40,0V20A20,20,0,0,0,86.67,0Z"/><path class="cls-7" d="M76.67,73.33V20c0-11,4.47-20,10-20-8.29,0-15,9-15,20V73.33c0,11,6.71,20,15,20C81.14,93.33,76.67,84.38,76.67,73.33Z"/><path class="cls-8" d="M86.67,0c5.52,0,10,9,10,20V73.33c0,11-4.48,20-10,20a20,20,0,0,0,20-20V20A20,20,0,0,0,86.67,0Z"/><path class="cls-6" d="M366.67,0a20,20,0,0,0-20,20V73.33a20,20,0,0,0,40,0V20A20,20,0,0,0,366.67,0Z"/><path class="cls-7" d="M356.67,73.33V20c0-11,4.47-20,10-20-8.29,0-15,9-15,20V73.33c0,11,6.71,20,15,20C361.14,93.33,356.67,84.38,356.67,73.33Z"/><path class="cls-8" d="M366.67,0c5.52,0,10,9,10,20V73.33c0,11-4.48,20-10,20a20,20,0,0,0,20-20V20A20,20,0,0,0,366.67,0Z"/><polygon class="cls-4" points="335.48 417.85 347.03 361.05 392.29 406.3 335.48 417.85"/><circle class="cls-4" cx="453.33" cy="300" r="128"/><path class="cls-1" d="M378.67,319.68l42.29-26,19.85,36.76s41.32-85.89,83.94-102.81c0,0-12.8,15.45,3.25,55.63,0,0-29,2.61-84.59,89.15C443.41,372.39,413.48,335.63,378.67,319.68Z"/></g></g></svg>
+          </div>
+        </div>
+        <div class="text_popup_work_check">
+            <b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b> 안녕하세요.<br>
+             업무시작 클릭 후 그룹웨어를 시작 하세요. <br>
+         </div>
+         <span>※ 업무시작 버튼 클릭시 출근처리 됩니다.</span>
+         
+         <ul>  
+             <li class="save_btn_00" onClick="javascript:closeWin();">업무시작</li>
+         </ul>
+     </div>
+ </div>
+ <!--E: 로그인시 노출 출퇴근레이어팝업-->
 <!--S: 출퇴근레이어팝업-->
 <div class="layer_bg" style="display: block;"></div>
 <div class="layer_wrap start_layer" layer="1">
@@ -2556,4 +2580,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>
+<!-- top End -->>>>>>>>>

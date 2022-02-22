@@ -161,8 +161,97 @@ boolean isPartnerTemp = loginuser.securityId == 8;
 			}
 			$('#bbs').listview('refresh');
     	}
-    </script>
+        
+        
+/*S: 2022 출퇴근 모바일 추가*/    
+
+  $(function(){
+  
+  $('.nth-child_01').click(function(){
+    var date = new Date();
+    var date2 = new Date();
+    var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+    var hours = ('0' + today.getHours()).slice(-2); 
+    var minutes = ('0' + today.getMinutes()).slice(-2);
+
+	date =  yyyy+ '년' + mm + '월' + dd  + '일' ;
+    date2 = hours + ':' +  minutes ;
+    $('#newdate_span').text(date);
+     $('#newdate_span_2').text(date2);
+  });
+  
+  $('.nth-child_03').click(function(){
+    var date = new Date();
+    var date2 = new Date();
+    var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+    var hours = ('0' + today.getHours()).slice(-2); 
+    var minutes = ('0' + today.getMinutes()).slice(-2);
+
+	date =  yyyy+ '년' + mm + '월' + dd  + '일' ;
+    date2 = hours + ':' +  minutes ;
+    $('#newdate_span_3').text(date);
+     $('#newdate_span_4').text(date2);
+  });
+
+
+  $('.save_btn_00').click(function(){//최초 로그인 시점 업무시작 버튼 누를 경우 (출퇴근)
+                    var date = new Date();
+                    var date_lo = new Date();
+                    var today = new Date();
+                    var dd = String(today.getDate()).padStart(2, '0');
+                    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                    var yyyy = today.getFullYear();
+                    var hours = ('0' + today.getHours()).slice(-2); 
+                    var minutes = ('0' + today.getMinutes()).slice(-2);
+
+                    date =  yyyy+ '년' + mm + '월' + dd  + '일' ;
+                    date_lo = hours + ':' +  minutes ;
+                    $('.start_time').text(date_lo);
+                    $('.nth-child_01').css('pointer-events','none');
+				    $('.nth-child_02').css('pointer-events','auto');
+				    $('.nth-child_03').css('pointer-events','auto');
+				
+  });
+
+  $('.save_btn').click(function(){//업무시작의 확인 버튼 누를 경우(출퇴근)
+	               var newdate_span = $('#newdate_span_2').text();
+				    $('.layer_bg , .start_layer').css('display','none');
+				    $('.start_time').text(newdate_span);
+				    $('.nth-child_01').css('pointer-events','none');
+				    $('.nth-child_02').css('pointer-events','auto');
+				    $('.nth-child_03').css('pointer-events','auto');
+				
+  });
+  $('.close_save_btn').click(function(){//업무종료의 확인을 누를 경우(출퇴근)
+	 
+					var newdate_span_end = $('#newdate_span_4').text();
+				    $('.layer_bg , .end_layer').css('display','none');
+				    $('.end_time').text(newdate_span_end);
+				     $('.nth-child_03').css('pointer-events','none');
+				     $('.nth-child_02').css('pointer-events','none');
+				
+  });
+  
+   $('.nth-child_02').click(function(){//근무체크 버튼을 눌렀을 경우(출퇴근)
+	   var end_time_text=$('.end_time').text();
+		
+					alert('근무체크 처리 하였습니다.');
+				
+   });
+});
+
+</script>
+
+<script src="/mobile/js/re_popup.js"></script>
+<link rel="stylesheet" href="/mobile/css/re_popup.css">
 <style>
+
 /*.ui-icon, .ui-icon-searchfield:after{    background: #266fb5 !important;
     background: rgba(0,0,0,.4) {global-icon-disc};
     background-image: url(/common/jquery/mobile/1.2.0/images/icons-18-white.png)  !important;}
@@ -171,51 +260,16 @@ boolean isPartnerTemp = loginuser.securityId == 8;
 }   */ 
 .quick_menu .ui-icon,.ui-listview .ui-icon{background: #1064b0 url(/common/jquery/mobile/1.2.0/images/icons-36-white.png);background-size: 776px 18px;
     background-position: -108px 50%;}
-
-.popup_work_check{position:fixed;width:100%;height:100%;background:rgba(255,255,255,0.7);z-index: 9;touch-action: none; } 
-.popup_work_check_window{position: fixed;width:75%;height:auto;background: #fff;left: 50%;top: 50%;transform: translate(-50%, -50%);border: 5px solid #266fb5;border-radius: 20px;padding:5% 5% 15%;text-align: center;}
-.popup_work_check_window span{font-size:13px;color:#ee3f2e;}
-.popup_work_check_close_btn{text-align: right; width:100%;margin-bottom:2%;font-size:20px;cursor: pointer;}
-
-.square{
- position:relative;
-  border:0;
-  width:80px;
-  padding:0px;
-  margin-left: calc(50% - 40px);
-  margin-left: -webkit-calc(50% - 40px);
-  margin-left: -moz-calc(50% - 40px);
-  background:#ffde05;
-  border-radius: 50%;
-  margin-bottom: 7%;
-}
-
-.spin {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  border:dashed 5px #ffa443;
-  -webkit-animation-name: spin;
-  -webkit-animation-duration: 3.5s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-}
-.notice_icon{position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);}
-.text_popup_work_check{margin-bottom:4%;}
-.popup_work_check_window ul{margin-top:4%;}
-.popup_work_check_window ul li{width:100%;background:#2f80ce;margin-top: 4%;border-radius: 20px;text-align: center;border-bottom:0;color:#fff;padding: 0.8em 0;}
-@-webkit-keyframes spin {
-  from   {  -webkit-transform: rotate(0deg); }
-  to   {  -webkit-transform: rotate(360deg); }
-}
+ 
 </style>
 
 </head>
 <body>
 <div class="main_contents_box" style="position:absolute;width:100%;z-index: 9;background: #fff;">
- <div class="popup_work_check">
+  <!--S: 로그인시 노출 출퇴근레이어팝업-->
+ <div class="popup_work_check" id="popup_work_check">
      <div class="popup_work_check_window">
-         <div class="popup_work_check_close_btn">X</div>
+         <div class="popup_work_check_close_btn" onClick="javascript:closeWin();">X</div>
          <div class="square">
           <div class="spin"></div>
           <div class="notice_icon">
@@ -229,14 +283,56 @@ boolean isPartnerTemp = loginuser.securityId == 8;
          <span>※ 업무시작 버튼 클릭시 출근처리 됩니다.</span>
          
          <ul>  
-             <li>업무시작</li>
+             <li class="save_btn_00" onClick="javascript:closeWin();">업무시작</li>
          </ul>
      </div>
  </div>
+ <!--E: 로그인시 노출 출퇴근레이어팝업-->
+  <!--S: 출퇴근레이어팝업-->
+    <div class="layer_bg" style="display: block;"></div>
+    <div class="layer_wrap start_layer" layer="1">
+        <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
+        <img src="/common/images/icon/img_01.png" border="0" >
+        <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
+        <ul class="today_ul">
+            <li><div id="newdate_span"></div></li>
+            <li><div id="newdate_span_2"></div></li>
+        </ul>
+        <div class="layer_text">업무를 시작하시겠습니까?</div>
+        <div class="save_btn">확인</div>
+    </div>
+    <div class="layer_wrap end_layer" layer="2">
+        <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
+        <img src="/common/images/icon/img_01.png" border="0" >
+        <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
+        <ul class="today_ul">
+            <li><div id="newdate_span_3"></div></li>
+            <li><div id="newdate_span_4"></div></li>
+        </ul>
+        <div class="layer_text">업무를 종료하시겠습니까?</div>
+        <div class="close_save_btn">확인</div>
+    </div>
+
+
+    <!--E: 출퇴근레이어팝업-->
+ 
 <jsp:include page="/mobile/header.jsp"></jsp:include>
 <div class="main_contents">
    <div class="user_name">
         <img src="/common/images/icon/img_01.png" border="0" class="user_icon_img"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/>님</b>
+    </div>
+    <div class="work_ch_box">
+        <ul class="user_info_right">     
+            <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
+            <li class="inline_block_li nth-child_02" >근무체크</li>
+            <li class="inline_block_li nth-child_03 btn_layer" onClick="javascript:;" layer="2">업무종료</li>
+        </ul>
+       <div class="work_info_div">
+            <ul>
+                <li><b>출근</b> <span class="start_time">-</span></li>
+                <li><b>퇴근</b> <span class="end_time">-</span></li>
+            </ul>
+        </div>
     </div>
     <div class="btn_nav_main">
         <ul>
