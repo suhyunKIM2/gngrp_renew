@@ -292,7 +292,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     <div class="layer_bg" style="display: block;"></div>
     <div class="layer_wrap start_layer" layer="1">
         <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
-        <img src="/common/images/icon/img_01.png" border="0" >
+        <img src="/common/images/icon/img_01.png" border="0"  style="width:70px;">
         <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
         <ul class="today_ul">
             <li><div id="newdate_span"></div></li>
@@ -303,7 +303,7 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     </div>
     <div class="layer_wrap end_layer" layer="2">
         <div class="close_div_box"><a href="javascript:;" class="btn_close">X</a></div>
-        <img src="/common/images/icon/img_01.png" border="0" >
+        <img src="/common/images/icon/img_01.png" border="0" style="width:70px;">
         <div class="user_name_div"><b><%=loginuser.dpName %><%=loginuser.nName %><fmt:message key="main.by.who"/></b></div> 
         <ul class="today_ul">
             <li><div id="newdate_span_3"></div></li>
@@ -362,8 +362,20 @@ boolean isPartnerTemp = loginuser.securityId == 8;
     <div class="quick_menu">
         <h4>Quick Menu</h4>
         <ul>
+            <li style="padding: 0;">
+                <ul  class="ham" style="padding:0;width:100%;">
+                    <li class="ham_li" style="padding:0;">
+                        <div style="padding-bottom: 1.3em;"><span><img src="/common/images/m_icon/08.png" style="height: 12px;">받은편지함<i></i></span></div>
+                        <ul  class="hidden_ul" style="background:#f5f5f5;padding:0 5%;width:90%;margin-top: 0px;">
+                            <li onClick="location.href='/mobile/mail/list.jsp?box=1&unread=1'"><b>읽지않은 메일</b> <span class="ui-li-count mailcount" style="top:7px;">0</span> <b class="link_arrow">></b></li>
+                            <li onClick="location.href='/mobile/mail/list.jsp?box=1&unread='"><b>개인편지함 01</b><b class="link_arrow">></b></li>
+                            <li onClick="location.href='/mobile/mail/list.jsp?box=1&unread='"><b>개인편지함 02</b><b class="link_arrow">></b></li>
+                        </ul>
+                    </li>
+            </ul>
+            </li>
             <li onClick="location.href='/mail/mobile_mail_form_s.jsp'"><img src="/common/images/m_icon/07.png"> <b>편지쓰기</b> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
-            <li onClick="location.href='/mobile/mail/list.jsp?box=1&unread=1'"><img src="/common/images/m_icon/08.png"> <b>읽지않은 메일</b> <span class="ui-li-count mailcount">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
+            
             <li onClick="location.href='appr/list.jsp?menu=240'"><img src="/common/images/m_icon/09.png"> <b>결재할 문서</b> <span class="ui-li-count" id="count240">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
             <li onClick="location.href='appr/list.jsp?menu=340'"><img src="/common/images/m_icon/10.png"> <b>진행중 문서</b> <span class="ui-li-count" id="count340">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
             <li onClick="location.href='appr/list.jsp?menu=640'"><img src="/common/images/m_icon/11.png"> <b>배포 받은 문서</b> <span class="ui-li-count" id="count640">0</span> <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>
