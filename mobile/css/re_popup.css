@@ -68,6 +68,8 @@
     margin:4% auto 10%;
 }
 .layer_text{font-size:13px;}
+.quick_menu ul li b.link_arrow{float:right;font-family: serif;color: #8b8b8b;margin-right: 6px;font-weight: 600;}
+.quick_menu ul li .ui-li-count{background:#266fb5 !important;border:1px solid #266fb5 !important;}
 @-webkit-keyframes spin {
   from   {  -webkit-transform: rotate(0deg); }
   to   {  -webkit-transform: rotate(360deg); }
