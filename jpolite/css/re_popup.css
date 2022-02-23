@@ -1,4 +1,4 @@
-.popup_work_checkfadeIn{position:fixed;width:100%;height:100%;background:rgba(255,255,255,0.7);z-index: 9;touch-action: none;z-index: 99999;} 
+.popup_work_checkfadeIn{position:fixed;width:100%;height:100%;background:rgba(255,255,255,0.7);z-index: 9;touch-action: none;z-index: 99999;top:0;} 
 .popup_work_check_window{position: fixed;width:350px;height:auto;background: #fff;left: 50%;top: 50%;transform: translate(-50%, -50%);border: 5px solid #266fb5;border-radius: 20px;padding:1% 1% 3%;text-align: center;}
 .popup_work_check_window span{font-size:13px;color:#ee3f2e;}
 .popup_work_check_close_btn{text-align: right; width:100%;margin-bottom:2%;font-size:20px;cursor: pointer;}
@@ -24,6 +24,10 @@
   -webkit-animation-duration: 3.5s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 .notice_icon{position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);margin-left: 4px;}
 .text_popup_work_check{margin-bottom:4%;    line-height: 1.4;font-size: 15px;}
@@ -33,4 +37,8 @@
 @-webkit-keyframes spin {
   from   {  -webkit-transform: rotate(0deg); }
   to   {  -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from   { transform: rotate(0deg);}
+  to   { transform: rotate(360deg); }
 }
