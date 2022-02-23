@@ -454,7 +454,10 @@ $(document).ready(function () {
 		 -->
 		<%@ include file="/top_include.jsp"%>
 	</div>
-	
+	<style>
+    .top_top_blank {
+    width: 100% !important;}
+    </style>
 <!-- 	<style> -->
 <!-- 	.ui-layout-west {overflow-y:hidden; height:100%;} -->
 <!-- 	</style> -->
@@ -471,7 +474,7 @@ $(document).ready(function () {
         <!-- 좌측 메뉴 끝-->    
          
         <!-- 우측 메뉴 시작-->
-        <div class="right_centent_box">
+        <div class="right_centent_box" >
             <div class="ui-layout-center">
             <iframe id="if_list" name="if_list" width="100%" height="100%" frameborder="0" scrolling="1" src="about:blank">
             </iframe>
@@ -495,13 +498,14 @@ $(document).ready(function () {
 		<table id="table_left" width="100%" heights=100% border="0" cellpadding="0" radius="0" border="#e0e0e0" bgcolors="#efefef">
 		<tr>
 		<td valign="top" style="border:1px solid #aaa; background-color:#dfdfdf;">
+			
 		<table border="0" height=37 width="100%" cellpadding="0" cellspacing="0" style="background-image:url(../common/images/bg_teamtitleOn.gif); position:relative; lefts:-1px; smargin-top:1px; height:37px; z-index:100;">
 		<tr>
 		<td align="center" colspan="3"><span id="menuTitle" style="font-size:11pt; letter-spacing:0.2em; font-weight:bold;">Load...</span></td>
 		</tr>
 		</table>
  
-		<div id="menu_area" style="border:1px solid #aaa; width:180px; height:200px; overflow:auto; sposition:relative; 
+		<div id="menu_area" style="border:1px solid #aaa; width:180px; height:200px; overflow:auto; position:relative; 
 		 margin:5px 5px ; padding:5px 5px; background-color:#f2f2f2; background-image:url('/common/images/left_bg.jpg'); background-repeat: no-repeat; background-position: bottom center;" class="ui-corner-all">
 		</div>
 
@@ -520,7 +524,16 @@ $(document).ready(function () {
 			style="/*min-width:797px;633px*/ min-width:763px; overflow:hidden; margin-right:10px; border-left:1px solid #ccc; border-bottom:0px solid #fff; left:204px; background-color: blue;">
 	</iframe> -->
 
-	
+	<div class="ui-layout-south" style="min-width:970px; display:none; overflow:hidden; bottom:38px; border:0px solid #fff;padding-bottom: 10px;background-color: inherit;">
+		<table width="100%" height="26" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td background="/common/images/blue/bottom_line_bg.jpg" height="26" align="center" class="copyright shadowText1">
+					<%=uservariable.campaignText %>
+					<!-- 2006 <b>G</b>aram<b> S</b>ystem <b>C</b>ompany All right reserved -->
+				</td>
+			</tr>
+		</table>
+	</div>
 	
 <script type="text/javascript" src="/common/scripts/jkmegamenu.js">
 /***********************************************
@@ -554,8 +567,8 @@ margin-top: 2px;
 .ui-layout-west ui-layout-pane {
 overflow: hidden;
 }
- body, td, input, div, span, form, select, textarea, center, pre, blockquote, font{font-family: 'Noto Sans KR',맑은 고딕,돋움, malgun gothic, dotum,AppleGothic,Helvetica,sans-serif;}
-
+body{height:100vh !important;}
+.main_centent_box{height:auto;}
 </style>
 
 </body>

@@ -2259,9 +2259,25 @@ if(!String.prototype.padStart) {
             </li>
         </ul>
         <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
-             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("test") ){ %>
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("test") || loginuser.loginId.equals("suhyunzzang9")  ){ %>
             <style>
-            .left_centent_box{top:127px;z-index:1;}
+            .left_centent_box{top:150px;z-index:1;}
+            .user_info_div {
+                width: 88%;
+                margin: 5% auto;
+                height: auto;
+                overflow: hidden;
+                position: relative;
+                min-height: 96px;
+                padding: 3%;
+                box-shadow: 0px 2px 11px -4px #ccc;
+                /* background: #fff; */
+                border: 1px solid #e4e4e4;
+            }
+            .user_info_right li.inline_block_li {
+                box-shadow:1px 1px 1px 0px #c4c4c4;
+                    border-radius: 20px;
+            }
             </style>
             <ul class="user_info_right">     
             <li class="inline_block_li nth-child_01 btn_layer" onClick="javascript:;" layer="1">업무시작</li>
@@ -2580,4 +2596,4 @@ background: url(/common/images/top_line_bg1.png) 94% 8px no-repeat;
 
 <!-- <div style="sdisplay:none;" id="copyright"><a href="http://apycom.com/"></a></div> -->
 
-<!-- top End -->>>>>>>>>
+<!-- top End -->>>>>>>>>>>>>
