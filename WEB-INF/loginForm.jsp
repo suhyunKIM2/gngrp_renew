@@ -31,7 +31,7 @@ String logoText = " ";
 
 <style>
 .error{color: #ff0000;font-style:italic;}
-.container_login_input input{position:relative;z-index: 99;}
+
 </style>
 <c:if test="${message != null && message != '' }">
 <script type="text/javascript">
@@ -49,6 +49,10 @@ String logoText = " ";
 <script type="text/javascript">
 
 $(document).ready(function(){
+	//https 적용 시에만 하기 --운영시 주석 해제
+	/* if (document.location.protocol == 'http:') {
+        document.location.href = document.location.href.replace('http:', 'https:');
+        } */
 	/*
 	$.reject({
 			reject: {
@@ -183,6 +187,7 @@ function getid() {
 #authorinfo { position: absolute; left: 50px; top: 380px; width: 600px; height: 90px; color:#858585;font-size:11px;font-weight:normal; line-height:110%; }
 .toplogotxt { font-size:26px; }
 .toplogodec { font-size:14px; letter-spacing: -0.1em; }
+#authorinfo,#copyright{position:relative;}/*비밀번호 창 가림현상 수정 적용 220304적용*/
 </style>
 
 <link rel='stylesheet' type='text/css' href='../common/css/login.css'><!----2021리뉴얼추가---->
@@ -194,7 +199,7 @@ function getid() {
 <!---리뉴얼 로그인창--->
 <div class="container_login">
     <div class="login_img"><img src="../common/images/icon/img_01.png"></div>
-    <div class="login_img login_img_text"><img src="../common/images/icon/2_logo.png"><img src="../common/images/icon/logo_1.png"></div>
+    <div class="login_img login_img_text"><img src="../common/images/icon/logo.png"><img src="../common/images/icon/logo_1.png"></div>
     <div class="container_login_input">
         <form:input path="id" value=""  tabindex="1" placeholder="아이디" />
         <form:password  value="" path="pwd" tabindex="2" placeholder="비밀번호"/>

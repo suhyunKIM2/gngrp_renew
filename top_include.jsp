@@ -2027,7 +2027,7 @@ if(!String.prototype.padStart) {
 	};
 }
   $(function(){
-  $('.nth-child_01').click(function(){
+  $('.nth-child_01, .save_btn_00').click(function(){
     var date = new Date();
     var date2 = new Date();
     var today = new Date();
@@ -2059,7 +2059,7 @@ if(!String.prototype.padStart) {
      $('#newdate_span_4').text(date2);
   });
 
-  $('.save_btn').click(function(){//업무시작의 확인 버튼 누를 경우(출퇴근)
+  $('.save_btn, .save_btn_00').click(function(){//업무시작의 확인 버튼 누를 경우(출퇴근)
 	  var gubun=1;
 		
 		var ids="";
@@ -2155,7 +2155,7 @@ if(!String.prototype.padStart) {
 				var message=data.message;
 				
 				if(state=='01'){
-					alert('근무체크 처리 하였습니다.');
+					alert('근무체크가 되었습니다.');
 				}else if(state=='99'){
 					alert("인증키 오류입니다.");
 				}else if(state=='9999'){
@@ -2183,9 +2183,10 @@ if(!String.prototype.padStart) {
 
 <!----E: 2021리뉴얼추가 파일------->
  <!--S: 로그인시 노출 출퇴근레이어팝업-->
+ 
  <div class="popup_work_check" id="popup_work_check">
      <div class="popup_work_check_window">
-         <div class="popup_work_check_close_btn" onClick="javascript:closeWin();">X</div>
+         <div class="popup_work_check_close_btn" onClick="javascript:todaycloseWin();">X</div>
          <div class="square">
           <div class="spin"></div>
           <div class="notice_icon">
@@ -2199,7 +2200,7 @@ if(!String.prototype.padStart) {
          <span>※ 업무시작 버튼 클릭시 출근처리 됩니다.</span>
          
          <ul>  
-             <li class="save_btn_00" onClick="javascript:closeWin();">업무시작</li>
+             <li class="save_btn_00" onClick="javascript:todaycloseWin();">업무시작</li>
          </ul>
      </div>
  </div>
@@ -2259,7 +2260,8 @@ if(!String.prototype.padStart) {
             </li>
         </ul>
         <%if(loginuser.loginId.equals("admin") || loginuser.loginId.equals("cameo305") || loginuser.loginId.equals("stonebox") || loginuser.loginId.equals("goshwang")
-             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("test") || loginuser.loginId.equals("suhyunzzang9")  ){ %>
+             	 || loginuser.loginId.equals("chan048") || loginuser.loginId.equals("dbkim424") || loginuser.loginId.equals("test") || loginuser.loginId.equals("suhyunzzang9")
+             	 || loginuser.loginId.equals("ljy0526") ){ %>
             <style>
             .left_centent_box{top:150px;z-index:1;}
             .user_info_div {
